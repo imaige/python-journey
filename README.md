@@ -21,27 +21,52 @@ portfolio-projects/
 - [x] GitHub SSH Setup
 - [x] Git Workflow
 
-### Python
+### Python Fundamentals
+
+- [x] Variables
+- [x] Integers
+- [x] Floats
+- [x] Strings
+- [x] Booleans
+- [x] Lists
+- [x] Dictionaries
+- [x] List Indexing
+- [x] Negative Indexing
+- [x] String Concatenation
+- [x] String Repetition
+- [x] Type Conversion
+- [x] `type()`
+- [x] `input()`
+
+### Python OOP
 
 - [x] OOP Basics
 - [x] Classes
 - [x] Objects
 - [x] Attributes
 - [x] Methods
-- [x] self
-- [x] __init__()
+- [x] `self`
+- [x] `__init__()`
+- [x] Independent Objects
+- [x] Changing Attributes with Methods
+- [x] Passing Objects as Method Arguments
 
 ## Current Goal
 
 Build production-level AI Engineering skills from scratch.
 
+## Current Topic
+
+- Comparison Operators
+- Conditional Statements
+  - `if`
+  - `elif`
+  - `else`
+
 ## Upcoming Topics
 
-- Variables
-- Data Types
-- Strings
-- Lists
-- Dictionaries
+- List Methods
+- Dictionary Methods
 - Loops
 - Functions
 - Modules
