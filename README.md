@@ -31,3 +31,8 @@ This repository documents my progress from Python fundamentals toward AI Enginee
 ## Goal
 
 Build strong foundations in Python, Git, backend development, machine learning, deep learning, LLM systems, RAG, AI agents, Docker, cloud, and production AI engineering.
+
+## Progress
+
+- Git Fundamentals ✅
+- Python OOP Fundamentals ✅
