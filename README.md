@@ -1,38 +1,58 @@
-# Python Journey
+# Python Journey 🚀
 
-This repository documents my progress from Python fundamentals toward AI Engineering.
+## About
 
-## Learning Notes
+This repository documents my journey from Python fundamentals to AI Engineering.
 
-- [Git Fundamentals](Git-Fundamentals.md)
-- [Python OOP Fundamentals](Python-OOP-Fundamentals.md)
+## Repository Structure
 
-## Current Progress
+```text
+notes/
+exercises/
+mini-projects/
+portfolio-projects/
+```
+
+## Learning Progress
 
 ### Git
 
-- Repository initialization
-- `.git` directory
-- commits and branches
-- `main` and `master`
-- global configuration
-- GitHub SSH authentication
+- [x] Git Fundamentals
+- [x] GitHub SSH Setup
+- [x] Git Workflow
 
 ### Python
 
-- classes
-- objects
-- attributes
-- methods
-- `self`
-- `__init__`
-- independent object state
+- [x] OOP Basics
+- [x] Classes
+- [x] Objects
+- [x] Attributes
+- [x] Methods
+- [x] self
+- [x] __init__()
 
-## Goal
+## Current Goal
 
-Build strong foundations in Python, Git, backend development, machine learning, deep learning, LLM systems, RAG, AI agents, Docker, cloud, and production AI engineering.
+Build production-level AI Engineering skills from scratch.
 
-## Progress
+## Upcoming Topics
 
-- Git Fundamentals ✅
-- Python OOP Fundamentals ✅
+- Variables
+- Data Types
+- Strings
+- Lists
+- Dictionaries
+- Loops
+- Functions
+- Modules
+- File Handling
+- Exception Handling
+- Advanced OOP
+- FastAPI
+- SQL
+- Docker
+- Machine Learning
+- Deep Learning
+- LLM
+- RAG
+- AI Agents
