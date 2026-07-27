@@ -51,6 +51,26 @@ portfolio-projects/
 - [x] Changing Attributes with Methods
 - [x] Passing Objects as Method Arguments
 
+## Python Progress
+
+### ✅ Completed
+
+- Variables
+- Data Types
+- print()
+- input()
+- Type Conversion
+- Built-in Functions
+- Nested Functions
+- dir()
+- __builtins__
+
+### 🔜 Next
+
+- Comparison Operators
+- Boolean Logic
+- if / elif / else
+
 ## Current Goal
 
 Build production-level AI Engineering skills from scratch.
