@@ -8,6 +8,15 @@ This repository documents my journey from Python fundamentals to AI Engineering.
 
 ```text
 notes/
+├── 01-Git-Fundamentals.md
+├── 02-Python-OOP.md
+├── 03-Python-Data-Types.md
+├── 04-Python-Built-in-Functions.md
+├── 05-PEP8.md
+├── 06-Functions.md
+├── 07-Expressions-vs-Statements.md
+└── 08-Import.md
+
 exercises/
 mini-projects/
 portfolio-projects/
@@ -45,7 +54,7 @@ portfolio-projects/
 - [x] `return`
 - [x] Expressions
 - [x] Statements
-- [x] `import`
+- [x] Imports and Modules Basics
 
 ### Python OOP
 
@@ -64,15 +73,12 @@ portfolio-projects/
 
 ### ✅ Completed
 
-- Variables
-- Data Types
-- `print()`
-- `input()`
+- Variables and Data Types
+- `print()` and `input()`
 - Type Conversion
 - Built-in Functions
-- Nested Functions
-- `dir()`
-- `__builtins__`
+- Nested Function Evaluation
+- `dir()` and `__builtins__`
 - PEP 8
 - Functions
 - Parameters and Arguments
@@ -88,7 +94,14 @@ portfolio-projects/
 
 ## Notes
 
-- [Python Functions, Expressions, Statements and Imports](notes/03-Python-Functions-Expressions-Imports.md)
+- [Git Fundamentals](notes/01-Git-Fundamentals.md)
+- [Python OOP](notes/02-Python-OOP.md)
+- [Python Data Types](notes/03-Python-Data-Types.md)
+- [Python Built-in Functions](notes/04-Python-Built-in-Functions.md)
+- [PEP 8](notes/05-PEP8.md)
+- [Python Functions](notes/06-Functions.md)
+- [Expressions vs Statements](notes/07-Expressions-vs-Statements.md)
+- [Imports and Modules](notes/08-Import.md)
 
 ## Current Goal
 
@@ -99,7 +112,7 @@ Build production-level AI Engineering skills from scratch.
 - Functions
 - `return`
 - Expressions and Statements
-- Imports
+- Imports and Modules
 
 ## Upcoming Topics
 
