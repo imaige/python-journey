@@ -37,6 +37,15 @@ portfolio-projects/
 - [x] Type Conversion
 - [x] `type()`
 - [x] `input()`
+- [x] Built-in Functions
+- [x] Nested Function Evaluation
+- [x] PEP 8 Basics
+- [x] Functions with `def`
+- [x] Parameters and Arguments
+- [x] `return`
+- [x] Expressions
+- [x] Statements
+- [x] `import`
 
 ### Python OOP
 
@@ -57,19 +66,29 @@ portfolio-projects/
 
 - Variables
 - Data Types
-- print()
-- input()
+- `print()`
+- `input()`
 - Type Conversion
 - Built-in Functions
 - Nested Functions
-- dir()
-- __builtins__
+- `dir()`
+- `__builtins__`
+- PEP 8
+- Functions
+- Parameters and Arguments
+- `return`
+- Expressions and Statements
+- Imports and Modules Basics
 
 ### 🔜 Next
 
 - Comparison Operators
 - Boolean Logic
-- if / elif / else
+- `if / elif / else`
+
+## Notes
+
+- [Python Functions, Expressions, Statements and Imports](notes/03-Python-Functions-Expressions-Imports.md)
 
 ## Current Goal
 
@@ -77,18 +96,18 @@ Build production-level AI Engineering skills from scratch.
 
 ## Current Topic
 
-- Comparison Operators
-- Conditional Statements
-  - `if`
-  - `elif`
-  - `else`
+- Functions
+- `return`
+- Expressions and Statements
+- Imports
 
 ## Upcoming Topics
 
+- Comparison Operators
+- Conditional Statements
 - List Methods
 - Dictionary Methods
 - Loops
-- Functions
 - Modules
 - File Handling
 - Exception Handling
