@@ -17,7 +17,9 @@ notes/
 ├── 07-Expressions-vs-Statements.md
 ├── 08-Import.md
 ├── 09-Complex.md
-└── 10-Magic-Methods-and-OOP-Basics.md
+├── 10-Magic-Methods-and-OOP-Basics.md
+├── 11-Booleans.md
+└── 12-Type-Conversion.md
 
 exercises/
 mini-projects/
@@ -40,6 +42,7 @@ portfolio-projects/
 - [x] Complex Numbers
 - [x] Strings
 - [x] Booleans
+- [x] Truthy and Falsy Values
 - [x] Lists
 - [x] Dictionaries
 - [x] List Indexing
@@ -82,6 +85,7 @@ portfolio-projects/
 - Variables and Data Types
 - `print()` and `input()`
 - Type Conversion
+- Booleans, Truthy and Falsy Values
 - Built-in Functions
 - Nested Function Evaluation
 - `dir()` and `__builtins__`
@@ -118,6 +122,8 @@ portfolio-projects/
 - [Imports and Modules](notes/08-Import.md)
 - [Complex Numbers](notes/09-Complex.md)
 - [Magic Methods and OOP Basics](notes/10-Magic-Methods-and-OOP-Basics.md)
+- [Python Booleans](notes/11-Booleans.md)
+- [Python Type Conversion](notes/12-Type-Conversion.md)
 
 ## Current Goal
 
