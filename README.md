@@ -15,7 +15,9 @@ notes/
 ├── 05-PEP8.md
 ├── 06-Functions.md
 ├── 07-Expressions-vs-Statements.md
-└── 08-Import.md
+├── 08-Import.md
+├── 09-Complex.md
+└── 10-Magic-Methods-and-OOP-Basics.md
 
 exercises/
 mini-projects/
@@ -35,6 +37,7 @@ portfolio-projects/
 - [x] Variables
 - [x] Integers
 - [x] Floats
+- [x] Complex Numbers
 - [x] Strings
 - [x] Booleans
 - [x] Lists
@@ -55,19 +58,22 @@ portfolio-projects/
 - [x] Expressions
 - [x] Statements
 - [x] Imports and Modules Basics
+- [x] f-Strings Basics
 
 ### Python OOP
 
 - [x] OOP Basics
 - [x] Classes
-- [x] Objects
+- [x] Objects and Instances
 - [x] Attributes
 - [x] Methods
 - [x] `self`
 - [x] `__init__()`
 - [x] Independent Objects
-- [x] Changing Attributes with Methods
-- [x] Passing Objects as Method Arguments
+- [x] Magic Methods Basics
+- [x] `__add__()`
+- [x] `__mul__()`
+- [x] Operator Behavior in Custom Classes
 
 ## Python Progress
 
@@ -85,9 +91,17 @@ portfolio-projects/
 - `return`
 - Expressions and Statements
 - Imports and Modules Basics
+- Complex Numbers
+- Classes and Objects
+- Attributes and Methods
+- `self` and `__init__()`
+- Magic Methods Basics
+- f-Strings Basics
 
 ### 🔜 Next
 
+- Build a practical `Car` class
+- Use multiple attributes and methods
 - Comparison Operators
 - Boolean Logic
 - `if / elif / else`
@@ -102,6 +116,8 @@ portfolio-projects/
 - [Python Functions](notes/06-Functions.md)
 - [Expressions vs Statements](notes/07-Expressions-vs-Statements.md)
 - [Imports and Modules](notes/08-Import.md)
+- [Complex Numbers](notes/09-Complex.md)
+- [Magic Methods and OOP Basics](notes/10-Magic-Methods-and-OOP-Basics.md)
 
 ## Current Goal
 
@@ -109,13 +125,16 @@ Build production-level AI Engineering skills from scratch.
 
 ## Current Topic
 
-- Functions
-- `return`
-- Expressions and Statements
-- Imports and Modules
+- Classes and Objects
+- Attributes and Methods
+- `self`
+- `__init__()`
+- Magic Methods
+- f-Strings
 
 ## Upcoming Topics
 
+- Practical OOP Exercises
 - Comparison Operators
 - Conditional Statements
 - List Methods
