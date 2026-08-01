@@ -19,7 +19,8 @@ notes/
 ├── 09-Complex.md
 ├── 10-Magic-Methods-and-OOP-Basics.md
 ├── 11-Booleans.md
-└── 12-Type-Conversion.md
+├── 12-Type-Conversion.md
+└── 13-Lists.md
 
 exercises/
 mini-projects/
@@ -44,9 +45,13 @@ portfolio-projects/
 - [x] Booleans
 - [x] Truthy and Falsy Values
 - [x] Lists
-- [x] Dictionaries
+- [x] Creating Lists
 - [x] List Indexing
 - [x] Negative Indexing
+- [x] Updating List Elements
+- [x] Mutable Lists
+- [x] List References
+- [x] Dictionaries
 - [x] String Concatenation
 - [x] String Repetition
 - [x] Type Conversion
@@ -86,6 +91,10 @@ portfolio-projects/
 - `print()` and `input()`
 - Type Conversion
 - Booleans, Truthy and Falsy Values
+- Python Lists
+- List Indexing and Negative Indexing
+- Updating List Elements
+- Mutable Lists and References
 - Built-in Functions
 - Nested Function Evaluation
 - `dir()` and `__builtins__`
@@ -104,6 +113,7 @@ portfolio-projects/
 
 ### 🔜 Next
 
+- List Methods
 - Build a practical `Car` class
 - Use multiple attributes and methods
 - Comparison Operators
@@ -124,6 +134,7 @@ portfolio-projects/
 - [Magic Methods and OOP Basics](notes/10-Magic-Methods-and-OOP-Basics.md)
 - [Python Booleans](notes/11-Booleans.md)
 - [Python Type Conversion](notes/12-Type-Conversion.md)
+- [Python Lists](notes/13-Lists.md)
 
 ## Current Goal
 
@@ -131,19 +142,17 @@ Build production-level AI Engineering skills from scratch.
 
 ## Current Topic
 
-- Classes and Objects
-- Attributes and Methods
-- `self`
-- `__init__()`
-- Magic Methods
-- f-Strings
+- Python Lists
+- Indexing and Negative Indexing
+- Mutable Objects
+- References
 
 ## Upcoming Topics
 
+- List Methods
 - Practical OOP Exercises
 - Comparison Operators
 - Conditional Statements
-- List Methods
 - Dictionary Methods
 - Loops
 - Modules
