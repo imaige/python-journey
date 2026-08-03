@@ -20,7 +20,8 @@ notes/
 ├── 10-Magic-Methods-and-OOP-Basics.md
 ├── 11-Booleans.md
 ├── 12-Type-Conversion.md
-└── 13-Lists.md
+├── 13-Lists.md
+└── 14-Dictionaries.md
 
 exercises/
 mini-projects/
@@ -52,6 +53,14 @@ portfolio-projects/
 - [x] Mutable Lists
 - [x] List References
 - [x] Dictionaries
+- [x] Dictionary Key-Value Pairs
+- [x] Accessing Dictionary Values
+- [x] Dictionary `get()`
+- [x] Updating and Adding Dictionary Values
+- [x] Removing Dictionary Values with `del` and `pop()`
+- [x] Dictionary `len()`
+- [x] Dictionary References and `copy()`
+- [x] Creating Dictionaries with `dict()`
 - [x] String Concatenation
 - [x] String Repetition
 - [x] Type Conversion
@@ -95,6 +104,11 @@ portfolio-projects/
 - List Indexing and Negative Indexing
 - Updating List Elements
 - Mutable Lists and References
+- Python Dictionaries
+- Dictionary Key-Value Pairs
+- Accessing, Updating and Removing Dictionary Values
+- Dictionary References and Copies
+- Creating Dictionaries with `dict()`
 - Built-in Functions
 - Nested Function Evaluation
 - `dir()` and `__builtins__`
@@ -114,6 +128,7 @@ portfolio-projects/
 ### 🔜 Next
 
 - List Methods
+- Dictionary Methods
 - Build a practical `Car` class
 - Use multiple attributes and methods
 - Comparison Operators
@@ -135,6 +150,7 @@ portfolio-projects/
 - [Python Booleans](notes/11-Booleans.md)
 - [Python Type Conversion](notes/12-Type-Conversion.md)
 - [Python Lists](notes/13-Lists.md)
+- [Python Dictionaries](notes/14-Dictionaries.md)
 
 ## Current Goal
 
@@ -142,18 +158,18 @@ Build production-level AI Engineering skills from scratch.
 
 ## Current Topic
 
-- Python Lists
-- Indexing and Negative Indexing
-- Mutable Objects
-- References
+- Python Dictionaries
+- Key-Value Pairs
+- Dictionary Methods
+- References and Copies
 
 ## Upcoming Topics
 
 - List Methods
+- Dictionary Methods
 - Practical OOP Exercises
 - Comparison Operators
 - Conditional Statements
-- Dictionary Methods
 - Loops
 - Modules
 - File Handling
