@@ -21,7 +21,8 @@ notes/
 ├── 11-Booleans.md
 ├── 12-Type-Conversion.md
 ├── 13-Lists.md
-└── 14-Dictionaries.md
+├── 14-Dictionaries.md
+└── 15-Tuples.md
 
 exercises/
 mini-projects/
@@ -61,6 +62,13 @@ portfolio-projects/
 - [x] Dictionary `len()`
 - [x] Dictionary References and `copy()`
 - [x] Creating Dictionaries with `dict()`
+- [x] Tuples
+- [x] Tuple Indexing
+- [x] Negative Tuple Indexing
+- [x] Tuple Immutability
+- [x] Tuple References
+- [x] Single-Element Tuples
+- [x] Mutable Objects Inside Tuples
 - [x] String Concatenation
 - [x] String Repetition
 - [x] Type Conversion
@@ -109,6 +117,11 @@ portfolio-projects/
 - Accessing, Updating and Removing Dictionary Values
 - Dictionary References and Copies
 - Creating Dictionaries with `dict()`
+- Python Tuples
+- Tuple Indexing and Negative Indexing
+- Tuple Immutability and References
+- Single-Element Tuples
+- Mutable Objects Inside Tuples
 - Built-in Functions
 - Nested Function Evaluation
 - `dir()` and `__builtins__`
@@ -129,6 +142,7 @@ portfolio-projects/
 
 - List Methods
 - Dictionary Methods
+- Tuple Methods
 - Build a practical `Car` class
 - Use multiple attributes and methods
 - Comparison Operators
@@ -151,6 +165,7 @@ portfolio-projects/
 - [Python Type Conversion](notes/12-Type-Conversion.md)
 - [Python Lists](notes/13-Lists.md)
 - [Python Dictionaries](notes/14-Dictionaries.md)
+- [Python Tuples](notes/15-Tuples.md)
 
 ## Current Goal
 
@@ -158,15 +173,16 @@ Build production-level AI Engineering skills from scratch.
 
 ## Current Topic
 
-- Python Dictionaries
-- Key-Value Pairs
-- Dictionary Methods
-- References and Copies
+- Python Tuples
+- Tuple Immutability
+- Single-Element Tuples
+- References and Mutable Objects Inside Tuples
 
 ## Upcoming Topics
 
 - List Methods
 - Dictionary Methods
+- Tuple Methods
 - Practical OOP Exercises
 - Comparison Operators
 - Conditional Statements
