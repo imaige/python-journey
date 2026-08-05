@@ -22,23 +22,19 @@ notes/
 ├── 12-Type-Conversion.md
 ├── 13-Lists.md
 ├── 14-Dictionaries.md
-└── 15-Tuples.md
-
-exercises/
-mini-projects/
-portfolio-projects/
+├── 15-Tuples.md
+├── 16-AI-Engineering-Foundations.md
+└── 17-AI-Engineering-AZ.md
 ```
 
 ## Learning Progress
 
 ### Git
-
 - [x] Git Fundamentals
 - [x] GitHub SSH Setup
 - [x] Git Workflow
 
 ### Python Fundamentals
-
 - [x] Variables
 - [x] Integers
 - [x] Floats
@@ -47,107 +43,47 @@ portfolio-projects/
 - [x] Booleans
 - [x] Truthy and Falsy Values
 - [x] Lists
-- [x] Creating Lists
-- [x] List Indexing
-- [x] Negative Indexing
-- [x] Updating List Elements
-- [x] Mutable Lists
-- [x] List References
+- [x] List Indexing and References
 - [x] Dictionaries
-- [x] Dictionary Key-Value Pairs
-- [x] Accessing Dictionary Values
-- [x] Dictionary `get()`
-- [x] Updating and Adding Dictionary Values
-- [x] Removing Dictionary Values with `del` and `pop()`
-- [x] Dictionary `len()`
-- [x] Dictionary References and `copy()`
-- [x] Creating Dictionaries with `dict()`
+- [x] Dictionary Access, Update, Removal and Copy
 - [x] Tuples
-- [x] Tuple Indexing
-- [x] Negative Tuple Indexing
-- [x] Tuple Immutability
-- [x] Tuple References
-- [x] Single-Element Tuples
-- [x] Mutable Objects Inside Tuples
-- [x] String Concatenation
-- [x] String Repetition
+- [x] Tuple Indexing, Immutability and References
 - [x] Type Conversion
-- [x] `type()`
-- [x] `input()`
 - [x] Built-in Functions
-- [x] Nested Function Evaluation
 - [x] PEP 8 Basics
-- [x] Functions with `def`
-- [x] Parameters and Arguments
-- [x] `return`
-- [x] Expressions
-- [x] Statements
+- [x] Functions, Parameters and `return`
+- [x] Expressions and Statements
 - [x] Imports and Modules Basics
 - [x] f-Strings Basics
 
 ### Python OOP
-
 - [x] OOP Basics
-- [x] Classes
-- [x] Objects and Instances
-- [x] Attributes
-- [x] Methods
+- [x] Classes and Objects
+- [x] Attributes and Methods
 - [x] `self`
 - [x] `__init__()`
-- [x] Independent Objects
 - [x] Magic Methods Basics
-- [x] `__add__()`
-- [x] `__mul__()`
-- [x] Operator Behavior in Custom Classes
 
-## Python Progress
+### AI Engineering — Covered So Far
+- [x] LLM Basics
+- [x] Cloud LLM vs Local LLM
+- [x] Ollama Basics
+- [x] Model Parameters and Size
+- [x] Frontier and Open Models — Introduction
+- [x] Reasoning Models — Introduction
+- [x] RAG — Introduction
+- [x] RAG vs Fine-Tuning
+- [x] Agentic AI — Introduction
+- [x] AI Engineering Course Tracks
+- [x] Development Environment Basics
+- [x] Git Clone and Project Root
+- [x] Cursor / IDE Basics
+- [x] Python Environments and Dependencies — Introduction
+- [x] API Keys, `.env`, and Environment Variables — Introduction
+- [x] Documentation-First Troubleshooting
+- [x] Windows PC Setup — Step 1
 
-### ✅ Completed
-
-- Variables and Data Types
-- `print()` and `input()`
-- Type Conversion
-- Booleans, Truthy and Falsy Values
-- Python Lists
-- List Indexing and Negative Indexing
-- Updating List Elements
-- Mutable Lists and References
-- Python Dictionaries
-- Dictionary Key-Value Pairs
-- Accessing, Updating and Removing Dictionary Values
-- Dictionary References and Copies
-- Creating Dictionaries with `dict()`
-- Python Tuples
-- Tuple Indexing and Negative Indexing
-- Tuple Immutability and References
-- Single-Element Tuples
-- Mutable Objects Inside Tuples
-- Built-in Functions
-- Nested Function Evaluation
-- `dir()` and `__builtins__`
-- PEP 8
-- Functions
-- Parameters and Arguments
-- `return`
-- Expressions and Statements
-- Imports and Modules Basics
-- Complex Numbers
-- Classes and Objects
-- Attributes and Methods
-- `self` and `__init__()`
-- Magic Methods Basics
-- f-Strings Basics
-
-### 🔜 Next
-
-- List Methods
-- Dictionary Methods
-- Tuple Methods
-- Build a practical `Car` class
-- Use multiple attributes and methods
-- Comparison Operators
-- Boolean Logic
-- `if / elif / else`
+> AI Engineering study is temporarily paused after the initial foundations and PC environment setup material.
 
 ## Notes
 
@@ -166,20 +102,21 @@ portfolio-projects/
 - [Python Lists](notes/13-Lists.md)
 - [Python Dictionaries](notes/14-Dictionaries.md)
 - [Python Tuples](notes/15-Tuples.md)
+- [AI Engineering Foundations](notes/16-AI-Engineering-Foundations.md)
+- [AI Engineering — Azərbaycan dilində](notes/17-AI-Engineering-AZ.md)
 
 ## Current Goal
 
-Build production-level AI Engineering skills from scratch.
+Build production-level AI Engineering skills from scratch while continuing to strengthen Python fundamentals.
 
 ## Current Topic
 
-- Python Tuples
-- Tuple Immutability
-- Single-Element Tuples
-- References and Mutable Objects Inside Tuples
+- Python fundamentals continue using the existing learning workflow
+- AI Engineering is temporarily paused
 
 ## Upcoming Topics
 
+### Python
 - List Methods
 - Dictionary Methods
 - Tuple Methods
@@ -191,11 +128,14 @@ Build production-level AI Engineering skills from scratch.
 - File Handling
 - Exception Handling
 - Advanced OOP
-- FastAPI
-- SQL
-- Docker
-- Machine Learning
-- Deep Learning
-- LLM
+
+### AI Engineering — When Resumed
+- Complete Environment Setup
+- `uv` in Practice
+- First LLM Application
+- Frontier Models
+- Transformers Intuition
 - RAG
-- AI Agents
+- Fine-Tuning
+- Agentic AI
+- Production Deployment
