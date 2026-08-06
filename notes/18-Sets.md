@@ -16,6 +16,32 @@ The important characteristics covered so far are:
 - element order should not be relied on
 - sets are mutable
 
+## Collection Comparison
+
+A quick comparison of the Python collection/data types covered so far:
+
+| Type | Mutable | Ordered | Duplicate elements |
+|---|---|---|---|
+| `list` | Yes | Yes | Yes |
+| `tuple` | No | Yes | Yes |
+| `set` | Yes | No | No |
+| `range` | No | Yes | No |
+| `dict` | Yes | Yes* | Keys: No, Values: Yes |
+| `str` | No | Yes | Yes |
+
+`*` In modern Python, dictionaries preserve insertion order. Dictionary keys must be unique, while values may repeat.
+
+A simple mental model:
+
+```text
+list   -> mutable, ordered, duplicates allowed
+tuple  -> immutable, ordered, duplicates allowed
+set    -> mutable, unordered for our learning model, unique elements
+range  -> immutable sequence, ordered
+ dict  -> mutable, insertion-ordered mapping, unique keys
+str    -> immutable, ordered sequence of characters, duplicates allowed
+```
+
 ## Set vs List
 
 A list has meaningful element positions and supports indexing:
