@@ -24,7 +24,8 @@ notes/
 ├── 14-Dictionaries.md
 ├── 15-Tuples.md
 ├── 16-AI-Engineering-Foundations.md
-└── 17-AI-Engineering-AZ.md
+├── 17-AI-Engineering-AZ.md
+└── 18-Sets.md
 ```
 
 ## Learning Progress
@@ -48,6 +49,13 @@ notes/
 - [x] Dictionary Access, Update, Removal and Copy
 - [x] Tuples
 - [x] Tuple Indexing, Immutability and References
+- [x] Sets
+- [x] Set Uniqueness and Non-Indexed Behavior
+- [x] Set `add()` and `update()`
+- [x] Set `remove()`, `discard()`, and `pop()`
+- [x] Set `union()` and `intersection()`
+- [x] Set `difference()` and `symmetric_difference()`
+- [x] Basic Method Signature Reading and Positional-Only `/`
 - [x] Type Conversion
 - [x] Built-in Functions
 - [x] PEP 8 Basics
@@ -104,6 +112,7 @@ notes/
 - [Python Tuples](notes/15-Tuples.md)
 - [AI Engineering Foundations](notes/16-AI-Engineering-Foundations.md)
 - [AI Engineering — Azərbaycan dilində](notes/17-AI-Engineering-AZ.md)
+- [Python Sets](notes/18-Sets.md)
 
 ## Current Goal
 
@@ -111,6 +120,7 @@ Build production-level AI Engineering skills from scratch while continuing to st
 
 ## Current Topic
 
+- Python Sets completed
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering is temporarily paused
 
