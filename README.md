@@ -26,7 +26,8 @@ notes/
 ├── 16-AI-Engineering-Foundations.md
 ├── 17-AI-Engineering-AZ.md
 ├── 18-Sets.md
-└── 19-Range.md
+├── 19-Range.md
+└── 20-Zip.md
 ```
 
 ## Learning Progress
@@ -61,6 +62,10 @@ notes/
 - [x] Range `start`, `stop`, and `step`
 - [x] Range Indexing and Immutability
 - [x] Positive and Negative Range Steps
+- [x] `zip()`
+- [x] `zip()` with Multiple Iterables
+- [x] `zip()` Shortest-Iterable Behavior
+- [x] `zip` Object and Iterator Exhaustion
 - [x] Type Conversion
 - [x] Built-in Functions
 - [x] PEP 8 Basics
@@ -119,6 +124,7 @@ notes/
 - [AI Engineering — Azərbaycan dilində](notes/17-AI-Engineering-AZ.md)
 - [Python Sets](notes/18-Sets.md)
 - [Python Range](notes/19-Range.md)
+- [Python zip](notes/20-Zip.md)
 
 ## Current Goal
 
@@ -126,7 +132,7 @@ Build production-level AI Engineering skills from scratch while continuing to st
 
 ## Current Topic
 
-- Python Range completed
+- Python `zip()` completed
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering is temporarily paused
 
