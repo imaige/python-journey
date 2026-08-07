@@ -25,7 +25,8 @@ notes/
 ├── 15-Tuples.md
 ├── 16-AI-Engineering-Foundations.md
 ├── 17-AI-Engineering-AZ.md
-└── 18-Sets.md
+├── 18-Sets.md
+└── 19-Range.md
 ```
 
 ## Learning Progress
@@ -56,6 +57,10 @@ notes/
 - [x] Set `union()` and `intersection()`
 - [x] Set `difference()` and `symmetric_difference()`
 - [x] Basic Method Signature Reading and Positional-Only `/`
+- [x] Range
+- [x] Range `start`, `stop`, and `step`
+- [x] Range Indexing and Immutability
+- [x] Positive and Negative Range Steps
 - [x] Type Conversion
 - [x] Built-in Functions
 - [x] PEP 8 Basics
@@ -113,6 +118,7 @@ notes/
 - [AI Engineering Foundations](notes/16-AI-Engineering-Foundations.md)
 - [AI Engineering — Azərbaycan dilində](notes/17-AI-Engineering-AZ.md)
 - [Python Sets](notes/18-Sets.md)
+- [Python Range](notes/19-Range.md)
 
 ## Current Goal
 
@@ -120,7 +126,7 @@ Build production-level AI Engineering skills from scratch while continuing to st
 
 ## Current Topic
 
-- Python Sets completed
+- Python Range completed
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering is temporarily paused
 
