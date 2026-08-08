@@ -2,165 +2,23 @@
 
 Bu fayl AI/LLM Engineering kursunda keçilən mövzuların Azərbaycan dilində izahlı qeydləridir. Məqsəd terminləri sadəcə sadalamaq yox, onların məntiqini başa düşməkdir.
 
-## LLM nədir?
+## LLM və model anlayışları
 
-LLM — Large Language Model, yəni böyük dil modelidir.
+LLM — Large Language Model, yəni böyük dil modelidir. Mətn qəbul edir və öyrəndiyi dil nümunələrinə əsasən cavab yaradır. LLM-lər sual-cavab, kodlaşdırma, xülasə, tutor və kommersiya AI tətbiqlərində istifadə edilə bilər.
 
-Sadə dillə desək, LLM böyük həcmdə mətn nümunələrindən dilin strukturlarını və əlaqələrini öyrənmiş modeldir. İstifadəçidən mətn qəbul edir və həmin kontekstə uyğun yeni mətn yaradır.
+Cloud LLM uzaqdakı serverdə işləyir. Local LLM isə lokal kompüterin CPU/GPU və RAM/VRAM resurslarından istifadə edə bilər.
 
-Məsələn:
-
-```text
-Sual → LLM → Cavab
-```
-
-LLM-lər aşağıdakı işlərdə istifadə oluna bilər:
-
-- sual-cavab
-- mətn yaratmaq
-- kod yazmaq
-- xülasə hazırlamaq
-- müəllim/tutor kimi davranmaq
-- kommersiya tətbiqlərinin arxasında AI funksionallığı vermək
-
-## Cloud LLM və Local LLM fərqi
-
-### Cloud LLM
-
-ChatGPT kimi xidmətlərdə model adətən sənin kompüterində işləmir. Sən sorğunu internet vasitəsilə uzaqdakı serverə göndərirsən, model orada işləyir və cavab geri gəlir.
-
-```text
-Sənin kompüterin
-    ↓
-Internet / API
-    ↓
-Uzaqdakı server
-    ↓
-LLM
-    ↓
-Cavab
-```
-
-### Local LLM
-
-Local LLM isə sənin öz kompüterində işləyən modeldir.
-
-Model faylları lokalda olur və inference zamanı sənin CPU/GPU/RAM resurslarından istifadə edir.
-
-```text
-Sənin kompüterin
-├── model faylları
-├── RAM / VRAM
-├── CPU / GPU
-└── lokal inference
-```
-
-Local modelin üstünlükləri arasında öyrənmək, eksperiment aparmaq, müəyyən hallarda privacy və self-hosted işləmə imkanları var.
-
-## Ollama nədir?
-
-Ollama model deyil.
-
-Ollama lokal LLM-ləri yükləmək, işə salmaq və onlarla işləmək üçün istifadə olunan alətdir.
-
-```text
-Gemma → model
-Ollama → modeli lokal işlətməyə kömək edən proqram
-```
-
-Ümumi əmr məntiqi:
+Ollama model deyil. Lokal LLM-ləri yükləmək və işlətmək üçün istifadə olunan alətdir.
 
 ```bash
 ollama run MODEL_NAME
 ```
 
-Yəni Ollama model serving prosesini sadələşdirir.
+`270M`, `3B`, `20B` kimi yazılışlar parametr sayını göstərir. Böyük model adətən daha çox resurs tələb edir, amma ən böyük model hər tapşırıq üçün avtomatik ən yaxşı seçim deyil.
 
-## Parameter nədir?
+Frontier model hazırkı AI imkanlarının ön sıralarında olan güclü modeldir. Open model-lər çox vaxt lokal və ya öz infrastrukturumuzda işlədilə bilər. Reasoning/Thinking modelləri çoxmərhələli problem, planlaşdırma, hesablama və texniki analiz kimi tapşırıqlara optimallaşdırıla bilər.
 
-Model ölçülərində belə yazılışlar görə bilərik:
-
-```text
-270M = 270 milyon parametr
-3B   = 3 milyard parametr
-20B  = 20 milyard parametr
-```
-
-Parameter modelin təlim zamanı öyrəndiyi daxili ədədi dəyərlərdir.
-
-Ümumiyyətlə daha böyük model daha çox resurs tələb edə bilər:
-
-- daha çox RAM/VRAM
-- daha çox storage
-- daha çox compute
-
-Amma vacib prinsip budur:
-
-```text
-Ən böyük model = hər tapşırıq üçün ən yaxşı model deyil
-```
-
-AI Engineer tapşırığa uyğun model seçməlidir.
-
-## LLM-ə rol vermək
-
-LLM-ə sadəcə sual verməkdən əlavə, ona rol və məqsəd də təyin etmək olar.
-
-Məsələn:
-
-```text
-Sən ispan dili müəllimisən.
-Mən beginnerəm.
-Mənimlə sadə dialoq apar.
-```
-
-Burada modeldən konkret davranış tələb olunur.
-
-Bu bizi mühüm keçidə aparır:
-
-```text
-LLM istifadə etmək
-      ↓
-LLM üzərində tətbiq qurmaq
-```
-
-Kommersiya tətbiqində istifadəçi sadəcə UI görür, arxada isə LLM işləyə bilər.
-
-## Reasoning / Thinking model nədir?
-
-Bəzi modellər çoxmərhələli problemləri həll etmək üçün daha çox daxili hesablama aparmağa optimallaşdırılır.
-
-Məsələn:
-
-- plan qurmaq
-- mürəkkəb hesablamalar
-- texniki analiz
-- qərarvermə
-- addım-addım problem həlli
-
-Sadə fakt sualı ilə mürəkkəb reasoning tapşırığı eyni səviyyədə hesablama tələb etmir.
-
-## Frontier Model nədir?
-
-Frontier model hazırkı dövrdə AI imkanlarının ön sıralarında olan ən güclü modellərə verilən addır.
-
-Sadə dillə:
-
-```text
-frontier model = ən qabaqcıl capability səviyyəsində olan model
-```
-
-Bu anlayış sonradan open model-lərlə müqayisədə vacib olacaq.
-
-## Open Model nədir?
-
-Open model-lər çox vaxt lokal və ya öz infrastrukturu üzərində işlədilə bilən model ailələridir.
-
-Məsələn kursda Gemma kimi lokal işlədilə bilən modellər göstərildi.
-
-## 8 həftəlik AI Engineering roadmap
-
-Kursun ümumi istiqaməti belədir:
+## Kursun 8 həftəlik istiqaməti
 
 ```text
 Week 1  → Foundations
@@ -173,238 +31,63 @@ Week 7  → Open Model Fine-Tuning
 Week 8  → Agentic AI
 ```
 
-Bu ardıcıllıq bünövrədən başlayıb production-a yaxın AI sistem düşüncəsinə aparır.
+RAG xarici məlumatı sorğu zamanı tapıb LLM-ə kontekst kimi verir. Fine-tuning isə modeli əlavə nümunələr üzərində yenidən təlim edərək uyğunlaşdırır. Bunlar eyni şey deyil.
 
-## RAG nədir?
+Agentic sistem sadə `Sual → LLM → Cavab` axınından daha irəli gedərək plan qura, tool istifadə edə, nəticəni yoxlaya və növbəti addımı seçə bilər.
 
-RAG — Retrieval-Augmented Generation deməkdir.
+Kursda AI Builder, AI Coder, AI Leader, AI Engineer Core, AI Engineer Agentic və AI Engineer Production track-ləri təqdim edildi. Hugging Face, Gradio, LangChain, Weights & Biases və Modal kimi alətlərin də gələcəkdə istifadə ediləcəyi qeyd olunub, amma onları hələ dərindən keçməmişik.
 
-Əsas məntiq:
+# Development Environment
 
-```text
-İstifadəçi sual verir
-      ↓
-Uyğun xarici məlumat tapılır
-      ↓
-Həmin məlumat LLM-ə kontekst kimi verilir
-      ↓
-LLM cavab yaradır
-```
+AI layihəsinin işləməsi üçün təkcə kod kifayət etmir. Layihə faylları, Git, IDE, Python environment, dependency-lər, API key-lər və environment variable-lar birlikdə düzgün qurulmalıdır.
 
-Məsələn şirkətin daxili sənədləri, incident report-ları və prosedurları varsa, LLM bunları avtomatik bilməyə bilər.
+## Git Clone və Project Root
 
-RAG sistemi lazım olan məlumatı tapıb modelə verə bilər.
+`git clone` GitHub repository-sini faylları və Git metadata-sı ilə birlikdə lokal kompüterə gətirir.
 
-Bu enterprise AI üçün çox vacibdir.
-
-## RAG və Fine-Tuning fərqi
-
-Bu iki anlayışı qarışdırmamaq lazımdır.
-
-### RAG
-
-Lazım olan məlumat sorğu zamanı tapılır və modelə kontekst kimi verilir.
-
-### Fine-Tuning
-
-Model əlavə nümunələrlə yenidən təlim edilərək davranışı və ya qabiliyyəti uyğunlaşdırılır.
+Project root layihənin ən yuxarı əsas qovluğudur:
 
 ```text
-RAG != Fine-Tuning
-```
-
-## Agentic AI nədir?
-
-Sadə LLM tətbiqi belə ola bilər:
-
-```text
-Sual → LLM → Cavab
-```
-
-Agentic sistem isə daha çox addım ata bilər:
-
-```text
-Məqsəd
- ↓
-Plan
- ↓
-Tool istifadə et
- ↓
-Nəticəyə bax
- ↓
-Növbəti addımı seç
- ↓
-Final nəticə
-```
-
-Məsələn gələcək SOC agenti belə işləyə bilər:
-
-```text
-Alert
- ↓
-IOC-ları yoxla
- ↓
-Logları analiz et
- ↓
-Threat intelligence yoxla
- ↓
-Risk qiymətləndir
- ↓
-Report hazırla
-```
-
-## AI Engineering track-ləri
-
-Kurs müəllimi 6 kursdan ibarət curriculum təqdim etdi.
-
-### AI Builder
-
-No-code/low-code yanaşması ilə agent və voice agent qurmaq.
-
-### AI Coder
-
-Coding agent-lərdən istifadə edərək software development sürətini artırmaq.
-
-### AI Leader
-
-AI layihələrinin biznesdə tətbiqi və commercial impact.
-
-### AI Engineer Core Track
-
-Əsas texniki xətt:
-
-- LLM
-- API
-- open models
-- RAG
-- fine-tuning
-- model selection
-- optimization
-
-### AI Engineer Agentic Track
-
-- agent loops
-- agent SDK-lar
-- MCP
-- autonomous workflows
-
-### AI Engineer Production Track
-
-LLM və agent sistemlərini AWS, GCP və Azure kimi cloud platformalarda scale etmək.
-
-Burada artıq aşağıdakılar önə çıxır:
-
-- resiliency
-- observability
-- security
-- production deployment
-
-## Hugging Face, Gradio, LangChain və digər alətlər
-
-Kursda gələcək üçün bu alətlərin adları çəkildi:
-
-- Hugging Face
-- Gradio
-- LangChain
-- Weights & Biases
-- Modal
-
-Hələ bu mərhələdə bunları dərindən keçməmişik. Sadəcə AI Engineering ekosistemində qarşılaşacağımız alətlər kimi qeyd olunub.
-
-## Development Environment nədir?
-
-AI layihəsinin işləməsi üçün təkcə `.py` faylı kifayət etmir.
-
-Tipik development environment belə komponentlərdən ibarət ola bilər:
-
-```text
-Python version
-+
-Python packages
-+
-project files
-+
-IDE
-+
-API keys
-+
-environment variables
-```
-
-Bunlardan biri səhv qurularsa layihə işləməyə bilər.
-
-## Git Clone nə edir?
-
-`git clone` GitHub-dakı repository-ni lokal kompüterə gətirir.
-
-```bash
-git clone REPOSITORY_URL
-```
-
-Bu sadəcə faylları download etmir. Eyni zamanda Git metadata və repository əlaqəsini də gətirir.
-
-## `projects` qovluğu
-
-Development layihələrini ayrıca qovluqda saxlamaq səliqəli yanaşmadır.
-
-Windows nümunəsi:
-
-```powershell
-mkdir projects
-cd projects
-```
-
-Burada:
-
-```text
-mkdir → yeni qovluq yarat
-cd    → qovluğa keç
-ls    → qovluğun içini göstər
-```
-
-## Project Root nədir?
-
-Project root layihənin ən yuxarı səviyyəli əsas qovluğudur.
-
-Məsələn:
-
-```text
-llm-engineering/   ← project root
+llm_engineering/   ← project root
 ├── week1/
 ├── week2/
 ├── README.md
-└── config faylları
+└── digər layihə faylları
 ```
 
-IDE-də düzgün project root açmaq vacibdir, çünki Git, yollar, config və environment faylları bu strukturdan asılı ola bilər.
+Cursor-da məhz project root açılmalıdır.
 
-## Cursor nədir?
+## Cursor Explorer, Markdown və README
 
-Cursor AI-assisted code editor-dur və VS Code ekosisteminə yaxındır.
-
-Kursda Cursor tövsiyə olunur, amma məcburi deyil. VS Code, PyCharm və digər IDE-lər də istifadə oluna bilər.
-
-Əsas məqsəd doğru layihə qovluğunu düzgün IDE-də açmaqdır.
-
-## Python Environment nədir?
-
-Fərqli layihələrin fərqli package və Python versiyalarına ehtiyacı ola bilər.
-
-Ona görə hər layihə üçün ayrıca environment yaratmaq faydalıdır.
+Cursor-un sol tərəfində repository faylları görünmürsə:
 
 ```text
-Project A
-└── öz environment-i
-
-Project B
-└── öz environment-i
+View → Explorer
 ```
 
-Bu isolation verir və package konfliktlərinin qarşısını alır.
+seçilir.
+
+`README.md` Markdown formatında yazılmış fayldır. Markdown sadə mətnə başlıq, siyahı və kod bloku kimi formatlama imkanları verən sintaksisdir.
+
+Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini görürük. `Open Preview` etdikdə formatlanmış görünüşünü görürük.
+
+Repository `git clone` edildiyi üçün README və guide-lar artıq lokal kompüterdə də mövcuddur.
+
+## Cursor Terminal
+
+Cursor-un öz daxilində terminal var. Kursda shortcut belə göstərildi:
+
+```text
+Ctrl + `
+```
+
+Buradakı işarə backtick-dir. Birdən çox terminal açmaq mümkündür. Beləliklə layihənin əmrlərini IDE daxilindən icra edə bilərik.
+
+# Step 2 — `uv` və Python Environment
 
 ## Dependency nədir?
 
-Dependency layihənin işləmək üçün asılı olduğu xarici package-dir.
+Dependency layihənin işləmək üçün ehtiyac duyduğu əlavə package/library-dir.
 
 Məsələn:
 
@@ -415,45 +98,143 @@ transformers
 gradio
 ```
 
-Kursda Python environment və dependency management üçün `uv` aləti təqdim edildi.
-
-## API və API Key
-
-API proqramların bir-biri ilə əlaqə qurması üçün interfeysdir.
-
-LLM tətbiqində belə axın ola bilər:
+Sadə məntiq:
 
 ```text
-Python app
-   ↓
-API
-   ↓
-LLM provider
-   ↓
-Cavab
+Proqram
+  ↓
+İşləmək üçün başqa package-ə ehtiyac duyur
+  ↓
+Həmin package dependency-dir
 ```
 
-API key isə proqramın xidmətə autentikasiya üçün istifadə etdiyi credential-dır.
+## Virtual Environment nədir?
 
-API key password kimi qorunmalıdır.
+Fərqli Python layihələri fərqli package və package versiyaları tələb edə bilər. Bunların hamısını eyni ümumi Python mühitində saxlamaq konflikt yarada bilər.
 
-## `.env` faylı nədir?
+Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq:
 
-Secret və config dəyərləri koddan ayrı saxlamaq üçün `.env` faylı istifadə oluna bilər.
+```text
+Project A → öz environment-i
+Project B → öz environment-i
+```
 
-Məsələn:
+Buna virtual environment deyilir.
+
+## `.venv` nədir?
+
+Bu kursda virtual environment layihənin daxilində `.venv` qovluğunda yaradılır.
+
+```text
+llm_engineering/
+├── week1/
+├── week2/
+├── README.md
+└── .venv/    ← bu layihənin virtual environment-i
+```
+
+`.venv` bütün kompüter üçün ümumi mühit deyil. Konkret layihəyə aid izolyasiya olunmuş Python mühitidir.
+
+## `uv` nədir?
+
+`uv` Python environment və dependency-ləri idarə etmək üçün istifadə olunan alətdir. Kursun əvvəlki versiyasında Anaconda istifadə olunurdu, hazırkı versiyada isə `uv` seçilib.
+
+Sadə analogiya:
+
+```text
+Layihə        = ev
+Dependencies  = ev üçün lazım olan əşyalar
+.venv         = həmin evin şəxsi anbarı
+uv            = anbarı idarə edən şəxs
+uv sync       = siyahıya bax və lazım olanları uyğunlaşdır
+```
+
+Texniki məntiq:
+
+```text
+Project requirements
+        ↓
+       uv
+        ↓
+Python environment + dependencies
+```
+
+## `uv --version`
+
+```bash
+uv --version
+```
+
+Bu əmr `uv`-nin quraşdırılıb-quraşdırılmadığını və terminal tərəfindən tanınıb-tanınmadığını yoxlayır.
+
+Əgər `uv` yeni quraşdırılıb, amma terminal onu görmürsə, yeni terminal açmaq lazım ola bilər. Səbəb yeni terminalın PATH/environment dəyişikliklərini yenidən oxumasıdır. Lazım gəlsə sistem restart edilə bilər.
+
+## `uv self update`
+
+```bash
+uv self update
+```
+
+Bu əmr `uv` alətinin özünü son versiyaya yeniləyir.
+
+## `uv sync`
+
+Əsas əmr:
+
+```bash
+uv sync
+```
+
+Sadə dillə:
+
+> Layihənin hansı environment və dependency-lərə ehtiyacı olduğunu nəzərə al və həmin layihə üçün uyğun Python mühitini hazırla/sinxronlaşdır.
+
+Proses:
+
+```text
+uv sync
+   ↓
+layihənin konfiqurasiyasını nəzərə alır
+   ↓
+lazım olan dependency-ləri uyğunlaşdırır
+   ↓
+virtual environment qurur
+   ↓
+.venv yaranır
+   ↓
+layihənin Python mühiti hazır olur
+```
+
+`sync` sözü synchronization, yəni uyğunlaşdırmaq/sinxronlaşdırmaq mənasındadır.
+
+## Əsas fərqlər
+
+```text
+dependency
+→ layihənin ehtiyac duyduğu əlavə package
+
+virtual environment
+→ layihə üçün ayrıca izolyasiya olunmuş Python mühiti
+
+.venv
+→ həmin virtual environment-in yerləşdiyi qovluq
+
+uv
+→ environment və dependency-ləri idarə edən alət
+
+uv sync
+→ layihənin environment-ini tələb olunan vəziyyətlə sinxronlaşdıran əmr
+```
+
+# API, API Key və `.env` — ilkin anlayışlar
+
+API proqramların bir-biri ilə əlaqə qurmasına imkan verən interfeysdir. API key proqramın xarici xidmətə autentikasiya üçün istifadə etdiyi credential-dır və secret kimi qorunmalıdır.
+
+`.env` secret və config dəyərlərini koddan ayrı saxlamaq üçün istifadə oluna bilər:
 
 ```env
 OPENAI_API_KEY=your_key_here
 ```
-
-Pis yanaşma:
-
-```python
-api_key = "secret-key"
-```
-
-çünki kod GitHub-a push olunanda key sızıntısı yarana bilər.
 
 Əsas prinsip:
 
@@ -461,61 +242,48 @@ api_key = "secret-key"
 code != secret
 ```
 
-## Environment Variable nədir?
+Bu mövzular kursda növbəti setup addımlarında daha detallı keçiləcək.
 
-Environment variable proqramın xaricində saxlanan config dəyəridir.
-
-Məsələn:
-
-```text
-OPENAI_API_KEY
-DATABASE_URL
-AWS_REGION
-```
-
-Kod runtime zamanı bu dəyərləri oxuya bilər.
-
-Dəyişənin adı dəqiq olmalıdır. Məsələn `OPENAI_API_KEY` ilə `OPEN_AI_API_KEY` proqram üçün fərqli adlardır.
-
-## Documentation-first troubleshooting
-
-Kursda mühüm engineering vərdişi vurğulandı:
+# Troubleshooting yanaşması
 
 ```text
 Problem
  ↓
-README / official documentation
+README / rəsmi documentation
  ↓
 Troubleshooting guide
  ↓
-Error message analysis
+Error-u analiz et
  ↓
-LLM-dən kömək
+Lazım olsa LLM-dən kömək al
  ↓
-Təklifi yoxla
+LLM-in təklifini yoxla
  ↓
 Sonra tətbiq et
 ```
 
-LLM debugging üçün faydalıdır, amma onun dediyini kor-koranə icra etmək düzgün deyil.
+LLM debugging üçün faydalıdır, amma verdiyi cavab avtomatik doğru qəbul edilməməlidir.
 
-## Windows setup-da qeyd olunan nüanslar
+# Hazırkı kurs vəziyyəti
 
-PC environment setup hissəsində aşağıdakılar qeyd olundu:
+```text
+STEP 1
+Git + repository clone + Cursor + project root
+                                    ✅
 
-- PowerShell
-- Git-in quraşdırıldığını yoxlamaq
-- lazım olsa Run as Administrator
-- VPN problemləri
-- Windows 260-character path limiti
-- düzgün project root açmaq
+STEP 2
+README/Markdown + Cursor terminal + uv + dependency
++ virtual environment + .venv + uv sync
+                                    ✅
 
-Bu problemlər real olaraq qarşımıza çıxsa, ayrıca debug ediləcək.
+STEP 3
+OpenAI API                         ⏭️
 
-## Hazırkı vəziyyət
+STEP 4
+.env / environment variables      qarşıdadır
 
-AI Engineering mövzusu ilkin foundations və PC environment setup mərhələsindən sonra müvəqqəti dayandırılıb.
+STEP 5
+Final editor/Jupyter setup        qarşıdadır
+```
 
-Python öyrənmə prosesi əvvəlki qaydada davam edir.
-
-AI kursuna qayıdanda bu fayl keçilən yeni mövzularla paralel şəkildə Azərbaycan dilində yenilənəcək.
+Hazırda Setup Step 2-ni tamamlamışıq. Növbəti AI dərsində Step 3-dən davam edəcəyik.
