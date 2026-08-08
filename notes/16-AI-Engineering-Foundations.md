@@ -10,62 +10,15 @@ The AI course workflow is different from the Python workflow: course transcripts
 
 An LLM is a large language model trained to work with natural language. It receives text input and generates text output based on learned language patterns.
 
-Examples of LLM use cases include:
-
-- question answering
-- tutoring
-- coding assistance
-- summarization
-- conversational applications
-- commercial AI products
+Examples of LLM use cases include question answering, tutoring, coding assistance, summarization, conversational applications, and commercial AI products.
 
 ## Cloud LLM vs Local LLM
 
-### Cloud-hosted LLM
-
-A cloud-hosted model runs on remote infrastructure.
-
-```text
-User device
-    ↓
-Internet / API
-    ↓
-Remote infrastructure
-    ↓
-LLM
-    ↓
-Response
-```
-
-The user's device sends the request and receives the result, while model inference happens remotely.
-
-### Local LLM
-
-A local LLM is downloaded and executed on the user's own computer.
-
-```text
-Local computer
-    ├── model files
-    ├── CPU / GPU
-    ├── RAM / VRAM
-    └── local inference
-```
-
-Local models can be useful for experimentation, privacy, offline workflows, and learning how model serving works.
+A cloud-hosted model runs on remote infrastructure, while a local LLM is downloaded and executed on the user's own computer. Local execution uses local CPU/GPU and RAM/VRAM resources.
 
 ## Ollama
 
-Ollama is a tool used to download, run, and interact with supported language models locally.
-
-Important distinction:
-
-```text
-Ollama != LLM
-```
-
-A model such as Gemma is the AI model. Ollama is the software used to run that model locally.
-
-General command pattern:
+Ollama is a tool used to download, run, and interact with supported language models locally. Ollama is not itself the LLM.
 
 ```bash
 ollama run MODEL_NAME
@@ -73,72 +26,17 @@ ollama run MODEL_NAME
 
 ## Model Size and Parameters
 
-Model sizes may be written using abbreviations such as:
-
-```text
-270M = 270 million parameters
-3B   = 3 billion parameters
-20B  = 20 billion parameters
-```
-
-Parameters are learned numerical values inside a model. Larger parameter counts generally require more compute and memory, although larger does not automatically mean better for every task.
-
-A practical model-selection mindset is:
-
-```text
-best model for the task != biggest available model
-```
-
-Production model selection may depend on:
-
-- capability
-- speed
-- latency
-- RAM / VRAM requirements
-- storage
-- cost
-- privacy
-- deployment constraints
+Model sizes may be written as `270M`, `3B`, or `20B`, representing millions or billions of learned parameters. Larger models generally require more compute and memory, but the biggest model is not automatically the best model for every task.
 
 ## LLM Applications and Roles
 
-An LLM can be instructed to behave according to a role and goal.
-
-Example:
-
-```text
-Role: Spanish tutor
-User level: beginner
-Goal: conduct a beginner-friendly conversation
-```
-
-This illustrates an important AI Engineering transition:
-
-```text
-using an LLM
-    ↓
-building an application around an LLM
-```
-
-A commercial AI product can expose a simple interface while an LLM works behind the scenes.
+An LLM can be instructed to behave according to a role and goal, such as acting as a beginner Spanish tutor. This illustrates the transition from simply using an LLM to building an application around an LLM.
 
 ## Reasoning / Thinking Models
 
-Some models are designed to spend more computation on multi-step reasoning before producing a final answer.
-
-Reasoning-heavy tasks may include:
-
-- multi-step calculations
-- complex decision making
-- planning
-- technical analysis
-- structured problem solving
-
-The visible "thinking" text shown by a product should not automatically be assumed to be the model's complete internal reasoning process.
+Some models are optimized to spend more computation on multi-step reasoning for tasks such as planning, calculations, technical analysis, and structured problem solving.
 
 ## Eight-Week LLM Engineering Roadmap
-
-The course roadmap introduced the following progression:
 
 ```text
 Week 1  → Foundations
@@ -151,273 +49,154 @@ Week 7  → Fine-Tuning an Open Model
 Week 8  → Agentic AI
 ```
 
-## Frontier Models
+## Frontier Models and Open Models
 
-A frontier model is a model at or near the leading edge of current AI capability.
+A frontier model is at or near the leading edge of current AI capability. Open models can often be downloaded and run on local or self-managed infrastructure.
 
-The course uses frontier models to introduce high-capability commercial LLM workflows before later comparing them with open models.
+## RAG and Fine-Tuning
 
-## Open Models
-
-Open models can often be downloaded and run on local or self-managed infrastructure.
-
-Examples discussed in the course include model families such as Gemma and other locally runnable models.
-
-## RAG
-
-RAG stands for Retrieval-Augmented Generation.
-
-The core pattern is:
-
-```text
-User question
-    ↓
-Retrieve relevant external information
-    ↓
-Provide retrieved context to the LLM
-    ↓
-Generate an answer grounded in that context
-```
-
-RAG is especially useful when an LLM must answer using private, current, or domain-specific information that is not reliably available from the model alone.
-
-Example enterprise sources:
-
-- internal documentation
-- incident reports
-- policies
-- procedures
-- PDF collections
-- knowledge bases
-
-## Fine-Tuning vs RAG
-
-These are different techniques.
-
-### RAG
-
-Relevant information is retrieved at request time and added to the model context.
-
-### Fine-tuning
-
-The model is further trained on additional examples or data to adapt its behavior or capabilities.
-
-```text
-RAG != Fine-Tuning
-```
+RAG retrieves relevant external information at request time and provides it to the model as context. Fine-tuning further trains a model on additional examples or data. They are different techniques.
 
 ## Agentic AI
 
-An agentic system goes beyond a single prompt-response interaction.
-
-A simplified pattern is:
-
-```text
-Goal
-  ↓
-Agent
-  ↓
-Plan
-  ↓
-Use tool
-  ↓
-Inspect result
-  ↓
-Choose next action
-  ↓
-Final result
-```
-
-Future topics mentioned include agent loops, OpenAI Agents SDK, MCP, and autonomous workflows.
+Agentic systems can move beyond a single prompt-response interaction by planning, using tools, inspecting results, and choosing subsequent actions.
 
 ## AI Engineering Course Tracks
 
-The curriculum described six complementary courses.
-
-### AI Builder
-
-Focuses on building agents and voice agents with little or no code.
-
-### AI Coder
-
-Focuses on using coding agents to build software and products faster.
-
-### AI Leader
-
-Focuses on delivering AI projects, business transformation, and commercial impact.
-
-### AI Engineer Core Track
-
-Focuses on:
-
-- LLMs
-- APIs
-- open models
-- RAG
-- fine-tuning
-- model selection
-- optimization
-
-### AI Engineer Agentic Track
-
-Focuses on autonomous AI agents, agent loops, SDKs, and MCP.
-
-### AI Engineer Production Track
-
-Focuses on deploying LLM and agent systems at scale using cloud platforms such as AWS, GCP, and Azure, with attention to resiliency, observability, and security.
+The curriculum introduced AI Builder, AI Coder, AI Leader, AI Engineer Core Track, AI Engineer Agentic Track, and AI Engineer Production Track.
 
 ## AI Engineering Tooling Introduced
 
-The course mentioned several tools that will appear later:
-
-- Hugging Face
-- Gradio
-- LangChain
-- Weights & Biases
-- Modal
-
-These are only introductory mentions at this stage.
+Future tools mentioned include Hugging Face, Gradio, LangChain, Weights & Biases, and Modal. These have only been introduced by name so far.
 
 ## Development Environment
 
-The course setup introduces the development environment used for future labs.
+The development environment includes the project files, Git repository, IDE/editor, Python environment, dependencies, API keys, and environment variables.
 
-Core components include:
+## Git Clone and Project Root
+
+`git clone` creates a local copy of a Git repository, including project files and Git metadata. The project root is the top-level directory containing the complete project.
+
+## Cursor and Explorer
+
+Cursor is the editor recommended by the course, although other IDEs can be used. If repository files are not visible in Cursor, `View → Explorer` opens the Explorer panel.
+
+## Markdown and README Preview
+
+The course repository contains `README.md` and guides locally after cloning. Markdown is a lightweight formatted-text syntax used by `.md` files.
+
+In Cursor, a Markdown file can be opened normally to see its source syntax or opened with `Open Preview` to see the rendered formatting. Because the repository was cloned, the README and guides can be read locally without returning to the GitHub website for each instruction.
+
+## Cursor Integrated Terminal
+
+Cursor includes an integrated terminal. The course demonstrates opening it with:
 
 ```text
-GitHub repository
-Git
-PowerShell / terminal
-IDE or code editor
-Python environment
-Dependencies
-API keys
-Environment variables
+Ctrl + `
 ```
 
-## Git Clone
+Multiple terminals can be opened. This lets project commands run directly inside the editor while the current working directory is the project.
 
-`git clone` creates a local copy of a Git repository, including project files and Git metadata.
+## Dependency
+
+A dependency is an external package required by a project. Examples in an AI/Python project may include packages such as `openai`, `pandas`, `transformers`, or `gradio`.
+
+## Virtual Environment
+
+A virtual environment is an isolated Python environment for one project. It prevents different projects from unnecessarily sharing and conflicting over the same installed package versions.
+
+```text
+Project A → environment A
+Project B → environment B
+```
+
+In this course, the project environment is created in a `.venv` directory.
+
+## `uv`
+
+The course uses `uv` to manage the Python environment and project dependencies. It replaces the Anaconda-based setup used in an earlier version of the course.
+
+The intended mental model is:
+
+```text
+Project requirements
+        ↓
+       uv
+        ↓
+Python environment + dependencies
+```
+
+### Check `uv`
 
 ```bash
-git clone REPOSITORY_URL
+uv --version
 ```
 
-The course recommends keeping projects under a dedicated projects directory.
+This checks whether `uv` is installed and available to the current terminal.
 
-Example Windows workflow:
+After installing `uv`, a new terminal may need to be opened so that environment/PATH changes are picked up. A restart may be needed if the new terminal still cannot find it.
 
-```powershell
-mkdir projects
-cd projects
-git clone REPOSITORY_URL
+### Update `uv`
+
+```bash
+uv self update
 ```
 
-## Project Root
+This updates `uv` itself to the latest available version.
 
-The project root is the top-level directory that contains the project.
+### Synchronize the Project Environment
 
-Example:
+```bash
+uv sync
+```
+
+`uv sync` synchronizes the project's environment with the dependencies and configuration defined by the project. During this process, the project-specific virtual environment is built and required packages are installed/downloaded as needed.
+
+The resulting structure includes:
 
 ```text
-llm-engineering/    ← project root
+llm_engineering/
 ├── week1/
 ├── week2/
 ├── README.md
-└── project configuration files
+├── project configuration
+└── .venv/        ← project virtual environment
 ```
 
-Opening the correct project root in the IDE is important because paths, Git state, environment files, and project configuration are interpreted relative to this structure.
-
-## Cursor and IDEs
-
-Cursor is an AI-assisted code editor based on the VS Code ecosystem.
-
-The course recommends Cursor, but other IDEs or editors can also be used, including VS Code and PyCharm.
-
-## Python Environment and Dependencies
-
-A Python environment isolates project-specific Python versions and packages.
-
-Example:
+The key distinction is:
 
 ```text
-Project A
-└── Python environment A
-
-Project B
-└── Python environment B
+dependency → package the project needs
+virtual environment → isolated environment for the project
+.venv → directory containing that project environment
+uv → tool managing/synchronizing the environment and dependencies
+uv sync → command that builds/synchronizes the required environment
 ```
 
-A dependency is an external package required by a project.
+## API Keys, `.env`, and Environment Variables
 
-Examples:
+An API key is a credential used by software to authenticate with an external service. API keys should be treated as secrets and not hard-coded into source code or committed to GitHub.
 
-```text
-openai
-pandas
-transformers
-gradio
-```
-
-The course introduces `uv` as the tool that will be used to manage the Python environment and dependencies.
-
-## API Keys
-
-An API key is a credential used by software to authenticate with an external service.
-
-Example pattern:
-
-```text
-Python application
-    ↓
-API
-    ↓
-LLM provider
-```
-
-API keys should be treated as secrets and should not be hard-coded into source code or committed to GitHub.
-
-## `.env` and Environment Variables
-
-Sensitive configuration values can be stored outside the main source code.
-
-Example `.env` entry:
+A `.env` file can store configuration such as:
 
 ```env
 OPENAI_API_KEY=your_key_here
 ```
 
-A useful principle is:
-
-```text
-code != secret
-```
-
-The exact variable name matters because application code looks up environment variables by name.
+The exact environment-variable name matters because application code looks it up by name.
 
 ## Troubleshooting Principles
 
-The course emphasizes a documentation-first workflow.
+The course emphasizes a documentation-first workflow: check the project README/setup documentation and troubleshooting guides, analyze the actual error, and use LLM assistance carefully while verifying suggestions before applying them.
 
-A useful order is:
+## Setup Progress
 
 ```text
-Problem
-  ↓
-Project README / setup documentation
-  ↓
-Troubleshooting guide
-  ↓
-Error message analysis
-  ↓
-LLM assistance
-  ↓
-Verify before applying the suggestion
+Step 1 → Git + clone repository + Cursor + project root     ✅
+Step 2 → Markdown/README + Cursor terminal + uv + .venv    ✅
+Step 3 → OpenAI API                                        next
+Step 4 → .env / environment variables                      upcoming
+Step 5 → final editor/Jupyter setup                         upcoming
 ```
 
-LLMs can help debug setup problems, but their recommendations should be checked rather than followed blindly.
-
-## Current Status
-
-AI Engineering study is temporarily paused after the initial foundations and PC environment-setup material. Python study continues using the existing workflow.
+Step 2 is complete at the point reached in the course transcript. The project now has its own `uv`-managed Python environment.
