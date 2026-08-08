@@ -116,8 +116,6 @@ In this course, the project environment is created in a `.venv` directory.
 
 The course uses `uv` to manage the Python environment and project dependencies. It replaces the Anaconda-based setup used in an earlier version of the course.
 
-The intended mental model is:
-
 ```text
 Project requirements
         ↓
@@ -132,9 +130,7 @@ Python environment + dependencies
 uv --version
 ```
 
-This checks whether `uv` is installed and available to the current terminal.
-
-After installing `uv`, a new terminal may need to be opened so that environment/PATH changes are picked up. A restart may be needed if the new terminal still cannot find it.
+This checks whether `uv` is installed and available to the current terminal. After installing `uv`, a new terminal may need to be opened so environment/PATH changes are picked up.
 
 ### Update `uv`
 
@@ -142,7 +138,7 @@ After installing `uv`, a new terminal may need to be opened so that environment/
 uv self update
 ```
 
-This updates `uv` itself to the latest available version.
+This updates `uv` itself.
 
 ### Synchronize the Project Environment
 
@@ -150,40 +146,114 @@ This updates `uv` itself to the latest available version.
 uv sync
 ```
 
-`uv sync` synchronizes the project's environment with the dependencies and configuration defined by the project. During this process, the project-specific virtual environment is built and required packages are installed/downloaded as needed.
+`uv sync` synchronizes the project's environment with its dependencies and configuration. The project-specific `.venv` virtual environment is created and required packages are installed/downloaded as needed.
 
-The resulting structure includes:
+```text
+dependency → package the project needs
+virtual environment → isolated environment for the project
+.venv → directory containing that environment
+uv → tool managing the environment and dependencies
+uv sync → command that builds/synchronizes the environment
+```
+
+## Step 3 — OpenAI API and API Key
+
+ChatGPT and the OpenAI API are not the same product interface. ChatGPT is an end-user application, while the API lets software communicate programmatically with OpenAI models.
+
+The basic flow is:
+
+```text
+Python application
+       ↓
+OpenAI API
+       ↓
+Model
+       ↓
+Response
+```
+
+### API
+
+An API is an interface that allows software systems to communicate. In this course, our Python application will use an API to send requests to a model service and receive responses.
+
+### API Key
+
+An API key is a secret credential used by an application to authenticate with an API service and associate requests with the relevant account/project.
+
+```text
+Python application
+       ↓
+API key
+       ↓
+OpenAI API
+       ↓
+Model
+```
+
+API keys must be treated as secrets. They should not be shared publicly, hard-coded into source code, or committed to GitHub.
+
+## Step 4 — `.env` and Secret Management
+
+A `.env` file is used to keep secret/configuration values separate from application source code.
+
+For this project it belongs in the project root:
 
 ```text
 llm_engineering/
 ├── week1/
 ├── week2/
 ├── README.md
-├── project configuration
-└── .venv/        ← project virtual environment
+└── .env
 ```
 
-The key distinction is:
+The filename must be `.env`, not `.env.txt` or another variation.
 
-```text
-dependency → package the project needs
-virtual environment → isolated environment for the project
-.venv → directory containing that project environment
-uv → tool managing/synchronizing the environment and dependencies
-uv sync → command that builds/synchronizes the required environment
-```
+### `OPENAI_API_KEY`
 
-## API Keys, `.env`, and Environment Variables
-
-An API key is a credential used by software to authenticate with an external service. API keys should be treated as secrets and not hard-coded into source code or committed to GitHub.
-
-A `.env` file can store configuration such as:
+The OpenAI API key is stored using an environment-variable name:
 
 ```env
-OPENAI_API_KEY=your_key_here
+OPENAI_API_KEY=your_secret_key
 ```
 
-The exact environment-variable name matters because application code looks it up by name.
+Here:
+
+```text
+OPENAI_API_KEY → variable name
+your_secret_key → secret value
+```
+
+The exact variable name matters because application code later looks up that specific name.
+
+### Why Secrets Stay Outside Source Code
+
+Hard-coding a credential like this is unsafe:
+
+```python
+api_key = "real-secret-key"
+```
+
+If the source code is pushed to a repository, the secret may be exposed. The safer design is:
+
+```text
+.env
+ │
+ └── OPENAI_API_KEY=secret
+          ↓
+     Python application
+          ↓
+       OpenAI API
+          ↓
+         Model
+```
+
+The key principle is:
+
+```text
+code != secret
+```
+
+The `.env` file also needs to be saved after editing so the value exists on disk for the application to read.
 
 ## Troubleshooting Principles
 
@@ -192,11 +262,11 @@ The course emphasizes a documentation-first workflow: check the project README/s
 ## Setup Progress
 
 ```text
-Step 1 → Git + clone repository + Cursor + project root     ✅
-Step 2 → Markdown/README + Cursor terminal + uv + .venv    ✅
-Step 3 → OpenAI API                                        next
-Step 4 → .env / environment variables                      upcoming
-Step 5 → final editor/Jupyter setup                         upcoming
+Step 1 → Git + clone repository + Cursor + project root       ✅
+Step 2 → Markdown/README + Cursor terminal + uv + .venv      ✅
+Step 3 → OpenAI API + API key                                ✅
+Step 4 → .env + OPENAI_API_KEY + secret management           ✅
+Step 5 → final editor/Jupyter setup                           next
 ```
 
-Step 2 is complete at the point reached in the course transcript. The project now has its own `uv`-managed Python environment.
+The course is currently ready to continue with Step 5.
