@@ -59,17 +59,9 @@ Cursor-da məhz project root açılmalıdır.
 
 ## Cursor Explorer, Markdown və README
 
-Cursor-un sol tərəfində repository faylları görünmürsə:
+Cursor-un sol tərəfində repository faylları görünmürsə `View → Explorer` seçilir.
 
-```text
-View → Explorer
-```
-
-seçilir.
-
-`README.md` Markdown formatında yazılmış fayldır. Markdown sadə mətnə başlıq, siyahı və kod bloku kimi formatlama imkanları verən sintaksisdir.
-
-Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini görürük. `Open Preview` etdikdə formatlanmış görünüşünü görürük.
+`README.md` Markdown formatında yazılmış fayldır. Markdown sadə mətnə başlıq, siyahı və kod bloku kimi formatlama imkanları verən sintaksisdir. Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini, `Open Preview` etdikdə isə formatlanmış görünüşünü görürük.
 
 Repository `git clone` edildiyi üçün README və guide-lar artıq lokal kompüterdə də mövcuddur.
 
@@ -81,7 +73,7 @@ Cursor-un öz daxilində terminal var. Kursda shortcut belə göstərildi:
 Ctrl + `
 ```
 
-Buradakı işarə backtick-dir. Birdən çox terminal açmaq mümkündür. Beləliklə layihənin əmrlərini IDE daxilindən icra edə bilərik.
+Buradakı işarə backtick-dir. Birdən çox terminal açmaq mümkündür.
 
 # Step 2 — `uv` və Python Environment
 
@@ -98,28 +90,9 @@ transformers
 gradio
 ```
 
-Sadə məntiq:
-
-```text
-Proqram
-  ↓
-İşləmək üçün başqa package-ə ehtiyac duyur
-  ↓
-Həmin package dependency-dir
-```
-
 ## Virtual Environment nədir?
 
-Fərqli Python layihələri fərqli package və package versiyaları tələb edə bilər. Bunların hamısını eyni ümumi Python mühitində saxlamaq konflikt yarada bilər.
-
-Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq:
-
-```text
-Project A → öz environment-i
-Project B → öz environment-i
-```
-
-Buna virtual environment deyilir.
+Fərqli Python layihələri fərqli package və package versiyaları tələb edə bilər. Bunların hamısını eyni ümumi Python mühitində saxlamaq konflikt yarada bilər. Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq. Buna virtual environment deyilir.
 
 ## `.venv` nədir?
 
@@ -149,91 +122,140 @@ uv            = anbarı idarə edən şəxs
 uv sync       = siyahıya bax və lazım olanları uyğunlaşdır
 ```
 
-Texniki məntiq:
-
-```text
-Project requirements
-        ↓
-       uv
-        ↓
-Python environment + dependencies
-```
-
-## `uv --version`
+## Əsas `uv` əmrləri
 
 ```bash
 uv --version
 ```
 
-Bu əmr `uv`-nin quraşdırılıb-quraşdırılmadığını və terminal tərəfindən tanınıb-tanınmadığını yoxlayır.
-
-Əgər `uv` yeni quraşdırılıb, amma terminal onu görmürsə, yeni terminal açmaq lazım ola bilər. Səbəb yeni terminalın PATH/environment dəyişikliklərini yenidən oxumasıdır. Lazım gəlsə sistem restart edilə bilər.
-
-## `uv self update`
+`uv`-nin quraşdırılıb və terminal tərəfindən tanınıb-tanınmadığını yoxlayır.
 
 ```bash
 uv self update
 ```
 
-Bu əmr `uv` alətinin özünü son versiyaya yeniləyir.
-
-## `uv sync`
-
-Əsas əmr:
+`uv` alətinin özünü yeniləyir.
 
 ```bash
 uv sync
 ```
 
-Sadə dillə:
+Layihənin dependency-lərini və virtual environment-ini tələb olunan vəziyyətlə uyğunlaşdırır. Nəticədə `.venv` yaradılır və layihənin Python mühiti hazır olur.
 
-> Layihənin hansı environment və dependency-lərə ehtiyacı olduğunu nəzərə al və həmin layihə üçün uyğun Python mühitini hazırla/sinxronlaşdır.
+Əgər `uv` yeni quraşdırılıb, amma terminal onu görmürsə, yeni terminal açmaq lazım ola bilər. Lazım gəlsə sistem restart edilə bilər.
 
-Proses:
+# Step 3 — OpenAI API və API Key
 
-```text
-uv sync
-   ↓
-layihənin konfiqurasiyasını nəzərə alır
-   ↓
-lazım olan dependency-ləri uyğunlaşdırır
-   ↓
-virtual environment qurur
-   ↓
-.venv yaranır
-   ↓
-layihənin Python mühiti hazır olur
-```
+## ChatGPT və OpenAI API eyni şey deyil
 
-`sync` sözü synchronization, yəni uyğunlaşdırmaq/sinxronlaşdırmaq mənasındadır.
+ChatGPT istifadəçinin hazır məhsul kimi istifadə etdiyi xidmətdir. OpenAI API isə bizim yazdığımız proqramın OpenAI modelləri ilə birbaşa əlaqə qurması üçündür.
 
-## Əsas fərqlər
+Sadə axın:
 
 ```text
-dependency
-→ layihənin ehtiyac duyduğu əlavə package
-
-virtual environment
-→ layihə üçün ayrıca izolyasiya olunmuş Python mühiti
-
-.venv
-→ həmin virtual environment-in yerləşdiyi qovluq
-
-uv
-→ environment və dependency-ləri idarə edən alət
-
-uv sync
-→ layihənin environment-ini tələb olunan vəziyyətlə sinxronlaşdıran əmr
+Python proqramı
+      ↓
+OpenAI API
+      ↓
+Model
+      ↓
+Cavab
 ```
 
-# API, API Key və `.env` — ilkin anlayışlar
+Yəni proqram daxilindən modelə sorğu göndərmək üçün API istifadə olunur.
 
-API proqramların bir-biri ilə əlaqə qurmasına imkan verən interfeysdir. API key proqramın xarici xidmətə autentikasiya üçün istifadə etdiyi credential-dır və secret kimi qorunmalıdır.
+## API nədir?
 
-`.env` secret və config dəyərlərini koddan ayrı saxlamaq üçün istifadə oluna bilər:
+API-ni sadə şəkildə iki proqramın bir-biri ilə danışdığı yol kimi düşünmək olar.
+
+Bizim nümunədə:
+
+```text
+Python proqramı → OpenAI API → OpenAI modeli
+```
+
+## API Key nədir?
+
+API key proqramın OpenAI xidmətinə hansı hesab vasitəsilə qoşulduğunu tanıtmaq üçün istifadə olunan gizli açardır.
+
+Onu parol kimi düşünmək olar:
+
+```text
+Python proqramı
+      ↓
+API key
+      ↓
+OpenAI proqramı tanıyır
+      ↓
+API-dən istifadə edilir
+```
+
+API key secret-dir. Onu paylaşmaq və açıq GitHub repository-sinə göndərmək olmaz.
+
+# Step 4 — `.env` və Secret Management
+
+## `.env` nədir?
+
+API key-i birbaşa Python kodunun daxilində saxlamaq təhlükəlidir. Kod GitHub-a göndərildikdə secret də təsadüfən yayıla bilər.
+
+Buna görə secret məlumatı koddan ayrı `.env` faylında saxlayırıq.
+
+```text
+Python kodu → proqramın kodu
+.env        → secret/config məlumatları
+```
+
+`.env` faylı project root-da yerləşməlidir:
+
+```text
+llm_engineering/
+├── week1/
+├── week2/
+├── README.md
+└── .env       ← düzgün yer
+```
+
+Faylın adı dəqiq `.env` olmalıdır.
+
+## `OPENAI_API_KEY`
+
+`.env` daxilində OpenAI API key belə saxlanılır:
 
 ```env
-OPENAI_API_KEY=your_key_here
+OPENAI_API_KEY=your_secret_key
+```
+
+Burada:
+
+```text
+OPENAI_API_KEY = dəyişənin adı
+your_secret_key = onun gizli dəyəri
+```
+
+Adın dəqiq yazılması vacibdir, çünki proqram sonradan məhz `OPENAI_API_KEY` adlı məlumatı axtaracaq.
+
+## Niyə API key kodun içində saxlanmır?
+
+Pis yanaşma:
+
+```python
+api_key = "real-secret-key"
+```
+
+Belə kod GitHub-a push edilərsə key də yayıla bilər.
+
+Düzgün məntiq:
+
+```text
+.env
+ │
+ └── OPENAI_API_KEY=secret
+          ↓
+     Python proqramı
+          ↓
+       OpenAI API
+          ↓
+          Model
 ```
 
 Əsas prinsip:
@@ -242,7 +264,23 @@ OPENAI_API_KEY=your_key_here
 code != secret
 ```
 
-Bu mövzular kursda növbəti setup addımlarında daha detallı keçiləcək.
+`.env` faylı yaradıldıqdan və key əlavə edildikdən sonra faylın save edilməsi də vacibdir.
+
+## Sadə yadda saxlama modeli
+
+```text
+API
+→ Python ilə OpenAI arasında əlaqə yolu
+
+API Key
+→ OpenAI qarşısında proqramın gizli açarı
+
+.env
+→ həmin gizli məlumatı koddan ayrı saxladığımız fayl
+
+OPENAI_API_KEY
+→ .env daxilində API key-in saxlandığı dəyişənin adı
+```
 
 # Troubleshooting yanaşması
 
@@ -277,13 +315,15 @@ README/Markdown + Cursor terminal + uv + dependency
                                     ✅
 
 STEP 3
-OpenAI API                         ⏭️
+OpenAI API + API key
+                                    ✅
 
 STEP 4
-.env / environment variables      qarşıdadır
+.env + OPENAI_API_KEY + secret management
+                                    ✅
 
 STEP 5
-Final editor/Jupyter setup        qarşıdadır
+Final editor/Jupyter setup        ⏭️
 ```
 
-Hazırda Setup Step 2-ni tamamlamışıq. Növbəti AI dərsində Step 3-dən davam edəcəyik.
+Hazırda Setup Step 4-ü tamamlamışıq. Növbəti AI dərsində Step 5-dən davam edəcəyik.
