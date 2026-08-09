@@ -180,39 +180,15 @@ Jupyter Notebook
 └── növbəti kod
 ```
 
-Notebook fayllarının uzantısı:
-
-```text
-.ipynb
-```
-
-Kursda bunlara həm notebook, həm də lab deyilə bilər.
+Notebook fayllarının uzantısı `.ipynb`-dir. Kursda bunlara həm notebook, həm də lab deyilə bilər.
 
 ## Cell nədir?
 
-Notebook daxilindəki ayrı-ayrı hissələrə `cell` deyilir.
-
-Məsələn bir code cell:
-
-```python
-x = 10
-```
-
-başqa code cell:
-
-```python
-print(x)
-```
-
-ola bilər. Hər code cell ayrıca işlədilə bilər. Buna görə bütün proqramı hər dəfə başdan sona işlətmək məcburiyyətində deyilik.
-
-Bu yanaşma kodu hissə-hissə yoxlamaq və eksperiment aparmaq üçün çox rahatdır.
+Notebook daxilindəki ayrı-ayrı hissələrə `cell` deyilir. Hər code cell ayrıca işlədilə bilər. Buna görə bütün proqramı hər dəfə başdan sona işlətmək məcburiyyətində deyilik.
 
 ## Kernel nədir?
 
 Notebook özü kodu işlətmir. Notebook-dakı Python kodunu arxa planda işlədən Python prosesinə `kernel` deyilir.
-
-Sadə məntiq:
 
 ```text
 Jupyter Notebook
@@ -224,13 +200,9 @@ Python kodunu işləyir
 Nəticə
 ```
 
-Yəni notebook sənəddir, kernel isə həmin sənəddəki kodu həqiqətən işlədən mühərrikdir.
-
 ## Niyə `.venv` Kernel seçirik?
 
 Əvvəl `uv sync` vasitəsilə layihəmiz üçün `.venv` yaratmışdıq. Həmin environment-də layihənin Python-u və lazım olan dependency-lər var.
-
-Jupyter Notebook açıldıqda hansı Python environment-in istifadə ediləcəyini seçməliyik:
 
 ```text
 Select Kernel
@@ -240,7 +212,7 @@ Python Environments
 .venv / recommended Python
 ```
 
-Beləliklə əvvəlki mövzu ilə Step 5 birləşir:
+Beləliklə:
 
 ```text
 uv sync
@@ -261,8 +233,6 @@ Notebook həmin layihə mühitində işləyir
 # Notebook-larla necə işləyəcəyik?
 
 Müəllimin yanaşması kodu sadəcə ekrandan kopyalamaq deyil. Məqsəd kodun necə və niyə işlədiyini başa düşməkdir.
-
-Tövsiyə olunan proses:
 
 ```text
 İzahı oxu
@@ -287,8 +257,6 @@ Notebook-lar kurs boyunca yenilənə bilən canlı sənədlərdir. Buna görə v
 Environment setup bitdikdən sonra ilk LLM layihəsinə başlayırıq.
 
 Layihənin məqsədi istifadəçidən web səhifənin URL-ni götürmək, həmin səhifənin məlumatını əldə etmək, GPT modelinə göndərmək və səhifənin xülasəsini yaratmaqdır.
-
-Sadə proses:
 
 ```text
 URL
@@ -334,6 +302,206 @@ GPT
 Web səhifənin xülasəsi
 ```
 
+# İlk LLM lab — praktik kod axını
+
+## Cell-i necə işlədirik?
+
+Jupyter Notebook-da code cell-i işə salmaq üçün:
+
+```text
+Shift + Enter
+```
+
+basırıq.
+
+Əgər import zamanı xəta çıxırsa və ya cell işləmirsə, ilk yoxlanmalı şey kernel-in lokal `.venv` environment-ə bağlı olmasıdır.
+
+## `.env` faylından API key-in oxunması
+
+Notebook əvvəl yaratdığımız `.env` faylını yükləyir və oradan `OPENAI_API_KEY` dəyərini götürür.
+
+```text
+.env
+ ↓
+OPENAI_API_KEY
+ ↓
+Python notebook
+ ↓
+OpenAI API
+```
+
+Əgər key tapılmırsa, `.env` faylının adı və yeri, `OPENAI_API_KEY` adının düzgün yazılması, faylın save olunması və düzgün environment/kernel yoxlanmalıdır.
+
+## OpenAI mesaj formatı — `list` içində `dict`
+
+OpenAI-yə göndərilən mesaj müəyyən strukturda hazırlanır.
+
+Məsələn:
+
+```python
+message = "Hello GPT, this is my first ever message to you. Hi."
+
+messages = [
+    {
+        "role": "user",
+        "content": message
+    }
+]
+```
+
+Burada əvvəl keçdiyimiz Python bilikləri real AI kodunda istifadə olunur:
+
+```text
+messages → list
+    ↓
+içində → dictionary
+    ↓
+role və content → key-lər
+user və message → value-lar
+```
+
+Yəni `messages` list-dir, onun içində isə dictionary var.
+
+## İlk API call
+
+Sonra Python-dan OpenAI modelinə ilk real sorğunu göndəririk.
+
+İndilik sintaksisi əzbərləmək vacib deyil. Əsas məntiq budur:
+
+```text
+Mesaj hazırla
+      ↓
+OpenAI-nin istədiyi formata sal
+      ↓
+API request göndər
+      ↓
+Cloud-da model işləsin
+      ↓
+Response geri gəlsin
+      ↓
+Python response-dan cavabı götürsün
+```
+
+Bu, ChatGPT interfeysindən deyil, birbaşa Python kodundan etdiyimiz ilk LLM API call-dır.
+
+## Web scraping nədir?
+
+Kursda `scraper.py` daxilində hazır `fetch_website_contents()` funksiyası istifadə olunur. Bu funksiya web səhifənin məzmununu götürür və bunun üçün BeautifulSoup package-indən istifadə edir.
+
+Vacib fərq:
+
+```text
+Web scraping
+→ web səhifənin məlumatını götürür
+→ özü AI deyil
+```
+
+AI hissəsi həmin götürülmüş məzmunu LLM-ə verəndə başlayır:
+
+```text
+Website
+   ↓
+Scraper
+   ↓
+Website text
+   ↓
+LLM
+   ↓
+Summary
+```
+
+## System Prompt və User Prompt
+
+Bu dərsdə iki vacib prompt növü keçildi.
+
+### System Prompt
+
+System prompt modelə ümumi olaraq necə davranmalı olduğunu, hansı rolda olmasını, tapşırığını, kontekstini, tonunu və cavab formatını bildirir.
+
+Sadə yadda saxlama:
+
+```text
+SYSTEM PROMPT
+→ Sən kimsən?
+→ Ümumi tapşırığın nədir?
+→ Necə davranmalısan?
+→ Cavabı hansı formada verməlisən?
+```
+
+Web Page Summarizer nümunəsində system prompt modelə website məzmununu analiz etməyi, qısa xülasə hazırlamağı, navigation mətnlərini nəzərə almamağı və Markdown formatında cavab verməyi deyə bilər.
+
+### User Prompt
+
+User prompt isə istifadəçinin konkret olaraq həmin anda istədiyi işdir.
+
+```text
+USER PROMPT
+→ İndi konkret nə etməyini istəyirəm?
+```
+
+Məsələn:
+
+```text
+Bu web səhifənin məzmununu xülasə et.
+```
+
+## System + User mesaj strukturu
+
+İki prompt olduqda `messages` list-i iki dictionary saxlaya bilər:
+
+```python
+messages = [
+    {
+        "role": "system",
+        "content": system_prompt
+    },
+    {
+        "role": "user",
+        "content": user_prompt
+    }
+]
+```
+
+Struktur:
+
+```text
+messages = list
+│
+├── dictionary 1
+│   ├── role → system
+│   └── content → system prompt
+│
+└── dictionary 2
+    ├── role → user
+    └── content → user prompt
+```
+
+Bu, Python-da öyrəndiyimiz `list`, `dict`, key və value anlayışlarının real LLM Engineering istifadəsidir.
+
+## System prompt niyə vacibdir?
+
+Eyni user prompt saxlanıb system prompt dəyişdirilərsə modelin cavab tonu və davranışı dəyişə bilər.
+
+```text
+Eyni User Prompt
+       +
+Fərqli System Prompt
+       ↓
+Fərqli ton / xarakter / davranış
+```
+
+Məsələn modelə əvvəl `helpful assistant`, sonra `snarky assistant` rolu verildikdə eyni suala verdiyi cavabın üslubu dəyişir.
+
+Əsas prinsip:
+
+```text
+System Prompt
+→ modelin ümumi missiyasını və davranışını qurur
+
+User Prompt
+→ həmin çərçivədə konkret tapşırığı verir
+```
+
 # Troubleshooting yanaşması
 
 Problem olduqda əvvəl README/rəsmi documentation və kursun troubleshooting notebook-u yoxlanılır. LLM-dən kömək almaq olar, amma verdiyi təkliflər yoxlanmadan tətbiq edilməməlidir.
@@ -341,26 +509,13 @@ Problem olduqda əvvəl README/rəsmi documentation və kursun troubleshooting n
 # Hazırkı kurs vəziyyəti
 
 ```text
-STEP 1
-Git + repository clone + Cursor + project root
-                                    ✅
-
-STEP 2
-README/Markdown + Cursor terminal + uv + dependency
-+ virtual environment + .venv + uv sync
-                                    ✅
-
-STEP 3
-OpenAI API + API key
-                                    ✅
-
-STEP 4
-.env + OPENAI_API_KEY + secret management
-                                    ✅
-
-STEP 5
-Python/Jupyter extensions + Notebook + Kernel
-                                    ✅
+Environment setup                                  ✅
+Jupyter Notebook + .venv kernel                   ✅
+.env yüklənməsi və API key-in tapılması           ✅
+Python-dan ilk cloud LLM API call                 ✅
+Web scraping helper ilə tanışlıq                  ✅
+System Prompt və User Prompt                      ✅
+Web Page Summarizer layihəsinin kodlaşdırılması   davam edir
 ```
 
-Environment setup tam başa çatıb. Növbəti mərhələ ilk praktik LLM lab-ı — Web Page Summarizer layihəsidir.
+Hazırda artıq environment setup mərhələsini keçmişik və ilk praktik LLM layihəsinin içindəyik. Növbəti hissələrdə Web Page Summarizer-in prompt və summarization məntiqini davam etdirəcəyik.
