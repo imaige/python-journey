@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the Git fundamentals I learned while setting up and maintaining my `python-journey` repository.
+This document summarizes the Git fundamentals I learned while setting up and maintaining my `ai-engineering-journey` repository.
 
 It covers the complete workflow I have practiced so far, from creating a local repository to pushing commits to GitHub.
 
@@ -42,7 +42,7 @@ A repository, or repo, is a project that Git tracks.
 Example:
 
 ```text
-python-journey/
+ai-engineering-journey/
 ```
 
 A normal folder becomes a Git repository after running:
@@ -82,15 +82,15 @@ Deleting `.git` does not delete the project files, but it removes the Git histor
 One method is to create the folder first:
 
 ```bash
-mkdir python-journey
-cd python-journey
+mkdir ai-engineering-journey
+cd ai-engineering-journey
 git init
 ```
 
 Another method is:
 
 ```bash
-git init python-journey
+git init ai-engineering-journey
 ```
 
 The second command creates the folder and initializes Git inside it.
@@ -340,12 +340,12 @@ The log makes it possible to review how the project has changed over time.
 
 A remote repository is an online version of a local Git repository.
 
-The `python-journey` repository is hosted on GitHub.
+The `ai-engineering-journey` repository is hosted on GitHub.
 
 The remote repository was connected with:
 
 ```bash
-git remote add origin git@github.com:imaige/python-journey.git
+git remote add origin git@github.com:imaige/ai-engineering-journey.git
 ```
 
 Configured remotes can be checked with:
@@ -361,7 +361,7 @@ git remote -v
 It is only a short local name that points to the GitHub repository URL.
 
 ```text
-origin → git@github.com:imaige/python-journey.git
+origin → git@github.com:imaige/ai-engineering-journey.git
 ```
 
 ---
@@ -506,7 +506,7 @@ git add README.md
 git commit -m "Initial learning notes"
 git commit -m "Update README progress"
 git log
-git remote add origin git@github.com:imaige/python-journey.git
+git remote add origin git@github.com:imaige/ai-engineering-journey.git
 git remote -v
 ssh -T git@github.com
 git push -u origin main
