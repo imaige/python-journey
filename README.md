@@ -96,12 +96,21 @@ notes/
 - [x] Development Environment Basics
 - [x] Git Clone and Project Root
 - [x] Cursor / IDE Basics
-- [x] Python Environments and Dependencies — Introduction
-- [x] API Keys, `.env`, and Environment Variables — Introduction
+- [x] Markdown and README Preview
+- [x] Cursor Integrated Terminal
+- [x] Python Environments and Dependencies
+- [x] `uv`, `.venv`, and `uv sync`
+- [x] OpenAI API and API Key Basics
+- [x] `.env` and Secret Management
+- [x] Python and Jupyter Cursor Extensions
+- [x] Jupyter Notebook, Cells, and Kernel
+- [x] `.venv` as Jupyter Kernel
+- [x] First Cloud LLM API Call from Python
+- [x] OpenAI Message Structure — List of Dictionaries
+- [x] Web Scraping Helper — Introduction
+- [x] System Prompt vs User Prompt
 - [x] Documentation-First Troubleshooting
-- [x] Windows PC Setup — Step 1
-
-> AI Engineering study is temporarily paused after the initial foundations and PC environment setup material.
+- [ ] First LLM Project — Web Page Summarizer
 
 ## Notes
 
@@ -134,7 +143,9 @@ Build production-level AI Engineering skills from scratch while continuing to st
 
 - Python `zip()` completed
 - Python fundamentals continue using the existing learning workflow
-- AI Engineering is temporarily paused
+- AI Engineering environment setup completed
+- First LLM Project — Web Page Summarizer in progress
+- Current AI concepts: first API call, OpenAI message structure, system prompt, user prompt, and website content flow
 
 ## Upcoming Topics
 
@@ -151,10 +162,11 @@ Build production-level AI Engineering skills from scratch while continuing to st
 - Exception Handling
 - Advanced OOP
 
-### AI Engineering — When Resumed
-- Complete Environment Setup
-- `uv` in Practice
-- First LLM Application
+### AI Engineering
+- Complete Web Page Summarizer
+- Prompt Construction in Practice
+- LLM Responses and Output Handling
+- Local LLM Workflow with Ollama
 - Frontier Models
 - Transformers Intuition
 - RAG
