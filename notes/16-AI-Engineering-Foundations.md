@@ -160,8 +160,6 @@ uv sync → command that builds/synchronizes the environment
 
 ChatGPT and the OpenAI API are not the same product interface. ChatGPT is an end-user application, while the API lets software communicate programmatically with OpenAI models.
 
-The basic flow is:
-
 ```text
 Python application
        ↓
@@ -172,88 +170,134 @@ Model
 Response
 ```
 
-### API
-
-An API is an interface that allows software systems to communicate. In this course, our Python application will use an API to send requests to a model service and receive responses.
-
-### API Key
-
-An API key is a secret credential used by an application to authenticate with an API service and associate requests with the relevant account/project.
-
-```text
-Python application
-       ↓
-API key
-       ↓
-OpenAI API
-       ↓
-Model
-```
+An API is an interface that allows software systems to communicate. An API key is a secret credential used by an application to authenticate with an API service and associate requests with the relevant account/project.
 
 API keys must be treated as secrets. They should not be shared publicly, hard-coded into source code, or committed to GitHub.
 
 ## Step 4 — `.env` and Secret Management
 
-A `.env` file is used to keep secret/configuration values separate from application source code.
-
-For this project it belongs in the project root:
-
-```text
-llm_engineering/
-├── week1/
-├── week2/
-├── README.md
-└── .env
-```
-
-The filename must be `.env`, not `.env.txt` or another variation.
-
-### `OPENAI_API_KEY`
-
-The OpenAI API key is stored using an environment-variable name:
+A `.env` file is used to keep secret/configuration values separate from application source code. For this project it belongs in the project root.
 
 ```env
 OPENAI_API_KEY=your_secret_key
 ```
 
-Here:
-
-```text
-OPENAI_API_KEY → variable name
-your_secret_key → secret value
-```
-
-The exact variable name matters because application code later looks up that specific name.
-
-### Why Secrets Stay Outside Source Code
-
-Hard-coding a credential like this is unsafe:
-
-```python
-api_key = "real-secret-key"
-```
-
-If the source code is pushed to a repository, the secret may be exposed. The safer design is:
-
-```text
-.env
- │
- └── OPENAI_API_KEY=secret
-          ↓
-     Python application
-          ↓
-       OpenAI API
-          ↓
-         Model
-```
-
-The key principle is:
+The exact variable name matters because application code later looks up that specific name. The key principle is:
 
 ```text
 code != secret
 ```
 
-The `.env` file also needs to be saved after editing so the value exists on disk for the application to read.
+## Step 5 — Cursor Extensions and Jupyter Setup
+
+The final environment setup step prepares Cursor to work with Python and Jupyter notebooks.
+
+### Python Extension
+
+A Python extension is installed in Cursor so the editor can properly support Python code, including syntax highlighting and code checking. The course notes that either the Cursor/Anysphere Python extension or Microsoft's Python extension can be used.
+
+### Jupyter Extension
+
+The Jupyter extension is also installed. It enables interactive Jupyter notebook support inside Cursor.
+
+After installation, the Explorer is reopened and the first notebook is opened from the Week 1 directory:
+
+```text
+week1/day1.ipynb
+```
+
+### Jupyter Notebook (`.ipynb`)
+
+A Jupyter Notebook is an interactive document that can contain both formatted explanatory text and executable code.
+
+```text
+Notebook
+├── text / explanation
+├── code cell
+├── output
+├── more text
+└── another code cell
+```
+
+Notebook files use the `.ipynb` extension. The course also refers to these notebooks as labs.
+
+### Cell
+
+A notebook is divided into individual sections called cells. Code cells can be executed separately instead of running the entire document at once. This makes experimentation and incremental learning easier.
+
+### Kernel
+
+The kernel is the Python process running behind the notebook and executing its code.
+
+```text
+Jupyter Notebook
+       ↓
+     Kernel
+       ↓
+Python executes code
+       ↓
+     Output
+```
+
+### Selecting the Project Environment as the Kernel
+
+The notebook must use the Python environment created for this project. In Cursor:
+
+```text
+Select Kernel
+      ↓
+Python Environments
+      ↓
+.venv / recommended project Python
+```
+
+The selected environment should point to the project's `.venv` Python installation. This connects the environment created earlier by `uv sync` with the Jupyter notebook:
+
+```text
+uv sync
+   ↓
+.venv
+   ↓
+project Python + dependencies
+   ↓
+Jupyter kernel selection
+   ↓
+Notebook runs inside that environment
+```
+
+If the expected `.venv` environment does not appear as a kernel option, the course directs students to the troubleshooting notebook in the `setup` folder.
+
+## How the Labs Are Intended to Be Used
+
+The notebooks are designed as interactive learning documents rather than material to copy mechanically. The recommended workflow is to read the explanations, run the code, add print statements, modify examples, experiment, and create variations.
+
+The course notebooks are living documents and may be updated over time with newer models, explanations, and material.
+
+## First LLM Project — Web Page Summarizer
+
+With the setup complete, the first LLM project begins. The goal is to build a small application that accepts a web address/URL, retrieves or scrapes the web page, sends relevant content to an underlying GPT model through an API call, and displays a formatted summary.
+
+Conceptual flow:
+
+```text
+URL
+ ↓
+Retrieve/scrape web page
+ ↓
+Extract relevant content
+ ↓
+Python application
+ ↓
+OpenAI API
+ ↓
+GPT model
+ ↓
+Generated summary
+ ↓
+Formatted result
+```
+
+This is the first point where the environment setup components begin working together in a real LLM application.
 
 ## Troubleshooting Principles
 
@@ -266,7 +310,7 @@ Step 1 → Git + clone repository + Cursor + project root       ✅
 Step 2 → Markdown/README + Cursor terminal + uv + .venv      ✅
 Step 3 → OpenAI API + API key                                ✅
 Step 4 → .env + OPENAI_API_KEY + secret management           ✅
-Step 5 → final editor/Jupyter setup                           next
+Step 5 → Python/Jupyter extensions + notebook + kernel        ✅
 ```
 
-The course is currently ready to continue with Step 5.
+Environment setup is complete. The course is now moving into the first hands-on LLM lab: the web page summarizer.
