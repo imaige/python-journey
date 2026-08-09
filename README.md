@@ -11,26 +11,26 @@ Python is maintained as the programming foundation, while AI Engineering notes t
 ```text
 notes/
 ├── ai/
-│   ├── 16-AI-Engineering-Foundations.md
-│   └── 17-AI-Engineering-AZ.md
+│   ├── 01-AI-Engineering-Foundations.md
+│   └── 02-AI-Engineering-AZ.md
 ├── python/
-│   ├── 02-Python-OOP.md
-│   ├── 03-Python-Data-Types.md
-│   ├── 04-Python-Built-in-Functions.md
-│   ├── 05-PEP8.md
-│   ├── 06-Functions.md
-│   ├── 07-Expressions-vs-Statements.md
-│   ├── 08-Import.md
-│   ├── 09-Complex.md
-│   ├── 10-Magic-Methods-and-OOP-Basics.md
-│   ├── 11-Booleans.md
-│   ├── 12-Type-Conversion.md
-│   ├── 13-Lists.md
-│   ├── 14-Dictionaries.md
-│   ├── 15-Tuples.md
-│   ├── 18-Sets.md
-│   ├── 19-Range.md
-│   └── 20-Zip.md
+│   ├── 01-Python-OOP.md
+│   ├── 02-Python-Data-Types.md
+│   ├── 03-Python-Built-in-Functions.md
+│   ├── 04-PEP8.md
+│   ├── 05-Functions.md
+│   ├── 06-Expressions-vs-Statements.md
+│   ├── 07-Import.md
+│   ├── 08-Complex.md
+│   ├── 09-Magic-Methods-and-OOP-Basics.md
+│   ├── 10-Booleans.md
+│   ├── 11-Type-Conversion.md
+│   ├── 12-Lists.md
+│   ├── 13-Dictionaries.md
+│   ├── 14-Tuples.md
+│   ├── 15-Sets.md
+│   ├── 16-Range.md
+│   └── 17-Zip.md
 └── git/
     └── 01-Git-Fundamentals.md
 ```
@@ -120,27 +120,27 @@ notes/
 ## Notes
 
 ### AI Engineering
-- [AI Engineering Foundations](notes/ai/16-AI-Engineering-Foundations.md)
-- [AI Engineering — Azərbaycan dilində](notes/ai/17-AI-Engineering-AZ.md)
+- [AI Engineering Foundations](notes/ai/01-AI-Engineering-Foundations.md)
+- [AI Engineering — Azərbaycan dilində](notes/ai/02-AI-Engineering-AZ.md)
 
 ### Python
-- [Python OOP](notes/python/02-Python-OOP.md)
-- [Python Data Types](notes/python/03-Python-Data-Types.md)
-- [Python Built-in Functions](notes/python/04-Python-Built-in-Functions.md)
-- [PEP 8](notes/python/05-PEP8.md)
-- [Python Functions](notes/python/06-Functions.md)
-- [Expressions vs Statements](notes/python/07-Expressions-vs-Statements.md)
-- [Imports and Modules](notes/python/08-Import.md)
-- [Complex Numbers](notes/python/09-Complex.md)
-- [Magic Methods and OOP Basics](notes/python/10-Magic-Methods-and-OOP-Basics.md)
-- [Python Booleans](notes/python/11-Booleans.md)
-- [Python Type Conversion](notes/python/12-Type-Conversion.md)
-- [Python Lists](notes/python/13-Lists.md)
-- [Python Dictionaries](notes/python/14-Dictionaries.md)
-- [Python Tuples](notes/python/15-Tuples.md)
-- [Python Sets](notes/python/18-Sets.md)
-- [Python Range](notes/python/19-Range.md)
-- [Python zip](notes/python/20-Zip.md)
+- [Python OOP](notes/python/01-Python-OOP.md)
+- [Python Data Types](notes/python/02-Python-Data-Types.md)
+- [Python Built-in Functions](notes/python/03-Python-Built-in-Functions.md)
+- [PEP 8](notes/python/04-PEP8.md)
+- [Python Functions](notes/python/05-Functions.md)
+- [Expressions vs Statements](notes/python/06-Expressions-vs-Statements.md)
+- [Imports and Modules](notes/python/07-Import.md)
+- [Complex Numbers](notes/python/08-Complex.md)
+- [Magic Methods and OOP Basics](notes/python/09-Magic-Methods-and-OOP-Basics.md)
+- [Python Booleans](notes/python/10-Booleans.md)
+- [Python Type Conversion](notes/python/11-Type-Conversion.md)
+- [Python Lists](notes/python/12-Lists.md)
+- [Python Dictionaries](notes/python/13-Dictionaries.md)
+- [Python Tuples](notes/python/14-Tuples.md)
+- [Python Sets](notes/python/15-Sets.md)
+- [Python Range](notes/python/16-Range.md)
+- [Python zip](notes/python/17-Zip.md)
 
 ### Git
 - [Git Fundamentals](notes/git/01-Git-Fundamentals.md)
