@@ -1,33 +1,38 @@
-# Python Journey 🚀
+# AI Engineering Journey 🚀
 
 ## About
 
-This repository documents my journey from Python fundamentals to AI Engineering.
+This repository documents my journey from Python fundamentals to production-oriented AI Engineering.
+
+Python is maintained as the programming foundation, while AI Engineering notes track LLMs, APIs, RAG, fine-tuning, agentic AI, tooling, and production concepts.
 
 ## Repository Structure
 
 ```text
 notes/
-├── 01-Git-Fundamentals.md
-├── 02-Python-OOP.md
-├── 03-Python-Data-Types.md
-├── 04-Python-Built-in-Functions.md
-├── 05-PEP8.md
-├── 06-Functions.md
-├── 07-Expressions-vs-Statements.md
-├── 08-Import.md
-├── 09-Complex.md
-├── 10-Magic-Methods-and-OOP-Basics.md
-├── 11-Booleans.md
-├── 12-Type-Conversion.md
-├── 13-Lists.md
-├── 14-Dictionaries.md
-├── 15-Tuples.md
-├── 16-AI-Engineering-Foundations.md
-├── 17-AI-Engineering-AZ.md
-├── 18-Sets.md
-├── 19-Range.md
-└── 20-Zip.md
+├── ai/
+│   ├── 16-AI-Engineering-Foundations.md
+│   └── 17-AI-Engineering-AZ.md
+├── python/
+│   ├── 02-Python-OOP.md
+│   ├── 03-Python-Data-Types.md
+│   ├── 04-Python-Built-in-Functions.md
+│   ├── 05-PEP8.md
+│   ├── 06-Functions.md
+│   ├── 07-Expressions-vs-Statements.md
+│   ├── 08-Import.md
+│   ├── 09-Complex.md
+│   ├── 10-Magic-Methods-and-OOP-Basics.md
+│   ├── 11-Booleans.md
+│   ├── 12-Type-Conversion.md
+│   ├── 13-Lists.md
+│   ├── 14-Dictionaries.md
+│   ├── 15-Tuples.md
+│   ├── 18-Sets.md
+│   ├── 19-Range.md
+│   └── 20-Zip.md
+└── git/
+    └── 01-Git-Fundamentals.md
 ```
 
 ## Learning Progress
@@ -114,30 +119,35 @@ notes/
 
 ## Notes
 
-- [Git Fundamentals](notes/01-Git-Fundamentals.md)
-- [Python OOP](notes/02-Python-OOP.md)
-- [Python Data Types](notes/03-Python-Data-Types.md)
-- [Python Built-in Functions](notes/04-Python-Built-in-Functions.md)
-- [PEP 8](notes/05-PEP8.md)
-- [Python Functions](notes/06-Functions.md)
-- [Expressions vs Statements](notes/07-Expressions-vs-Statements.md)
-- [Imports and Modules](notes/08-Import.md)
-- [Complex Numbers](notes/09-Complex.md)
-- [Magic Methods and OOP Basics](notes/10-Magic-Methods-and-OOP-Basics.md)
-- [Python Booleans](notes/11-Booleans.md)
-- [Python Type Conversion](notes/12-Type-Conversion.md)
-- [Python Lists](notes/13-Lists.md)
-- [Python Dictionaries](notes/14-Dictionaries.md)
-- [Python Tuples](notes/15-Tuples.md)
-- [AI Engineering Foundations](notes/16-AI-Engineering-Foundations.md)
-- [AI Engineering — Azərbaycan dilində](notes/17-AI-Engineering-AZ.md)
-- [Python Sets](notes/18-Sets.md)
-- [Python Range](notes/19-Range.md)
-- [Python zip](notes/20-Zip.md)
+### AI Engineering
+- [AI Engineering Foundations](notes/ai/16-AI-Engineering-Foundations.md)
+- [AI Engineering — Azərbaycan dilində](notes/ai/17-AI-Engineering-AZ.md)
+
+### Python
+- [Python OOP](notes/python/02-Python-OOP.md)
+- [Python Data Types](notes/python/03-Python-Data-Types.md)
+- [Python Built-in Functions](notes/python/04-Python-Built-in-Functions.md)
+- [PEP 8](notes/python/05-PEP8.md)
+- [Python Functions](notes/python/06-Functions.md)
+- [Expressions vs Statements](notes/python/07-Expressions-vs-Statements.md)
+- [Imports and Modules](notes/python/08-Import.md)
+- [Complex Numbers](notes/python/09-Complex.md)
+- [Magic Methods and OOP Basics](notes/python/10-Magic-Methods-and-OOP-Basics.md)
+- [Python Booleans](notes/python/11-Booleans.md)
+- [Python Type Conversion](notes/python/12-Type-Conversion.md)
+- [Python Lists](notes/python/13-Lists.md)
+- [Python Dictionaries](notes/python/14-Dictionaries.md)
+- [Python Tuples](notes/python/15-Tuples.md)
+- [Python Sets](notes/python/18-Sets.md)
+- [Python Range](notes/python/19-Range.md)
+- [Python zip](notes/python/20-Zip.md)
+
+### Git
+- [Git Fundamentals](notes/git/01-Git-Fundamentals.md)
 
 ## Current Goal
 
-Build production-level AI Engineering skills from scratch while continuing to strengthen Python fundamentals.
+Build production-level AI Engineering skills while continuously strengthening the Python foundation required to build reliable AI systems.
 
 ## Current Topic
 
@@ -173,3 +183,15 @@ Build production-level AI Engineering skills from scratch while continuing to st
 - Fine-Tuning
 - Agentic AI
 - Production Deployment
+
+## Documentation Rule
+
+Future updates follow this structure:
+
+```text
+Python topic → notes/python/
+AI Engineering topic → notes/ai/
+Git topic → notes/git/
+```
+
+AI Engineering updates continue to maintain both the technical notes and the detailed Azerbaijani explanation file in parallel.
