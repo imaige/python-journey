@@ -299,18 +299,188 @@ Formatted result
 
 This is the first point where the environment setup components begin working together in a real LLM application.
 
+## Running Notebook Cells
+
+A Jupyter code cell is executed with:
+
+```text
+Shift + Enter
+```
+
+If imports fail or the cell appears stuck, the first thing to verify is that the notebook kernel points to the local project `.venv` Python environment.
+
+## Loading `.env` and Reading the API Key
+
+The notebook loads the project's `.env` file and reads the `OPENAI_API_KEY` environment variable. This is the practical use of the secret-management setup completed earlier.
+
+```text
+.env
+ ↓
+OPENAI_API_KEY
+ ↓
+Python notebook
+ ↓
+OpenAI API
+```
+
+If the key is not found, likely checks include the `.env` filename and location, the exact variable name, whether the file was saved, and whether the notebook is running from the expected project environment.
+
+## OpenAI Message Structure — List of Dictionaries
+
+The course introduces the message structure expected by the Chat Completions API. A simple user message is represented as a Python list containing a dictionary:
+
+```python
+message = "Hello GPT, this is my first ever message to you. Hi."
+
+messages = [
+    {
+        "role": "user",
+        "content": message
+    }
+]
+```
+
+This connects Python fundamentals directly to LLM Engineering:
+
+```text
+messages → list
+    ↓
+item → dictionary
+    ↓
+role/content → keys
+user/message → values
+```
+
+## First LLM API Call from Python
+
+The course creates an OpenAI client object and makes the first request to a cloud GPT model using the Chat Completions API. The exact syntax will be revisited later, so the important idea at this stage is the flow:
+
+```text
+Prepare message
+      ↓
+Put it into OpenAI message format
+      ↓
+Send API request
+      ↓
+Cloud model processes it
+      ↓
+Receive response
+      ↓
+Read response content in Python
+```
+
+This is the first real LLM call executed directly from Python code rather than through the ChatGPT product interface.
+
+## Web Scraping Before AI
+
+The course provides a helper function called `fetch_website_contents()` in `scraper.py`. It uses BeautifulSoup to perform a simple server-side fetch/scrape of a web page.
+
+Important distinction:
+
+```text
+web scraping
+→ retrieves website content
+→ not AI by itself
+```
+
+AI becomes involved when the extracted website content is later sent to the LLM for summarization.
+
+## System Prompt and User Prompt
+
+Two prompt roles are introduced.
+
+### System Prompt
+
+The system prompt defines the overall behavior, task, context, tone, or response format expected from the model.
+
+Example intent:
+
+```text
+You analyze website contents.
+Provide a short summary.
+Ignore navigation-related text.
+Respond in Markdown.
+```
+
+A useful mental model is:
+
+```text
+system prompt
+→ Who are you?
+→ What is your overall task?
+→ How should you behave/respond?
+```
+
+### User Prompt
+
+The user prompt is the concrete request from the end user that the model should answer within the framework established by the system prompt.
+
+```text
+user prompt
+→ What do I want you to do right now?
+```
+
+## Multiple Messages — System + User
+
+The message list can contain multiple dictionaries, each with its own role and content:
+
+```python
+messages = [
+    {
+        "role": "system",
+        "content": system_prompt
+    },
+    {
+        "role": "user",
+        "content": user_prompt
+    }
+]
+```
+
+Conceptually:
+
+```text
+messages = list
+│
+├── dictionary 1
+│   ├── role → system
+│   └── content → system prompt
+│
+└── dictionary 2
+    ├── role → user
+    └── content → user prompt
+```
+
+## Why the System Prompt Matters
+
+The course demonstrates that the same user question can produce different tone and behavior when the system prompt changes.
+
+```text
+Same user prompt
+       +
+Different system prompt
+       ↓
+Different tone / character / behavior
+```
+
+For example, changing the system instruction from a helpful assistant to a snarky assistant changes the style of the answer while the user's question stays the same.
+
+This introduces a core prompting principle: the system message frames the model's mission and behavior, while the user message provides the immediate task.
+
 ## Troubleshooting Principles
 
 The course emphasizes a documentation-first workflow: check the project README/setup documentation and troubleshooting guides, analyze the actual error, and use LLM assistance carefully while verifying suggestions before applying them.
 
-## Setup Progress
+## Current Course Status
 
 ```text
-Step 1 → Git + clone repository + Cursor + project root       ✅
-Step 2 → Markdown/README + Cursor terminal + uv + .venv      ✅
-Step 3 → OpenAI API + API key                                ✅
-Step 4 → .env + OPENAI_API_KEY + secret management           ✅
-Step 5 → Python/Jupyter extensions + notebook + kernel        ✅
+Environment setup                                      ✅
+First notebook and .venv kernel                        ✅
+.env loaded and API key detected                       ✅
+First cloud LLM API call from Python                   ✅
+Web scraping helper introduced                         ✅
+System prompt vs user prompt introduced                ✅
+Web Page Summarizer implementation                     in progress
 ```
 
-Environment setup is complete. The course is now moving into the first hands-on LLM lab: the web page summarizer.
+The course is now inside the first hands-on LLM project and is moving from environment setup into prompt construction and web-page summarization logic.
