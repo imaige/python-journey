@@ -33,7 +33,8 @@ ai-engineering-journey/
 │   │   ├── 14-Tuples.md
 │   │   ├── 15-Sets.md
 │   │   ├── 16-Range.md
-│   │   └── 17-Zip.md
+│   │   ├── 17-Zip.md
+│   │   └── 18-Object-Mutation-and-Copying.md
 │   └── git/
 │       └── 01-Git-Fundamentals.md
 └── README.md
@@ -75,6 +76,11 @@ ai-engineering-journey/
 - [x] `zip()` with Multiple Iterables
 - [x] `zip()` Shortest-Iterable Behavior
 - [x] `zip` Object and Iterator Exhaustion
+- [x] Object References and Mutation
+- [x] Mutable Object Behavior
+- [x] Shallow Copy
+- [x] Deep Copy
+- [x] Nested Mutable Objects and Shared References
 - [x] Type Conversion
 - [x] Built-in Functions
 - [x] PEP 8 Basics
@@ -145,6 +151,7 @@ ai-engineering-journey/
 - [Python Sets](notes/python/15-Sets.md)
 - [Python Range](notes/python/16-Range.md)
 - [Python zip](notes/python/17-Zip.md)
+- [Python Object Mutation and Copying](notes/python/18-Object-Mutation-and-Copying.md)
 
 ### Git
 - [Git Fundamentals](notes/git/01-Git-Fundamentals.md)
@@ -155,7 +162,7 @@ Build production-level AI Engineering skills while continuously strengthening th
 
 ## Current Topic
 
-- Python `zip()` completed
+- Python object mutation, references, shallow copy, and deep copy completed
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering environment setup completed
 - First LLM Project — Web Page Summarizer in progress
