@@ -61,9 +61,7 @@ Cursor-da məhz project root açılmalıdır.
 
 Cursor-un sol tərəfində repository faylları görünmürsə `View → Explorer` seçilir.
 
-`README.md` Markdown formatında yazılmış fayldır. Markdown sadə mətnə başlıq, siyahı və kod bloku kimi formatlama imkanları verən sintaksisdir. Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini, `Open Preview` etdikdə isə formatlanmış görünüşünü görürük.
-
-Repository `git clone` edildiyi üçün README və guide-lar artıq lokal kompüterdə də mövcuddur.
+`README.md` Markdown formatında yazılmış fayldır. Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini, `Open Preview` etdikdə isə formatlanmış görünüşünü görürük.
 
 ## Cursor Terminal
 
@@ -79,78 +77,45 @@ Buradakı işarə backtick-dir. Birdən çox terminal açmaq mümkündür.
 
 ## Dependency nədir?
 
-Dependency layihənin işləmək üçün ehtiyac duyduğu əlavə package/library-dir.
+Dependency layihənin işləmək üçün ehtiyac duyduğu əlavə package/library-dir. Məsələn `openai`, `pandas`, `transformers` və `gradio`.
 
-Məsələn:
+## Virtual Environment və `.venv`
 
-```text
-openai
-pandas
-transformers
-gradio
-```
+Fərqli Python layihələri fərqli package versiyaları tələb edə bilər. Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq. Buna virtual environment deyilir.
 
-## Virtual Environment nədir?
-
-Fərqli Python layihələri fərqli package və package versiyaları tələb edə bilər. Bunların hamısını eyni ümumi Python mühitində saxlamaq konflikt yarada bilər. Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq. Buna virtual environment deyilir.
-
-## `.venv` nədir?
-
-Bu kursda virtual environment layihənin daxilində `.venv` qovluğunda yaradılır.
+Bu kursda həmin environment `.venv` qovluğunda yerləşir.
 
 ```text
 llm_engineering/
 ├── week1/
 ├── week2/
 ├── README.md
-└── .venv/    ← bu layihənin virtual environment-i
+└── .venv/
 ```
 
-`.venv` bütün kompüter üçün ümumi mühit deyil. Konkret layihəyə aid izolyasiya olunmuş Python mühitidir.
+## `uv`
 
-## `uv` nədir?
-
-`uv` Python environment və dependency-ləri idarə etmək üçün istifadə olunan alətdir. Kursun əvvəlki versiyasında Anaconda istifadə olunurdu, hazırkı versiyada isə `uv` seçilib.
-
-Sadə analogiya:
-
-```text
-Layihə        = ev
-Dependencies  = ev üçün lazım olan əşyalar
-.venv         = həmin evin şəxsi anbarı
-uv            = anbarı idarə edən şəxs
-uv sync       = siyahıya bax və lazım olanları uyğunlaşdır
-```
-
-## Əsas `uv` əmrləri
+`uv` Python environment və dependency-ləri idarə etmək üçün istifadə olunan alətdir.
 
 ```bash
 uv --version
-```
-
-`uv`-nin quraşdırılıb və terminal tərəfindən tanınıb-tanınmadığını yoxlayır.
-
-```bash
 uv self update
-```
-
-`uv` alətinin özünü yeniləyir.
-
-```bash
 uv sync
 ```
 
-Layihənin dependency-lərini və virtual environment-ini tələb olunan vəziyyətlə uyğunlaşdırır. Nəticədə `.venv` yaradılır və layihənin Python mühiti hazır olur.
+`uv sync` layihənin dependency-lərini və virtual environment-ini uyğunlaşdırır və `.venv` mühitini hazırlayır.
 
-Əgər `uv` yeni quraşdırılıb, amma terminal onu görmürsə, yeni terminal açmaq lazım ola bilər. Lazım gəlsə sistem restart edilə bilər.
+```text
+dependency → layihənin ehtiyac duyduğu əlavə package
+virtual environment → layihəyə aid izolyasiya olunmuş Python mühiti
+.venv → həmin environment-in qovluğu
+uv → environment və dependency-ləri idarə edən alət
+uv sync → layihənin environment-ini hazırlayan/sinxronlaşdıran əmr
+```
 
 # Step 3 — OpenAI API və API Key
 
-## ChatGPT və OpenAI API eyni şey deyil
-
-ChatGPT istifadəçinin hazır məhsul kimi istifadə etdiyi xidmətdir. OpenAI API isə bizim yazdığımız proqramın OpenAI modelləri ilə birbaşa əlaqə qurması üçündür.
-
-Sadə axın:
+ChatGPT hazır istifadəçi məhsuludur. OpenAI API isə bizim yazdığımız proqramın OpenAI modelləri ilə proqram vasitəsilə əlaqə qurması üçündür.
 
 ```text
 Python proqramı
@@ -162,101 +127,19 @@ Model
 Cavab
 ```
 
-Yəni proqram daxilindən modelə sorğu göndərmək üçün API istifadə olunur.
+API-ni iki proqramın bir-biri ilə danışdığı yol kimi düşünmək olar.
 
-## API nədir?
-
-API-ni sadə şəkildə iki proqramın bir-biri ilə danışdığı yol kimi düşünmək olar.
-
-Bizim nümunədə:
-
-```text
-Python proqramı → OpenAI API → OpenAI modeli
-```
-
-## API Key nədir?
-
-API key proqramın OpenAI xidmətinə hansı hesab vasitəsilə qoşulduğunu tanıtmaq üçün istifadə olunan gizli açardır.
-
-Onu parol kimi düşünmək olar:
-
-```text
-Python proqramı
-      ↓
-API key
-      ↓
-OpenAI proqramı tanıyır
-      ↓
-API-dən istifadə edilir
-```
-
-API key secret-dir. Onu paylaşmaq və açıq GitHub repository-sinə göndərmək olmaz.
+API key proqramın API xidmətinə qoşulmaq üçün istifadə etdiyi gizli açardır. Onu parol kimi qorumaq lazımdır və GitHub-a göndərmək olmaz.
 
 # Step 4 — `.env` və Secret Management
 
-## `.env` nədir?
-
-API key-i birbaşa Python kodunun daxilində saxlamaq təhlükəlidir. Kod GitHub-a göndərildikdə secret də təsadüfən yayıla bilər.
-
-Buna görə secret məlumatı koddan ayrı `.env` faylında saxlayırıq.
-
-```text
-Python kodu → proqramın kodu
-.env        → secret/config məlumatları
-```
-
-`.env` faylı project root-da yerləşməlidir:
-
-```text
-llm_engineering/
-├── week1/
-├── week2/
-├── README.md
-└── .env       ← düzgün yer
-```
-
-Faylın adı dəqiq `.env` olmalıdır.
-
-## `OPENAI_API_KEY`
-
-`.env` daxilində OpenAI API key belə saxlanılır:
+API key-i birbaşa Python kodunda saxlamaq təhlükəlidir. Buna görə secret məlumatı koddan ayrı `.env` faylında saxlayırıq.
 
 ```env
 OPENAI_API_KEY=your_secret_key
 ```
 
-Burada:
-
-```text
-OPENAI_API_KEY = dəyişənin adı
-your_secret_key = onun gizli dəyəri
-```
-
-Adın dəqiq yazılması vacibdir, çünki proqram sonradan məhz `OPENAI_API_KEY` adlı məlumatı axtaracaq.
-
-## Niyə API key kodun içində saxlanmır?
-
-Pis yanaşma:
-
-```python
-api_key = "real-secret-key"
-```
-
-Belə kod GitHub-a push edilərsə key də yayıla bilər.
-
-Düzgün məntiq:
-
-```text
-.env
- │
- └── OPENAI_API_KEY=secret
-          ↓
-     Python proqramı
-          ↓
-       OpenAI API
-          ↓
-          Model
-```
+Burada `OPENAI_API_KEY` dəyişənin adı, sağ tərəfdəki hissə isə gizli dəyərdir.
 
 Əsas prinsip:
 
@@ -264,43 +147,196 @@ Düzgün məntiq:
 code != secret
 ```
 
-`.env` faylı yaradıldıqdan və key əlavə edildikdən sonra faylın save edilməsi də vacibdir.
+# Step 5 — Cursor Extensions və Jupyter Setup
 
-## Sadə yadda saxlama modeli
+Bu, environment setup-ın son mərhələsidir. Məqsəd Cursor-u Python və Jupyter Notebook-larla işləməyə hazırlamaqdır.
+
+## Python Extension
+
+Cursor-a Python extension quraşdırılır. Bu əlavə Cursor-un Python kodunu daha yaxşı tanımasına, kodun rənglənməsinə və yoxlanmasına kömək edir.
+
+Kursda Cursor/Anysphere və Microsoft tərəfindən təqdim edilən Python extension variantlarının hər ikisinin uyğun olduğu qeyd edilir.
+
+## Jupyter Extension
+
+Sonra Jupyter extension quraşdırılır. Bu extension Cursor daxilində `.ipynb` notebook-larını açmağa və işlətməyə imkan verir.
+
+Extensions quraşdırıldıqdan sonra Explorer-ə qayıdıb ilk notebook açılır:
 
 ```text
-API
-→ Python ilə OpenAI arasında əlaqə yolu
+week1/day1.ipynb
+```
 
-API Key
-→ OpenAI qarşısında proqramın gizli açarı
+## Jupyter Notebook nədir?
 
-.env
-→ həmin gizli məlumatı koddan ayrı saxladığımız fayl
+Jupyter Notebook adi `.py` faylından fərqli olaraq mətn, kod və kodun nəticəsini eyni sənəddə saxlaya bilən interaktiv sənəddir.
 
-OPENAI_API_KEY
-→ .env daxilində API key-in saxlandığı dəyişənin adı
+```text
+Jupyter Notebook
+├── izah / mətn
+├── Python kodu
+├── nəticə
+├── növbəti izah
+└── növbəti kod
+```
+
+Notebook fayllarının uzantısı:
+
+```text
+.ipynb
+```
+
+Kursda bunlara həm notebook, həm də lab deyilə bilər.
+
+## Cell nədir?
+
+Notebook daxilindəki ayrı-ayrı hissələrə `cell` deyilir.
+
+Məsələn bir code cell:
+
+```python
+x = 10
+```
+
+başqa code cell:
+
+```python
+print(x)
+```
+
+ola bilər. Hər code cell ayrıca işlədilə bilər. Buna görə bütün proqramı hər dəfə başdan sona işlətmək məcburiyyətində deyilik.
+
+Bu yanaşma kodu hissə-hissə yoxlamaq və eksperiment aparmaq üçün çox rahatdır.
+
+## Kernel nədir?
+
+Notebook özü kodu işlətmir. Notebook-dakı Python kodunu arxa planda işlədən Python prosesinə `kernel` deyilir.
+
+Sadə məntiq:
+
+```text
+Jupyter Notebook
+      ↓
+Kernel
+      ↓
+Python kodunu işləyir
+      ↓
+Nəticə
+```
+
+Yəni notebook sənəddir, kernel isə həmin sənəddəki kodu həqiqətən işlədən mühərrikdir.
+
+## Niyə `.venv` Kernel seçirik?
+
+Əvvəl `uv sync` vasitəsilə layihəmiz üçün `.venv` yaratmışdıq. Həmin environment-də layihənin Python-u və lazım olan dependency-lər var.
+
+Jupyter Notebook açıldıqda hansı Python environment-in istifadə ediləcəyini seçməliyik:
+
+```text
+Select Kernel
+      ↓
+Python Environments
+      ↓
+.venv / recommended Python
+```
+
+Beləliklə əvvəlki mövzu ilə Step 5 birləşir:
+
+```text
+uv sync
+   ↓
+.venv yaranır
+   ↓
+Python + dependency-lər hazır olur
+   ↓
+Jupyter Notebook açılır
+   ↓
+.venv kernel seçilir
+   ↓
+Notebook həmin layihə mühitində işləyir
+```
+
+Əgər `.venv` kernel siyahısında görünməzsə, kursdakı `setup` qovluğunda olan troubleshooting notebook-dan istifadə etmək lazımdır.
+
+# Notebook-larla necə işləyəcəyik?
+
+Müəllimin yanaşması kodu sadəcə ekrandan kopyalamaq deyil. Məqsəd kodun necə və niyə işlədiyini başa düşməkdir.
+
+Tövsiyə olunan proses:
+
+```text
+İzahı oxu
+ ↓
+Kodu başa düş
+ ↓
+Cell-i işə sal
+ ↓
+Nəticəyə bax
+ ↓
+print əlavə et
+ ↓
+Kodu dəyiş
+ ↓
+Eksperiment apar
+```
+
+Notebook-lar kurs boyunca yenilənə bilən canlı sənədlərdir. Buna görə videodakı məzmunla repository-dəki notebook arasında kiçik fərqlər ola bilər.
+
+# İlk real LLM layihəsi — Web Page Summarizer
+
+Environment setup bitdikdən sonra ilk LLM layihəsinə başlayırıq.
+
+Layihənin məqsədi istifadəçidən web səhifənin URL-ni götürmək, həmin səhifənin məlumatını əldə etmək, GPT modelinə göndərmək və səhifənin xülasəsini yaratmaqdır.
+
+Sadə proses:
+
+```text
+URL
+ ↓
+Web səhifə əldə/scrape edilir
+ ↓
+Lazım olan məzmun çıxarılır
+ ↓
+Python proqramı
+ ↓
+OpenAI API
+ ↓
+GPT modeli
+ ↓
+Xülasə yaradılır
+ ↓
+Formatlanmış nəticə göstərilir
+```
+
+Bu layihə əvvəl öyrəndiyimiz anlayışların bir yerdə işləməyə başladığı ilk praktik nümunədir:
+
+```text
+GitHub repository
+       ↓
+Cursor
+       ↓
+uv
+       ↓
+.venv
+       ↓
+Jupyter Notebook
+       ↓
+Kernel (.venv)
+       ↓
+Python kodu
+       ↓
+OPENAI_API_KEY (.env)
+       ↓
+OpenAI API
+       ↓
+GPT
+       ↓
+Web səhifənin xülasəsi
 ```
 
 # Troubleshooting yanaşması
 
-```text
-Problem
- ↓
-README / rəsmi documentation
- ↓
-Troubleshooting guide
- ↓
-Error-u analiz et
- ↓
-Lazım olsa LLM-dən kömək al
- ↓
-LLM-in təklifini yoxla
- ↓
-Sonra tətbiq et
-```
-
-LLM debugging üçün faydalıdır, amma verdiyi cavab avtomatik doğru qəbul edilməməlidir.
+Problem olduqda əvvəl README/rəsmi documentation və kursun troubleshooting notebook-u yoxlanılır. LLM-dən kömək almaq olar, amma verdiyi təkliflər yoxlanmadan tətbiq edilməməlidir.
 
 # Hazırkı kurs vəziyyəti
 
@@ -323,7 +359,8 @@ STEP 4
                                     ✅
 
 STEP 5
-Final editor/Jupyter setup        ⏭️
+Python/Jupyter extensions + Notebook + Kernel
+                                    ✅
 ```
 
-Hazırda Setup Step 4-ü tamamlamışıq. Növbəti AI dərsində Step 5-dən davam edəcəyik.
+Environment setup tam başa çatıb. Növbəti mərhələ ilk praktik LLM lab-ı — Web Page Summarizer layihəsidir.
