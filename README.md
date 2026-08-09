@@ -85,6 +85,12 @@ ai-engineering-journey/
 - [x] Built-in Functions
 - [x] PEP 8 Basics
 - [x] Functions, Parameters and `return`
+- [x] `pass` and Implicit `None`
+- [x] Passing Immutable Objects to Functions
+- [x] Passing Mutable Objects to Functions
+- [x] Mutation vs Reassignment in Functions
+- [x] Protecting External Mutable Objects with `copy()`
+- [x] Object Identity with `id()`
 - [x] Expressions and Statements
 - [x] Imports and Modules Basics
 - [x] f-Strings Basics
@@ -162,7 +168,7 @@ Build production-level AI Engineering skills while continuously strengthening th
 
 ## Current Topic
 
-- Python object mutation, references, shallow copy, and deep copy completed
+- Python functions: mutable/immutable arguments, references, mutation, reassignment, and defensive copying completed
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering environment setup completed
 - First LLM Project — Web Page Summarizer in progress
