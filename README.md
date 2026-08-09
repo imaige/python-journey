@@ -9,30 +9,34 @@ Python is maintained as the programming foundation, while AI Engineering notes t
 ## Repository Structure
 
 ```text
-notes/
-├── ai/
-│   ├── 01-AI-Engineering-Foundations.md
-│   └── 02-AI-Engineering-AZ.md
-├── python/
-│   ├── 01-Python-OOP.md
-│   ├── 02-Python-Data-Types.md
-│   ├── 03-Python-Built-in-Functions.md
-│   ├── 04-PEP8.md
-│   ├── 05-Functions.md
-│   ├── 06-Expressions-vs-Statements.md
-│   ├── 07-Import.md
-│   ├── 08-Complex.md
-│   ├── 09-Magic-Methods-and-OOP-Basics.md
-│   ├── 10-Booleans.md
-│   ├── 11-Type-Conversion.md
-│   ├── 12-Lists.md
-│   ├── 13-Dictionaries.md
-│   ├── 14-Tuples.md
-│   ├── 15-Sets.md
-│   ├── 16-Range.md
-│   └── 17-Zip.md
-└── git/
-    └── 01-Git-Fundamentals.md
+ai-engineering-journey/
+├── .env.example
+├── .gitignore
+├── notes/
+│   ├── ai/
+│   │   ├── 01-AI-Engineering-Foundations.md
+│   │   └── 02-AI-Engineering-AZ.md
+│   ├── python/
+│   │   ├── 01-Python-OOP.md
+│   │   ├── 02-Python-Data-Types.md
+│   │   ├── 03-Python-Built-in-Functions.md
+│   │   ├── 04-PEP8.md
+│   │   ├── 05-Functions.md
+│   │   ├── 06-Expressions-vs-Statements.md
+│   │   ├── 07-Import.md
+│   │   ├── 08-Complex.md
+│   │   ├── 09-Magic-Methods-and-OOP-Basics.md
+│   │   ├── 10-Booleans.md
+│   │   ├── 11-Type-Conversion.md
+│   │   ├── 12-Lists.md
+│   │   ├── 13-Dictionaries.md
+│   │   ├── 14-Tuples.md
+│   │   ├── 15-Sets.md
+│   │   ├── 16-Range.md
+│   │   └── 17-Zip.md
+│   └── git/
+│       └── 01-Git-Fundamentals.md
+└── README.md
 ```
 
 ## Learning Progress
@@ -183,6 +187,13 @@ Build production-level AI Engineering skills while continuously strengthening th
 - Fine-Tuning
 - Agentic AI
 - Production Deployment
+
+## Repository Safety
+
+- Real API keys and secrets belong in a local `.env` file and must never be committed.
+- `.env`, `.venv`, Python cache files, and Jupyter checkpoints are ignored by Git through `.gitignore`.
+- `.env.example` documents the required environment-variable names without containing real secrets.
+- When a new secret or local-only artifact is introduced, `.gitignore` must be reviewed before committing.
 
 ## Documentation Rule
 
