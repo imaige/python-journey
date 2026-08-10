@@ -91,6 +91,11 @@ ai-engineering-journey/
 - [x] Mutation vs Reassignment in Functions
 - [x] Protecting External Mutable Objects with `copy()`
 - [x] Object Identity with `id()`
+- [x] Positional Arguments
+- [x] Keyword Arguments
+- [x] Variable Positional Arguments with `*args`
+- [x] Variable Keyword Arguments with `**kwargs`
+- [x] Combining Normal Parameters, `*args`, and `**kwargs`
 - [x] Expressions and Statements
 - [x] Imports and Modules Basics
 - [x] f-Strings Basics
@@ -168,7 +173,7 @@ Build production-level AI Engineering skills while continuously strengthening th
 
 ## Current Topic
 
-- Python functions: mutable/immutable arguments, references, mutation, reassignment, and defensive copying completed
+- Python function arguments completed: positional arguments, keyword arguments, `*args`, and `**kwargs`
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering environment setup completed
 - First LLM Project — Web Page Summarizer in progress
