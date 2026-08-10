@@ -166,7 +166,7 @@ ai-engineering-journey/
 - [Python Lists](notes/python/12-Lists.md)
 - [Python Dictionaries](notes/python/13-Dictionaries.md)
 - [Python Tuples](notes/python/14-Tuples.md)
-- [Python Sets](notes/python/15-Python-Sets.md)
+- [Python Sets](notes/python/15-Sets.md)
 - [Python Range](notes/python/16-Range.md)
 - [Python zip](notes/python/17-Zip.md)
 - [Python Object Mutation and Copying](notes/python/18-Object-Mutation-and-Copying.md)
