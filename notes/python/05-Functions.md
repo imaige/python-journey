@@ -297,7 +297,203 @@ The list contents change, but the list object itself remains the same object.
 
 For an immutable value, reassignment usually points the variable to a different object instead of changing the existing one.
 
-## 13. Function Example
+## 13. Positional Arguments
+
+With positional arguments, Python assigns values to parameters according to their order.
+
+```python
+def person(name, age):
+    print(name, age)
+
+
+person("Movsum", 27)
+```
+
+Conceptually:
+
+```text
+1st argument → name
+2nd argument → age
+```
+
+Changing the order changes which parameter receives each value.
+
+```python
+person(27, "Movsum")
+```
+
+Python does not infer the intended meaning. It follows the argument positions.
+
+## 14. Keyword Arguments
+
+Keyword arguments explicitly name the parameter receiving each value.
+
+```python
+person(name="Movsum", age=27)
+```
+
+Because the parameter names are provided, the order can be changed:
+
+```python
+person(age=27, name="Movsum")
+```
+
+Mental model:
+
+```text
+Positional argument → matched by position
+Keyword argument    → matched by parameter name
+```
+
+## 15. Variable Positional Arguments with `*args`
+
+Sometimes a function should accept a variable number of positional arguments.
+
+```python
+def show_numbers(*args):
+    print(args)
+
+
+show_numbers(10, 20, 30)
+# (10, 20, 30)
+```
+
+`*args` collects the extra positional arguments into a tuple.
+
+```text
+10, 20, 30
+     ↓
+   *args
+     ↓
+(10, 20, 30)
+```
+
+The name `args` is conventional, not mandatory. The `*` behavior is what matters.
+
+```python
+def show_numbers(*numbers):
+    print(numbers)
+```
+
+A normal parameter can appear before `*args`:
+
+```python
+def person(name, *args):
+    print(name)
+    print(args)
+
+
+person("Movsum", 27, "Baku", "SOC")
+```
+
+Result:
+
+```text
+name = "Movsum"
+args = (27, "Baku", "SOC")
+```
+
+## 16. Variable Keyword Arguments with `**kwargs`
+
+A function can also accept a variable number of keyword arguments.
+
+```python
+def person(**kwargs):
+    print(kwargs)
+
+
+person(name="Movsum", age=27, city="Baku")
+```
+
+Result:
+
+```python
+{
+    "name": "Movsum",
+    "age": 27,
+    "city": "Baku"
+}
+```
+
+`**kwargs` collects keyword arguments into a dictionary.
+
+```text
+name="Movsum"
+age=27
+city="Baku"
+      ↓
+   **kwargs
+      ↓
+{
+  "name": "Movsum",
+  "age": 27,
+  "city": "Baku"
+}
+```
+
+The name `kwargs` is conventional. The `**` behavior is what matters.
+
+## 17. Using Normal Parameters, `*args`, and `**kwargs` Together
+
+These patterns can be combined in one function.
+
+```python
+def info(name, *args, **kwargs):
+    print(name)
+    print(args)
+    print(kwargs)
+
+
+info(
+    "Movsum",
+    10,
+    20,
+    city="Baku",
+    job="SOC"
+)
+```
+
+Result:
+
+```text
+name = "Movsum"
+args = (10, 20)
+kwargs = {
+    "city": "Baku",
+    "job": "SOC"
+}
+```
+
+The mental model is:
+
+```text
+normal parameter
+→ receives its normal argument
+
+*args
+→ collects remaining positional arguments
+→ tuple
+
+**kwargs
+→ collects remaining keyword arguments
+→ dict
+```
+
+## 18. `*args` vs `**kwargs`
+
+```text
+*args
+→ variable number of positional arguments
+→ collected into a tuple
+
+**kwargs
+→ variable number of keyword arguments
+→ collected into a dictionary
+```
+
+They are useful when a function needs to accept a flexible number of arguments.
+
+## 19. Function Example
 
 ```python
 def calculate_total(price, quantity):
@@ -338,6 +534,15 @@ Need to protect the original mutable object?
 make a copy before mutating it
 ```
 
+Argument patterns:
+
+```text
+Positional argument → matched by order
+Keyword argument    → matched by name
+*args               → extra positional arguments → tuple
+**kwargs             → extra keyword arguments → dict
+```
+
 ## What I Learned
 
 - How to create and call functions with `def`
@@ -354,6 +559,11 @@ make a copy before mutating it
 - Why mutating a shared list inside a function affects the external object
 - How `copy()` can protect an external mutable object
 - How `id()` relates to object identity
+- How positional arguments are matched by order
+- How keyword arguments are matched by parameter name
+- How `*args` collects variable positional arguments into a tuple
+- How `**kwargs` collects variable keyword arguments into a dictionary
+- How normal parameters, `*args`, and `**kwargs` can work together
 
 ## Practice Tasks
 
@@ -364,3 +574,6 @@ make a copy before mutating it
 5. Pass an integer to a function, reassign the parameter, and explain why the external variable does not change.
 6. Pass a list to a function, mutate it with `append()`, and explain why the external list changes.
 7. Repeat the previous task after copying the list inside the function and explain why the original stays unchanged.
+8. Create a function with `*args` and verify that the collected value is a tuple.
+9. Create a function with `**kwargs` and verify that the collected value is a dictionary.
+10. Create a function with a normal parameter, `*args`, and `**kwargs`, then explain which arguments go to each part.
