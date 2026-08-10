@@ -4,7 +4,7 @@
 
 This repository documents my journey from Python fundamentals to production-oriented AI Engineering.
 
-Python is maintained as the programming foundation, while AI Engineering notes track LLMs, APIs, RAG, fine-tuning, agentic AI, tooling, and production concepts.
+Python is maintained as the programming foundation, while AI Engineering notes track LLMs, APIs, local models, RAG, fine-tuning, agentic AI, tooling, and production concepts.
 
 ## Repository Structure
 
@@ -127,16 +127,23 @@ ai-engineering-journey/
 - [x] Python Environments and Dependencies
 - [x] `uv`, `.venv`, and `uv sync`
 - [x] OpenAI API and API Key Basics
+- [x] ChatGPT Billing vs API Billing
 - [x] `.env` and Secret Management
 - [x] Python and Jupyter Cursor Extensions
 - [x] Jupyter Notebook, Cells, and Kernel
 - [x] `.venv` as Jupyter Kernel
-- [x] First Cloud LLM API Call from Python
 - [x] OpenAI Message Structure — List of Dictionaries
-- [x] Web Scraping Helper — Introduction
 - [x] System Prompt vs User Prompt
+- [x] f-String Prompt Construction
+- [x] Web Scraping and BeautifulSoup
+- [x] Local LLM Workflow with Ollama
+- [x] OpenAI-Compatible Local API Client
+- [x] First Successful Local LLM Call from Python
+- [x] LLM Response Handling
+- [x] Jupyter Module Reload and Kernel State
+- [x] Layer-by-Layer API/TLS Troubleshooting
 - [x] Documentation-First Troubleshooting
-- [ ] First LLM Project — Web Page Summarizer
+- [x] First LLM Project — Web Page Summarizer
 
 ## Notes
 
@@ -159,7 +166,7 @@ ai-engineering-journey/
 - [Python Lists](notes/python/12-Lists.md)
 - [Python Dictionaries](notes/python/13-Dictionaries.md)
 - [Python Tuples](notes/python/14-Tuples.md)
-- [Python Sets](notes/python/15-Sets.md)
+- [Python Sets](notes/python/15-Python-Sets.md)
 - [Python Range](notes/python/16-Range.md)
 - [Python zip](notes/python/17-Zip.md)
 - [Python Object Mutation and Copying](notes/python/18-Object-Mutation-and-Copying.md)
@@ -176,8 +183,9 @@ Build production-level AI Engineering skills while continuously strengthening th
 - Python function arguments completed: positional arguments, keyword arguments, `*args`, and `**kwargs`
 - Python fundamentals continue using the existing learning workflow
 - AI Engineering environment setup completed
-- First LLM Project — Web Page Summarizer in progress
-- Current AI concepts: first API call, OpenAI message structure, system prompt, user prompt, and website content flow
+- First LLM Project — Web Page Summarizer completed
+- Local LLM execution with Ollama completed
+- Current AI concepts: web scraping, prompt construction, OpenAI-compatible model interfaces, local inference, response handling, and layered troubleshooting
 
 ## Upcoming Topics
 
@@ -195,10 +203,8 @@ Build production-level AI Engineering skills while continuously strengthening th
 - Advanced OOP
 
 ### AI Engineering
-- Complete Web Page Summarizer
+- Continue Week 1 after the Web Page Summarizer
 - Prompt Construction in Practice
-- LLM Responses and Output Handling
-- Local LLM Workflow with Ollama
 - Frontier Models
 - Transformers Intuition
 - RAG
@@ -211,6 +217,7 @@ Build production-level AI Engineering skills while continuously strengthening th
 - Real API keys and secrets belong in a local `.env` file and must never be committed.
 - `.env`, `.venv`, Python cache files, and Jupyter checkpoints are ignored by Git through `.gitignore`.
 - `.env.example` documents the required environment-variable names without containing real secrets.
+- Environment-specific security infrastructure details should not be committed to learning notes; document only general troubleshooting lessons.
 - When a new secret or local-only artifact is introduced, `.gitignore` must be reviewed before committing.
 
 ## Documentation Rule
