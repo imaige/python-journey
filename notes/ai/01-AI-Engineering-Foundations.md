@@ -2,39 +2,54 @@
 
 ## Course Context
 
-The AI Engineering course has started. The current material introduces the LLM engineering landscape, local model execution, the course roadmap, and the development environment used for the upcoming labs.
-
-The AI course workflow is different from the Python workflow: course transcripts are explained first, then understanding is checked with questions, and GitHub notes are updated when the user asks.
+This repository tracks the AI/LLM Engineering course from foundations toward production-oriented AI systems. The learning workflow is explanation first, then practical experimentation, then GitHub documentation after the topic is understood.
 
 ## Large Language Models (LLMs)
 
 An LLM is a large language model trained to work with natural language. It receives text input and generates text output based on learned language patterns.
 
-Examples of LLM use cases include question answering, tutoring, coding assistance, summarization, conversational applications, and commercial AI products.
+Typical use cases include:
+
+- question answering
+- tutoring
+- coding assistance
+- summarization
+- conversational applications
+- commercial AI products
 
 ## Cloud LLM vs Local LLM
 
-A cloud-hosted model runs on remote infrastructure, while a local LLM is downloaded and executed on the user's own computer. Local execution uses local CPU/GPU and RAM/VRAM resources.
+A cloud LLM runs on remote infrastructure and is accessed over an API. A local LLM runs on the user's own computer and uses local CPU/GPU and RAM/VRAM resources.
+
+```text
+Cloud LLM
+Python → Internet/API → Remote model → Response
+
+Local LLM
+Python → localhost → Local model → Response
+```
 
 ## Ollama
 
-Ollama is a tool used to download, run, and interact with supported language models locally. Ollama is not itself the LLM.
+Ollama is a tool for downloading, running, and interacting with supported language models locally. Ollama is not itself the model.
 
 ```bash
 ollama run MODEL_NAME
 ```
 
+A local model can also be exposed through Ollama's local HTTP API.
+
 ## Model Size and Parameters
 
-Model sizes may be written as `270M`, `3B`, or `20B`, representing millions or billions of learned parameters. Larger models generally require more compute and memory, but the biggest model is not automatically the best model for every task.
+Model sizes may be written as `270M`, `3B`, or `20B`, representing millions or billions of learned parameters. Larger models usually require more compute and memory, but the biggest model is not automatically the best model for every task.
 
-## LLM Applications and Roles
+## Frontier Models and Open Models
 
-An LLM can be instructed to behave according to a role and goal, such as acting as a beginner Spanish tutor. This illustrates the transition from simply using an LLM to building an application around an LLM.
+A frontier model is at or near the leading edge of current AI capability. Open models can often be downloaded and run locally or on self-managed infrastructure.
 
 ## Reasoning / Thinking Models
 
-Some models are optimized to spend more computation on multi-step reasoning for tasks such as planning, calculations, technical analysis, and structured problem solving.
+Some models are optimized to spend more computation on multi-step reasoning for planning, calculations, technical analysis, and structured problem solving.
 
 ## Eight-Week LLM Engineering Roadmap
 
@@ -49,116 +64,89 @@ Week 7  → Fine-Tuning an Open Model
 Week 8  → Agentic AI
 ```
 
-## Frontier Models and Open Models
-
-A frontier model is at or near the leading edge of current AI capability. Open models can often be downloaded and run on local or self-managed infrastructure.
-
 ## RAG and Fine-Tuning
 
-RAG retrieves relevant external information at request time and provides it to the model as context. Fine-tuning further trains a model on additional examples or data. They are different techniques.
+RAG retrieves relevant external information at request time and provides it to the model as context. Fine-tuning further trains a model on additional examples or data. They solve different problems and are not interchangeable concepts.
 
 ## Agentic AI
 
 Agentic systems can move beyond a single prompt-response interaction by planning, using tools, inspecting results, and choosing subsequent actions.
 
-## AI Engineering Course Tracks
+## AI Engineering Course Tracks and Tooling
 
-The curriculum introduced AI Builder, AI Coder, AI Leader, AI Engineer Core Track, AI Engineer Agentic Track, and AI Engineer Production Track.
+The course introduced AI Builder, AI Coder, AI Leader, AI Engineer Core Track, AI Engineer Agentic Track, and AI Engineer Production Track.
 
-## AI Engineering Tooling Introduced
+Future tooling introduced by name includes Hugging Face, Gradio, LangChain, Weights & Biases, and Modal.
 
-Future tools mentioned include Hugging Face, Gradio, LangChain, Weights & Biases, and Modal. These have only been introduced by name so far.
+# Development Environment
 
-## Development Environment
+A working AI project depends on more than source code. The environment includes:
 
-The development environment includes the project files, Git repository, IDE/editor, Python environment, dependencies, API keys, and environment variables.
+- project files
+- Git repository
+- IDE/editor
+- Python environment
+- dependencies
+- API keys
+- environment variables
+- notebook kernel
 
 ## Git Clone and Project Root
 
-`git clone` creates a local copy of a Git repository, including project files and Git metadata. The project root is the top-level directory containing the complete project.
+`git clone` creates a local copy of a Git repository, including its project files and Git metadata. The project root is the top-level directory containing the complete project.
 
-## Cursor and Explorer
+## Cursor, Explorer, Markdown, and Terminal
 
-Cursor is the editor recommended by the course, although other IDEs can be used. If repository files are not visible in Cursor, `View → Explorer` opens the Explorer panel.
+Cursor is the editor used by the course. `View → Explorer` opens the file explorer when repository files are not visible.
 
-## Markdown and README Preview
+Markdown files such as `README.md` can be opened as source or rendered with Preview.
 
-The course repository contains `README.md` and guides locally after cloning. Markdown is a lightweight formatted-text syntax used by `.md` files.
-
-In Cursor, a Markdown file can be opened normally to see its source syntax or opened with `Open Preview` to see the rendered formatting. Because the repository was cloned, the README and guides can be read locally without returning to the GitHub website for each instruction.
-
-## Cursor Integrated Terminal
-
-Cursor includes an integrated terminal. The course demonstrates opening it with:
+Cursor also has an integrated terminal. The course demonstrates opening it with:
 
 ```text
 Ctrl + `
 ```
 
-Multiple terminals can be opened. This lets project commands run directly inside the editor while the current working directory is the project.
-
 ## Dependency
 
-A dependency is an external package required by a project. Examples in an AI/Python project may include packages such as `openai`, `pandas`, `transformers`, or `gradio`.
+A dependency is an external package required by a project, such as `openai`, `pandas`, `transformers`, or `gradio`.
 
-## Virtual Environment
+## Virtual Environment and `.venv`
 
-A virtual environment is an isolated Python environment for one project. It prevents different projects from unnecessarily sharing and conflicting over the same installed package versions.
+A virtual environment isolates a project's Python interpreter and installed packages from other projects.
 
 ```text
 Project A → environment A
 Project B → environment B
 ```
 
-In this course, the project environment is created in a `.venv` directory.
+In this course the environment lives in a `.venv` directory.
 
 ## `uv`
 
-The course uses `uv` to manage the Python environment and project dependencies. It replaces the Anaconda-based setup used in an earlier version of the course.
-
-```text
-Project requirements
-        ↓
-       uv
-        ↓
-Python environment + dependencies
-```
-
-### Check `uv`
+The course uses `uv` to manage the Python environment and project dependencies.
 
 ```bash
 uv --version
-```
-
-This checks whether `uv` is installed and available to the current terminal. After installing `uv`, a new terminal may need to be opened so environment/PATH changes are picked up.
-
-### Update `uv`
-
-```bash
 uv self update
-```
-
-This updates `uv` itself.
-
-### Synchronize the Project Environment
-
-```bash
 uv sync
 ```
 
-`uv sync` synchronizes the project's environment with its dependencies and configuration. The project-specific `.venv` virtual environment is created and required packages are installed/downloaded as needed.
+`uv sync` synchronizes the project environment from project metadata and lock information when available, creating or updating `.venv` and installing the required dependencies.
 
 ```text
 dependency → package the project needs
 virtual environment → isolated environment for the project
 .venv → directory containing that environment
-uv → tool managing the environment and dependencies
-uv sync → command that builds/synchronizes the environment
+uv → project/package/environment manager
+uv sync → synchronizes the environment with project requirements
 ```
 
-## Step 3 — OpenAI API and API Key
+# OpenAI API and Secret Management
 
-ChatGPT and the OpenAI API are not the same product interface. ChatGPT is an end-user application, while the API lets software communicate programmatically with OpenAI models.
+## ChatGPT vs OpenAI API
+
+ChatGPT and the OpenAI API are separate product interfaces. ChatGPT is an end-user application, while the API lets software communicate programmatically with OpenAI models.
 
 ```text
 Python application
@@ -170,45 +158,55 @@ Model
 Response
 ```
 
-An API is an interface that allows software systems to communicate. An API key is a secret credential used by an application to authenticate with an API service and associate requests with the relevant account/project.
+An API key is a secret credential used to authenticate API requests and associate them with the relevant account/project.
 
-API keys must be treated as secrets. They should not be shared publicly, hard-coded into source code, or committed to GitHub.
+API keys must not be hard-coded into source code or committed to GitHub.
 
-## Step 4 — `.env` and Secret Management
+## API Billing Is Separate
 
-A `.env` file is used to keep secret/configuration values separate from application source code. For this project it belongs in the project root.
+ChatGPT subscription billing and API billing are separate. A ChatGPT subscription does not automatically provide API credits.
+
+A request can therefore have a valid API key but still fail later because the API account has no remaining credit or quota.
+
+Conceptual request stages:
+
+```text
+DNS
+ ↓
+TCP connection
+ ↓
+TLS handshake
+ ↓
+HTTP request
+ ↓
+API authentication
+ ↓
+quota / billing checks
+ ↓
+model execution
+```
+
+This distinction is useful during troubleshooting because a TLS failure happens before billing or model execution is reached.
+
+## `.env`
+
+A `.env` file keeps secrets and configuration values separate from application source code.
 
 ```env
 OPENAI_API_KEY=your_secret_key
 ```
 
-The exact variable name matters because application code later looks up that specific name. The key principle is:
+Core principle:
 
 ```text
 code != secret
 ```
 
-## Step 5 — Cursor Extensions and Jupyter Setup
+# Jupyter Notebook Setup
 
-The final environment setup step prepares Cursor to work with Python and Jupyter notebooks.
+## Jupyter Notebook (`.ipynb`)
 
-### Python Extension
-
-A Python extension is installed in Cursor so the editor can properly support Python code, including syntax highlighting and code checking. The course notes that either the Cursor/Anysphere Python extension or Microsoft's Python extension can be used.
-
-### Jupyter Extension
-
-The Jupyter extension is also installed. It enables interactive Jupyter notebook support inside Cursor.
-
-After installation, the Explorer is reopened and the first notebook is opened from the Week 1 directory:
-
-```text
-week1/day1.ipynb
-```
-
-### Jupyter Notebook (`.ipynb`)
-
-A Jupyter Notebook is an interactive document that can contain both formatted explanatory text and executable code.
+A Jupyter Notebook is an interactive document containing explanatory text, executable code, and outputs.
 
 ```text
 Notebook
@@ -219,15 +217,19 @@ Notebook
 └── another code cell
 ```
 
-Notebook files use the `.ipynb` extension. The course also refers to these notebooks as labs.
+## Cell
 
-### Cell
+A notebook is divided into cells. Code cells can be executed independently.
 
-A notebook is divided into individual sections called cells. Code cells can be executed separately instead of running the entire document at once. This makes experimentation and incremental learning easier.
+```text
+Shift + Enter
+```
 
-### Kernel
+executes the current cell.
 
-The kernel is the Python process running behind the notebook and executing its code.
+## Kernel
+
+The kernel is the Python process running behind the notebook and executing code.
 
 ```text
 Jupyter Notebook
@@ -239,190 +241,126 @@ Python executes code
      Output
 ```
 
-### Selecting the Project Environment as the Kernel
+The selected kernel should point to the project's `.venv` environment so the notebook uses the correct Python interpreter and dependencies.
 
-The notebook must use the Python environment created for this project. In Cursor:
+## Imported Modules and Kernel State
+
+A Jupyter kernel keeps imported modules in memory. If a `.py` module is edited after it was imported, the notebook may still use the old version until the module is reloaded or the kernel is restarted.
+
+Example:
+
+```python
+import importlib
+import scraper
+
+importlib.reload(scraper)
+```
+
+This is an important notebook debugging concept: editing a source file does not automatically guarantee that the running kernel is using the new code.
+
+# First LLM Project — Web Page Summarizer
+
+The first practical LLM application accepts a website URL, retrieves the page content, extracts useful text, builds prompts, sends that text to an LLM, and displays a summary.
+
+Final conceptual flow:
 
 ```text
-Select Kernel
+Website URL
+    ↓
+Retrieve HTML
+    ↓
+BeautifulSoup parsing / cleanup
+    ↓
+Website text
+    ↓
+Prompt construction
+    ↓
+LLM inference
+    ↓
+Summary
+```
+
+A useful engineering decomposition is:
+
+```text
+Data acquisition
+      +
+Prompt construction
+      +
+LLM inference
+      =
+AI application
+```
+
+## Web Scraping Is Not AI
+
+The scraper retrieves and cleans website content. That part is ordinary software engineering, not AI.
+
+```text
+Website → scraper → text
+```
+
+The LLM becomes involved after the extracted text is provided as model input:
+
+```text
+text → LLM → summary
+```
+
+The model did not browse the website by itself in this project. The program retrieved the data first and explicitly supplied it to the model.
+
+## BeautifulSoup
+
+BeautifulSoup parses the returned HTML. The helper removes irrelevant page elements such as scripts and styles, extracts visible text, and sends a limited amount of content onward for summarization.
+
+## Restricted TLS Environments — General Lesson
+
+Python HTTPS clients may reject a connection when a local security product, proxy, or TLS inspection layer presents a certificate that does not satisfy Python/OpenSSL's active security policy.
+
+The important troubleshooting lesson is to identify the failing layer instead of immediately disabling certificate verification.
+
+```text
+Application code
       ↓
-Python Environments
+HTTP client
       ↓
-.venv / recommended project Python
+TLS layer
+      ↓
+Network / inspection layer
+      ↓
+Remote service
 ```
 
-The selected environment should point to the project's `.venv` Python installation. This connects the environment created earlier by `uv sync` with the Jupyter notebook:
+A successful request through one OS-native client does not automatically prove that a different Python TLS stack will accept the same connection.
 
-```text
-uv sync
-   ↓
-.venv
-   ↓
-project Python + dependencies
-   ↓
-Jupyter kernel selection
-   ↓
-Notebook runs inside that environment
+For the course lab, an OS-native `curl.exe` transport was used to retrieve public HTML while keeping the parsing logic in Python. This was a local environment workaround, not a change to the conceptual web-scraping architecture.
+
+Example helper:
+
+```python
+import subprocess
+
+
+def fetch_html(url):
+    result = subprocess.run(
+        ["curl.exe", "-L", "-sS", url],
+        capture_output=True,
+        check=True,
+    )
+    return result.stdout
 ```
 
-If the expected `.venv` environment does not appear as a kernel option, the course directs students to the troubleshooting notebook in the `setup` folder.
+Then BeautifulSoup continues normally:
 
-## How the Labs Are Intended to Be Used
-
-The notebooks are designed as interactive learning documents rather than material to copy mechanically. The recommended workflow is to read the explanations, run the code, add print statements, modify examples, experiment, and create variations.
-
-The course notebooks are living documents and may be updated over time with newer models, explanations, and material.
-
-## First LLM Project — Web Page Summarizer
-
-With the setup complete, the first LLM project begins. The goal is to build a small application that accepts a web address/URL, retrieves or scrapes the web page, sends relevant content to an underlying GPT model through an API call, and displays a formatted summary.
-
-Conceptual flow:
-
-```text
-URL
- ↓
-Retrieve/scrape web page
- ↓
-Extract relevant content
- ↓
-Python application
- ↓
-OpenAI API
- ↓
-GPT model
- ↓
-Generated summary
- ↓
-Formatted result
+```python
+html = fetch_html(url)
+soup = BeautifulSoup(html, "html.parser")
 ```
 
-This is the first point where the environment setup components begin working together in a real LLM application.
-
-## Running Notebook Cells
-
-A Jupyter code cell is executed with:
-
-```text
-Shift + Enter
-```
-
-If imports fail or the cell appears stuck, the first thing to verify is that the notebook kernel points to the local project `.venv` Python environment.
-
-## Loading `.env` and Reading the API Key
-
-The notebook loads the project's `.env` file and reads the `OPENAI_API_KEY` environment variable. This is the practical use of the secret-management setup completed earlier.
-
-```text
-.env
- ↓
-OPENAI_API_KEY
- ↓
-Python notebook
- ↓
-OpenAI API
-```
-
-If the key is not found, likely checks include the `.env` filename and location, the exact variable name, whether the file was saved, and whether the notebook is running from the expected project environment.
+# Prompt Construction
 
 ## OpenAI Message Structure — List of Dictionaries
 
-The course introduces the message structure expected by the Chat Completions API. A simple user message is represented as a Python list containing a dictionary:
-
-```python
-message = "Hello GPT, this is my first ever message to you. Hi."
-
-messages = [
-    {
-        "role": "user",
-        "content": message
-    }
-]
-```
-
-This connects Python fundamentals directly to LLM Engineering:
-
-```text
-messages → list
-    ↓
-item → dictionary
-    ↓
-role/content → keys
-user/message → values
-```
-
-## First LLM API Call from Python
-
-The course creates an OpenAI client object and makes the first request to a cloud GPT model using the Chat Completions API. The exact syntax will be revisited later, so the important idea at this stage is the flow:
-
-```text
-Prepare message
-      ↓
-Put it into OpenAI message format
-      ↓
-Send API request
-      ↓
-Cloud model processes it
-      ↓
-Receive response
-      ↓
-Read response content in Python
-```
-
-This is the first real LLM call executed directly from Python code rather than through the ChatGPT product interface.
-
-## Web Scraping Before AI
-
-The course provides a helper function called `fetch_website_contents()` in `scraper.py`. It uses BeautifulSoup to perform a simple server-side fetch/scrape of a web page.
-
-Important distinction:
-
-```text
-web scraping
-→ retrieves website content
-→ not AI by itself
-```
-
-AI becomes involved when the extracted website content is later sent to the LLM for summarization.
-
-## System Prompt and User Prompt
-
-Two prompt roles are introduced.
-
-### System Prompt
-
-The system prompt defines the overall behavior, task, context, tone, or response format expected from the model.
-
-Example intent:
-
-```text
-You analyze website contents.
-Provide a short summary.
-Ignore navigation-related text.
-Respond in Markdown.
-```
-
-A useful mental model is:
-
-```text
-system prompt
-→ Who are you?
-→ What is your overall task?
-→ How should you behave/respond?
-```
-
-### User Prompt
-
-The user prompt is the concrete request from the end user that the model should answer within the framework established by the system prompt.
-
-```text
-user prompt
-→ What do I want you to do right now?
-```
-
-## Multiple Messages — System + User
-
-The message list can contain multiple dictionaries, each with its own role and content:
+Chat-style model input is represented as a Python list containing dictionaries:
 
 ```python
 messages = [
@@ -437,50 +375,205 @@ messages = [
 ]
 ```
 
-Conceptually:
+This connects Python fundamentals directly to LLM Engineering:
 
 ```text
-messages = list
-│
-├── dictionary 1
-│   ├── role → system
-│   └── content → system prompt
-│
-└── dictionary 2
-    ├── role → user
-    └── content → user prompt
+messages → list
+    ↓
+item → dictionary
+    ↓
+role/content → keys
 ```
 
-## Why the System Prompt Matters
+## System Prompt
 
-The course demonstrates that the same user question can produce different tone and behavior when the system prompt changes.
+The system prompt defines the model's overall behavior, task, context, tone, or response format.
 
 ```text
-Same user prompt
-       +
-Different system prompt
-       ↓
-Different tone / character / behavior
+System Prompt
+→ Who are you?
+→ What is your overall task?
+→ How should you behave?
+→ How should the answer be formatted?
 ```
 
-For example, changing the system instruction from a helpful assistant to a snarky assistant changes the style of the answer while the user's question stays the same.
+## User Prompt
 
-This introduces a core prompting principle: the system message frames the model's mission and behavior, while the user message provides the immediate task.
+The user prompt contains the concrete request for the current interaction.
 
-## Troubleshooting Principles
+```text
+User Prompt
+→ What should you do right now?
+```
 
-The course emphasizes a documentation-first workflow: check the project README/setup documentation and troubleshooting guides, analyze the actual error, and use LLM assistance carefully while verifying suggestions before applying them.
+Changing the system prompt while keeping the user prompt the same can change the model's tone, style, focus, and behavior.
 
-## Current Course Status
+## f-Strings in Prompt Construction
+
+Python f-strings let application data be inserted directly into a prompt.
+
+```python
+user_prompt = f"""
+Please summarize this website:
+
+{website_text}
+"""
+```
+
+The expression inside `{...}` is replaced by the current Python value before the prompt is sent to the model.
+
+# LLM Calls and Responses
+
+## Cloud Client Concept
+
+A normal cloud OpenAI client uses the OpenAI API endpoint and a real API key.
+
+```python
+from openai import OpenAI
+
+openai = OpenAI()
+```
+
+The course introduced the cloud API call syntax, but successful model execution in the current lab environment was completed through a local OpenAI-compatible Ollama endpoint.
+
+## Local Ollama Through the OpenAI Python Client
+
+Ollama exposes an OpenAI-compatible local endpoint. This means the same `openai` Python package and familiar message structure can be reused while the model runs locally.
+
+```python
+from openai import OpenAI
+
+local_ai = OpenAI(
+    base_url="http://localhost:11434/v1/",
+    api_key="ollama"
+)
+```
+
+The key idea is the `base_url`:
+
+```text
+Default cloud client
+Python → api.openai.com → cloud model
+
+Local client
+Python → localhost:11434 → Ollama → local model
+```
+
+The local `api_key="ollama"` is only a placeholder required by the client interface. The local Ollama server does not use it as a real OpenAI secret.
+
+## First Successful Local LLM Call
+
+A local model call uses the same chat-completion structure:
+
+```python
+response = local_ai.chat.completions.create(
+    model="gpt-oss:latest",
+    messages=messages
+)
+```
+
+This successfully demonstrated:
+
+- Python calling an LLM programmatically
+- an OpenAI-compatible client interface
+- local model inference through Ollama
+- system and user messages
+- response handling
+
+## Reading the Model Response
+
+The generated text is retrieved from:
+
+```python
+response.choices[0].message.content
+```
+
+Mental model:
+
+```text
+response
+   ↓
+choices
+   ↓
+[0]
+   ↓
+message
+   ↓
+content
+```
+
+# Completed Web Page Summarizer
+
+The final project flow now works end to end:
+
+```text
+Website
+   ↓
+OS-native HTTP retrieval
+   ↓
+BeautifulSoup
+   ↓
+clean website text
+   ↓
+f-string user prompt
+   ↓
+system + user messages
+   ↓
+local OpenAI-compatible client
+   ↓
+Ollama
+   ↓
+gpt-oss
+   ↓
+summary
+```
+
+The practical lesson is bigger than the specific model or provider. The application consists of replaceable layers:
+
+```text
+Data source
+   ↓
+Data retrieval
+   ↓
+Data preparation
+   ↓
+Prompt
+   ↓
+Model interface
+   ↓
+Model
+   ↓
+Output handling
+```
+
+A cloud provider or a local model can be swapped while much of the surrounding application logic remains the same.
+
+# Troubleshooting Principles Learned
+
+1. Read the exact exception instead of guessing.
+2. Identify which layer failed: DNS, TCP, TLS, authentication, billing, model access, or application code.
+3. A connection error is different from a billing/quota error.
+4. Avoid disabling TLS verification as a first response.
+5. Compare clients and TLS stacks when behavior differs between terminal tools and Python.
+6. Remember that Jupyter kernels cache imports and state.
+7. Verify each fix with one small test before changing more code.
+
+# Current Course Status
 
 ```text
 Environment setup                                      ✅
-First notebook and .venv kernel                        ✅
-.env loaded and API key detected                       ✅
-First cloud LLM API call from Python                   ✅
-Web scraping helper introduced                         ✅
-System prompt vs user prompt introduced                ✅
-Web Page Summarizer implementation                     in progress
+Jupyter Notebook and .venv kernel                      ✅
+.env and API key concepts                              ✅
+OpenAI API request flow                                ✅
+API billing vs ChatGPT billing distinction             ✅
+OpenAI message structure                               ✅
+System prompt vs user prompt                           ✅
+f-string prompt construction                           ✅
+Web scraping and BeautifulSoup                         ✅
+Local LLM workflow with Ollama                         ✅
+OpenAI-compatible local client                         ✅
+Jupyter module reload / kernel-state lesson            ✅
+Web Page Summarizer                                    ✅
 ```
 
-The course is now inside the first hands-on LLM project and is moving from environment setup into prompt construction and web-page summarization logic.
+The next course material can now continue beyond the first working LLM application.
