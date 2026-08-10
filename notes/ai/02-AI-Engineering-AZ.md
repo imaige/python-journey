@@ -1,24 +1,89 @@
 # AI Engineering — Azərbaycan dilində qeydlər
 
-Bu fayl AI/LLM Engineering kursunda keçilən mövzuların Azərbaycan dilində izahlı qeydləridir. Məqsəd terminləri sadəcə sadalamaq yox, onların məntiqini başa düşməkdir.
+Bu fayl AI/LLM Engineering kursunda keçilən mövzuların Azərbaycan dilində izahlı qeydləridir. Məqsəd terminləri sadəcə yadda saxlamaq yox, onların nə olduğunu, niyə istifadə edildiyini və sistemdə nəyə təsir etdiyini başa düşməkdir.
 
-## LLM və model anlayışları
+# LLM və əsas model anlayışları
 
-LLM — Large Language Model, yəni böyük dil modelidir. Mətn qəbul edir və öyrəndiyi dil nümunələrinə əsasən cavab yaradır. LLM-lər sual-cavab, kodlaşdırma, xülasə, tutor və kommersiya AI tətbiqlərində istifadə edilə bilər.
+## LLM nədir?
 
-Cloud LLM uzaqdakı serverdə işləyir. Local LLM isə lokal kompüterin CPU/GPU və RAM/VRAM resurslarından istifadə edə bilər.
+LLM — Large Language Model, yəni böyük dil modelidir. Mətn qəbul edir və öyrəndiyi dil nümunələrinə əsasən yeni mətn yaradır.
 
-Ollama model deyil. Lokal LLM-ləri yükləmək və işlətmək üçün istifadə olunan alətdir.
+İstifadə sahələri:
+
+- sual-cavab
+- kodlaşdırma
+- tutor sistemi
+- mətn xülasəsi
+- chatbot
+- kommersiya AI tətbiqləri
+
+## Cloud LLM və Local LLM
+
+Cloud LLM uzaqdakı serverdə işləyir:
+
+```text
+Python
+  ↓
+Internet / API
+  ↓
+Cloud model
+  ↓
+Cavab
+```
+
+Local LLM isə bizim kompüterdə işləyir:
+
+```text
+Python
+  ↓
+localhost
+  ↓
+Local model
+  ↓
+Cavab
+```
+
+Local model CPU/GPU və RAM/VRAM resurslarını bizim kompüterdən istifadə edir.
+
+## Ollama nədir?
+
+Ollama model deyil. Lokal LLM-ləri yükləmək, işə salmaq və onlarla API vasitəsilə danışmaq üçün istifadə olunan alətdir.
 
 ```bash
 ollama run MODEL_NAME
 ```
 
-`270M`, `3B`, `20B` kimi yazılışlar parametr sayını göstərir. Böyük model adətən daha çox resurs tələb edir, amma ən böyük model hər tapşırıq üçün avtomatik ən yaxşı seçim deyil.
+Məsələn kurs praktikası üçün lokal `gpt-oss` modeli işlədildi.
 
-Frontier model hazırkı AI imkanlarının ön sıralarında olan güclü modeldir. Open model-lər çox vaxt lokal və ya öz infrastrukturumuzda işlədilə bilər. Reasoning/Thinking modelləri çoxmərhələli problem, planlaşdırma, hesablama və texniki analiz kimi tapşırıqlara optimallaşdırıla bilər.
+## Model ölçüsü və parameter sayı
 
-## Kursun 8 həftəlik istiqaməti
+`270M`, `3B`, `20B` kimi yazılışlar təxminən modelin parametr sayını bildirir.
+
+```text
+M → million
+B → billion
+```
+
+Böyük model adətən daha çox resurs tələb edir, amma böyük model avtomatik olaraq hər tapşırıq üçün ən yaxşı model demək deyil.
+
+## Frontier və Open model
+
+Frontier model hazırkı AI imkanlarının ön sıralarında olan güclü modeldir.
+
+Open model-lər isə çox vaxt yüklənib lokal və ya şəxsi infrastrukturda işlədilə bilər.
+
+## Reasoning / Thinking model
+
+Reasoning model birbaşa cavab vermək əvəzinə daha çox daxili hesablama və çoxmərhələli problem həlli üçün optimallaşdırıla bilər.
+
+Məsələn:
+
+- planlaşdırma
+- texniki analiz
+- riyazi problemlər
+- çox addımlı qərarlar
+
+# Kursun 8 həftəlik istiqaməti
 
 ```text
 Week 1  → Foundations
@@ -31,71 +96,134 @@ Week 7  → Open Model Fine-Tuning
 Week 8  → Agentic AI
 ```
 
-RAG xarici məlumatı sorğu zamanı tapıb LLM-ə kontekst kimi verir. Fine-tuning isə modeli əlavə nümunələr üzərində yenidən təlim edərək uyğunlaşdırır. Bunlar eyni şey deyil.
+## RAG və Fine-Tuning fərqi
 
-Agentic sistem sadə `Sual → LLM → Cavab` axınından daha irəli gedərək plan qura, tool istifadə edə, nəticəni yoxlaya və növbəti addımı seçə bilər.
+RAG xarici məlumatı sorğu zamanı tapıb modelə əlavə context kimi verir.
 
-Kursda AI Builder, AI Coder, AI Leader, AI Engineer Core, AI Engineer Agentic və AI Engineer Production track-ləri təqdim edildi. Hugging Face, Gradio, LangChain, Weights & Biases və Modal kimi alətlərin də gələcəkdə istifadə ediləcəyi qeyd olunub, amma onları hələ dərindən keçməmişik.
+Fine-tuning isə modelin özünü əlavə nümunələrlə yenidən öyrətməkdir.
+
+```text
+RAG
+→ məlumatı modelə request zamanı gətirir
+
+Fine-Tuning
+→ modelin davranışını əlavə training ilə dəyişir
+```
+
+Bunlar eyni şey deyil.
+
+## Agentic AI
+
+Agentic sistem sadə:
+
+```text
+Sual → Model → Cavab
+```
+
+axınından daha irəli gedə bilər.
+
+Agent:
+
+- plan qura bilər
+- tool istifadə edə bilər
+- nəticəni yoxlaya bilər
+- növbəti addımı seçə bilər
 
 # Development Environment
 
-AI layihəsinin işləməsi üçün təkcə kod kifayət etmir. Layihə faylları, Git, IDE, Python environment, dependency-lər, API key-lər və environment variable-lar birlikdə düzgün qurulmalıdır.
+AI layihəsinin işləməsi üçün təkcə Python kodu kifayət etmir.
+
+```text
+Project files
+Git
+IDE
+Python
+Dependencies
+Virtual Environment
+API keys
+Environment Variables
+Jupyter Kernel
+```
+
+hamısı birlikdə düzgün işləməlidir.
 
 ## Git Clone və Project Root
 
-`git clone` GitHub repository-sini faylları və Git metadata-sı ilə birlikdə lokal kompüterə gətirir.
+`git clone` GitHub repository-sini lokal kompüterə gətirir.
 
-Project root layihənin ən yuxarı əsas qovluğudur:
-
-```text
-llm_engineering/   ← project root
-├── week1/
-├── week2/
-├── README.md
-└── digər layihə faylları
-```
-
-Cursor-da məhz project root açılmalıdır.
-
-## Cursor Explorer, Markdown və README
-
-Cursor-un sol tərəfində repository faylları görünmürsə `View → Explorer` seçilir.
-
-`README.md` Markdown formatında yazılmış fayldır. Cursor-da `.md` faylını adi açdıqda Markdown mənbəyini, `Open Preview` etdikdə isə formatlanmış görünüşünü görürük.
-
-## Cursor Terminal
-
-Cursor-un öz daxilində terminal var. Kursda shortcut belə göstərildi:
-
-```text
-Ctrl + `
-```
-
-Buradakı işarə backtick-dir. Birdən çox terminal açmaq mümkündür.
-
-# Step 2 — `uv` və Python Environment
-
-## Dependency nədir?
-
-Dependency layihənin işləmək üçün ehtiyac duyduğu əlavə package/library-dir. Məsələn `openai`, `pandas`, `transformers` və `gradio`.
-
-## Virtual Environment və `.venv`
-
-Fərqli Python layihələri fərqli package versiyaları tələb edə bilər. Ona görə hər layihəyə ayrıca izolyasiya olunmuş Python mühiti yaradırıq. Buna virtual environment deyilir.
-
-Bu kursda həmin environment `.venv` qovluğunda yerləşir.
+Project root isə layihənin əsas üst qovluğudur.
 
 ```text
 llm_engineering/
 ├── week1/
 ├── week2/
 ├── README.md
-└── .venv/
+└── digər fayllar
 ```
 
-## `uv`
+Cursor-da bütün layihə ilə işləmək üçün project root açılır.
 
-`uv` Python environment və dependency-ləri idarə etmək üçün istifadə olunan alətdir.
+## Cursor, Explorer və Markdown
+
+Cursor kursda istifadə olunan IDE/editor-dur.
+
+Repository faylları görünmürsə:
+
+```text
+View → Explorer
+```
+
+istifadə olunur.
+
+`README.md` Markdown faylıdır. Onu source kimi və ya `Open Preview` ilə formatlanmış formada görmək olar.
+
+## Cursor terminal
+
+Cursor daxilində ayrıca terminal mövcuddur.
+
+```text
+Ctrl + `
+```
+
+ilə açıla bilər.
+
+# `uv`, dependency və `.venv`
+
+## Dependency nədir?
+
+Dependency layihənin ehtiyac duyduğu xarici package/library-dir.
+
+Məsələn:
+
+```text
+openai
+pandas
+transformers
+gradio
+```
+
+## Virtual Environment nədir?
+
+Hər layihənin öz Python və package mühitinin olması üçün ayrıca izolyasiya olunmuş environment yaradırıq.
+
+```text
+Project A → Environment A
+Project B → Environment B
+```
+
+Bu kursda həmin environment:
+
+```text
+.venv/
+```
+
+qovluğunda saxlanılır.
+
+## `uv` nə edir?
+
+`uv` Python project, package və environment idarəetmə alətidir.
+
+Əsas əmrlər:
 
 ```bash
 uv --version
@@ -103,19 +231,25 @@ uv self update
 uv sync
 ```
 
-`uv sync` layihənin dependency-lərini və virtual environment-ini uyğunlaşdırır və `.venv` mühitini hazırlayır.
+`uv sync` layihənin metadata/lock məlumatlarına uyğun olaraq `.venv` environment-ini hazırlayır və lazım olan dependency-ləri sinxronlaşdırır.
+
+Sadə yadda saxlama:
 
 ```text
-dependency → layihənin ehtiyac duyduğu əlavə package
+dependency → layihənin ehtiyac duyduğu package
 virtual environment → layihəyə aid izolyasiya olunmuş Python mühiti
-.venv → həmin environment-in qovluğu
+.venv → həmin mühitin qovluğu
 uv → environment və dependency-ləri idarə edən alət
-uv sync → layihənin environment-ini hazırlayan/sinxronlaşdıran əmr
+uv sync → mühiti layihənin tələbləri ilə uyğunlaşdırır
 ```
 
-# Step 3 — OpenAI API və API Key
+# OpenAI API və API Key
 
-ChatGPT hazır istifadəçi məhsuludur. OpenAI API isə bizim yazdığımız proqramın OpenAI modelləri ilə proqram vasitəsilə əlaqə qurması üçündür.
+## ChatGPT və API eyni şey deyil
+
+ChatGPT hazır istifadəçi məhsuludur.
+
+OpenAI API isə bizim proqramımızın model ilə proqramatik danışması üçündür.
 
 ```text
 Python proqramı
@@ -124,22 +258,73 @@ OpenAI API
       ↓
 Model
       ↓
-Cavab
+Response
 ```
 
-API-ni iki proqramın bir-biri ilə danışdığı yol kimi düşünmək olar.
+## API nədir?
 
-API key proqramın API xidmətinə qoşulmaq üçün istifadə etdiyi gizli açardır. Onu parol kimi qorumaq lazımdır və GitHub-a göndərmək olmaz.
+API iki proqramın bir-biri ilə strukturlaşdırılmış şəkildə danışdığı interfeysdir.
 
-# Step 4 — `.env` və Secret Management
+## API Key nədir?
 
-API key-i birbaşa Python kodunda saxlamaq təhlükəlidir. Buna görə secret məlumatı koddan ayrı `.env` faylında saxlayırıq.
+API key proqramın API xidmətinə özünü tanıtmaq üçün istifadə etdiyi gizli credential-dır.
+
+Onu parol kimi qorumaq lazımdır.
+
+API key:
+
+- source code-a hard-code edilməməlidir
+- GitHub-a commit edilməməlidir
+- ictimai paylaşılmamalıdır
+
+## ChatGPT billing və API billing ayrıdır
+
+Vacib praktiki dərs:
+
+```text
+ChatGPT subscription ≠ OpenAI API credit
+```
+
+Yəni ChatGPT ödənişli işləyə bilər, amma API hesabında ayrıca credit olmaya bilər.
+
+API request-in mərhələləri belə düşünülə bilər:
+
+```text
+DNS
+ ↓
+TCP connection
+ ↓
+TLS handshake
+ ↓
+HTTP request
+ ↓
+API key authentication
+ ↓
+quota / billing
+ ↓
+model execution
+```
+
+Buna görə məsələn TLS xətası çıxırsa problem billing mərhələsinə hələ çatmamış ola bilər.
+
+Əksinə server `credit_balance_exhausted` kimi cavab verirsə request artıq serverə çatıb və billing mərhələsində dayanıb.
+
+# `.env` və Secret Management
+
+API key-i birbaşa kodda saxlamaq təhlükəlidir.
+
+Buna görə `.env` istifadə edirik:
 
 ```env
 OPENAI_API_KEY=your_secret_key
 ```
 
-Burada `OPENAI_API_KEY` dəyişənin adı, sağ tərəfdəki hissə isə gizli dəyərdir.
+Burada:
+
+```text
+OPENAI_API_KEY → dəyişənin adı
+your_secret_key → gizli dəyər
+```
 
 Əsas prinsip:
 
@@ -147,307 +332,258 @@ Burada `OPENAI_API_KEY` dəyişənin adı, sağ tərəfdəki hissə isə gizli d
 code != secret
 ```
 
-# Step 5 — Cursor Extensions və Jupyter Setup
+# Jupyter Notebook
 
-Bu, environment setup-ın son mərhələsidir. Məqsəd Cursor-u Python və Jupyter Notebook-larla işləməyə hazırlamaqdır.
+## Notebook nədir?
 
-## Python Extension
-
-Cursor-a Python extension quraşdırılır. Bu əlavə Cursor-un Python kodunu daha yaxşı tanımasına, kodun rənglənməsinə və yoxlanmasına kömək edir.
-
-Kursda Cursor/Anysphere və Microsoft tərəfindən təqdim edilən Python extension variantlarının hər ikisinin uyğun olduğu qeyd edilir.
-
-## Jupyter Extension
-
-Sonra Jupyter extension quraşdırılır. Bu extension Cursor daxilində `.ipynb` notebook-larını açmağa və işlətməyə imkan verir.
-
-Extensions quraşdırıldıqdan sonra Explorer-ə qayıdıb ilk notebook açılır:
+Jupyter Notebook mətn, executable Python code və nəticəni bir sənəddə saxlaya bilən interaktiv mühitdir.
 
 ```text
-week1/day1.ipynb
+Notebook
+├── izah
+├── code cell
+├── output
+├── izah
+└── növbəti code cell
 ```
 
-## Jupyter Notebook nədir?
-
-Jupyter Notebook adi `.py` faylından fərqli olaraq mətn, kod və kodun nəticəsini eyni sənəddə saxlaya bilən interaktiv sənəddir.
-
-```text
-Jupyter Notebook
-├── izah / mətn
-├── Python kodu
-├── nəticə
-├── növbəti izah
-└── növbəti kod
-```
-
-Notebook fayllarının uzantısı `.ipynb`-dir. Kursda bunlara həm notebook, həm də lab deyilə bilər.
+Notebook faylları `.ipynb` uzantılıdır.
 
 ## Cell nədir?
 
-Notebook daxilindəki ayrı-ayrı hissələrə `cell` deyilir. Hər code cell ayrıca işlədilə bilər. Buna görə bütün proqramı hər dəfə başdan sona işlətmək məcburiyyətində deyilik.
+Notebook daxilindəki ayrı bloklara `cell` deyilir.
+
+Code cell ayrıca işlədilə bilər.
+
+```text
+Shift + Enter
+```
+
+cari cell-i işə salır.
 
 ## Kernel nədir?
 
-Notebook özü kodu işlətmir. Notebook-dakı Python kodunu arxa planda işlədən Python prosesinə `kernel` deyilir.
+Kernel notebook-dakı Python kodunu arxa planda işlədən Python prosesidir.
 
 ```text
 Jupyter Notebook
       ↓
 Kernel
       ↓
-Python kodunu işləyir
+Python kodu
       ↓
-Nəticə
+Output
 ```
 
-## Niyə `.venv` Kernel seçirik?
+## Niyə `.venv` kernel seçirik?
 
-Əvvəl `uv sync` vasitəsilə layihəmiz üçün `.venv` yaratmışdıq. Həmin environment-də layihənin Python-u və lazım olan dependency-lər var.
+Layihənin dependency-ləri `.venv` daxilindədir.
 
-```text
-Select Kernel
-      ↓
-Python Environments
-      ↓
-.venv / recommended Python
-```
-
-Beləliklə:
+Ona görə notebook-un da həmin environment-in Python-u ilə işləməsi lazımdır.
 
 ```text
 uv sync
    ↓
-.venv yaranır
-   ↓
-Python + dependency-lər hazır olur
-   ↓
-Jupyter Notebook açılır
-   ↓
-.venv kernel seçilir
-   ↓
-Notebook həmin layihə mühitində işləyir
-```
-
-Əgər `.venv` kernel siyahısında görünməzsə, kursdakı `setup` qovluğunda olan troubleshooting notebook-dan istifadə etmək lazımdır.
-
-# Notebook-larla necə işləyəcəyik?
-
-Müəllimin yanaşması kodu sadəcə ekrandan kopyalamaq deyil. Məqsəd kodun necə və niyə işlədiyini başa düşməkdir.
-
-```text
-İzahı oxu
- ↓
-Kodu başa düş
- ↓
-Cell-i işə sal
- ↓
-Nəticəyə bax
- ↓
-print əlavə et
- ↓
-Kodu dəyiş
- ↓
-Eksperiment apar
-```
-
-Notebook-lar kurs boyunca yenilənə bilən canlı sənədlərdir. Buna görə videodakı məzmunla repository-dəki notebook arasında kiçik fərqlər ola bilər.
-
-# İlk real LLM layihəsi — Web Page Summarizer
-
-Environment setup bitdikdən sonra ilk LLM layihəsinə başlayırıq.
-
-Layihənin məqsədi istifadəçidən web səhifənin URL-ni götürmək, həmin səhifənin məlumatını əldə etmək, GPT modelinə göndərmək və səhifənin xülasəsini yaratmaqdır.
-
-```text
-URL
- ↓
-Web səhifə əldə/scrape edilir
- ↓
-Lazım olan məzmun çıxarılır
- ↓
-Python proqramı
- ↓
-OpenAI API
- ↓
-GPT modeli
- ↓
-Xülasə yaradılır
- ↓
-Formatlanmış nəticə göstərilir
-```
-
-Bu layihə əvvəl öyrəndiyimiz anlayışların bir yerdə işləməyə başladığı ilk praktik nümunədir:
-
-```text
-GitHub repository
-       ↓
-Cursor
-       ↓
-uv
-       ↓
 .venv
-       ↓
-Jupyter Notebook
-       ↓
-Kernel (.venv)
-       ↓
-Python kodu
-       ↓
-OPENAI_API_KEY (.env)
-       ↓
-OpenAI API
-       ↓
-GPT
-       ↓
-Web səhifənin xülasəsi
+   ↓
+project Python + packages
+   ↓
+Jupyter kernel
 ```
 
-# İlk LLM lab — praktik kod axını
+# Jupyter-də import edilmiş modul niyə köhnə qala bilər?
 
-## Cell-i necə işlədirik?
-
-Jupyter Notebook-da code cell-i işə salmaq üçün:
-
-```text
-Shift + Enter
-```
-
-basırıq.
-
-Əgər import zamanı xəta çıxırsa və ya cell işləmirsə, ilk yoxlanmalı şey kernel-in lokal `.venv` environment-ə bağlı olmasıdır.
-
-## `.env` faylından API key-in oxunması
-
-Notebook əvvəl yaratdığımız `.env` faylını yükləyir və oradan `OPENAI_API_KEY` dəyərini götürür.
-
-```text
-.env
- ↓
-OPENAI_API_KEY
- ↓
-Python notebook
- ↓
-OpenAI API
-```
-
-Əgər key tapılmırsa, `.env` faylının adı və yeri, `OPENAI_API_KEY` adının düzgün yazılması, faylın save olunması və düzgün environment/kernel yoxlanmalıdır.
-
-## OpenAI mesaj formatı — `list` içində `dict`
-
-OpenAI-yə göndərilən mesaj müəyyən strukturda hazırlanır.
+Jupyter kernel state saxlayır.
 
 Məsələn:
 
 ```python
-message = "Hello GPT, this is my first ever message to you. Hi."
-
-messages = [
-    {
-        "role": "user",
-        "content": message
-    }
-]
+from scraper import fetch_website_contents
 ```
 
-Burada əvvəl keçdiyimiz Python bilikləri real AI kodunda istifadə olunur:
+bir dəfə işlətdikdən sonra `scraper.py` faylını dəyişsək belə kernel köhnə import edilmiş versiyanı yaddaşda saxlaya bilər.
+
+Bu halda:
+
+```python
+import importlib
+import scraper
+
+importlib.reload(scraper)
+```
+
+ilə modulu yenidən yükləmək olar.
+
+Sadə məntiq:
 
 ```text
-messages → list
+scraper.py dəyişdi
+      ↓
+Jupyter bunu avtomatik bilməyə bilər
+      ↓
+importlib.reload()
+      ↓
+yeni kod kernel-ə yüklənir
+```
+
+Bu, AI-dən çox Python/Jupyter debugging dərsidir, amma real layihədə çox vacibdir.
+
+# İlk real LLM layihəsi — Web Page Summarizer
+
+Layihənin məqsədi:
+
+```text
+URL götür
+ ↓
+Website məlumatını al
+ ↓
+Lazımsız hissələri təmizlə
+ ↓
+Mətni prompt-a əlavə et
+ ↓
+LLM-ə göndər
+ ↓
+Summary al
+```
+
+Tam pipeline:
+
+```text
+Website URL
     ↓
-içində → dictionary
+HTML əldə edilir
     ↓
-role və content → key-lər
-user və message → value-lar
+BeautifulSoup
+    ↓
+Təmiz website text
+    ↓
+User Prompt
+    ↓
+System + User messages
+    ↓
+LLM
+    ↓
+Summary
 ```
 
-Yəni `messages` list-dir, onun içində isə dictionary var.
+Buradakı ən vacib dərs:
 
-## İlk API call
+> LLM özü gedib website-i oxumadı.
 
-Sonra Python-dan OpenAI modelinə ilk real sorğunu göndəririk.
+Biz əvvəl website-dən məlumatı götürdük, sonra həmin mətni modelə verdik.
 
-İndilik sintaksisi əzbərləmək vacib deyil. Əsas məntiq budur:
+# Web Scraping AI deyil
 
-```text
-Mesaj hazırla
-      ↓
-OpenAI-nin istədiyi formata sal
-      ↓
-API request göndər
-      ↓
-Cloud-da model işləsin
-      ↓
-Response geri gəlsin
-      ↓
-Python response-dan cavabı götürsün
-```
-
-Bu, ChatGPT interfeysindən deyil, birbaşa Python kodundan etdiyimiz ilk LLM API call-dır.
-
-## Web scraping nədir?
-
-Kursda `scraper.py` daxilində hazır `fetch_website_contents()` funksiyası istifadə olunur. Bu funksiya web səhifənin məzmununu götürür və bunun üçün BeautifulSoup package-indən istifadə edir.
-
-Vacib fərq:
-
-```text
-Web scraping
-→ web səhifənin məlumatını götürür
-→ özü AI deyil
-```
-
-AI hissəsi həmin götürülmüş məzmunu LLM-ə verəndə başlayır:
+Scraping hissəsinin işi yalnız məlumatı əldə etməkdir:
 
 ```text
 Website
    ↓
 Scraper
    ↓
-Website text
-   ↓
+Text
+```
+
+AI hissəsi bundan sonra başlayır:
+
+```text
+Text
+ ↓
 LLM
-   ↓
+ ↓
 Summary
 ```
 
-## System Prompt və User Prompt
-
-Bu dərsdə iki vacib prompt növü keçildi.
-
-### System Prompt
-
-System prompt modelə ümumi olaraq necə davranmalı olduğunu, hansı rolda olmasını, tapşırığını, kontekstini, tonunu və cavab formatını bildirir.
-
-Sadə yadda saxlama:
+Yəni:
 
 ```text
-SYSTEM PROMPT
-→ Sən kimsən?
-→ Ümumi tapşırığın nədir?
-→ Necə davranmalısan?
-→ Cavabı hansı formada verməlisən?
+Scraper → məlumatı gətirir
+LLM → məlumatı anlayır və nəticə yaradır
 ```
 
-Web Page Summarizer nümunəsində system prompt modelə website məzmununu analiz etməyi, qısa xülasə hazırlamağı, navigation mətnlərini nəzərə almamağı və Markdown formatında cavab verməyi deyə bilər.
+# BeautifulSoup nə edir?
 
-### User Prompt
-
-User prompt isə istifadəçinin konkret olaraq həmin anda istədiyi işdir.
-
-```text
-USER PROMPT
-→ İndi konkret nə etməyini istəyirəm?
-```
+Website-dən gələn HTML-in içində çoxlu lazımsız element olur.
 
 Məsələn:
 
+- script
+- style
+- image tag-ləri
+- input elementləri
+- navigation mətnləri
+
+BeautifulSoup HTML-i parse edir və bizə lazım olan visible text-i çıxarmağa kömək edir.
+
+# Restricted TLS mühitində öyrəndiyimiz ümumi troubleshooting dərsi
+
+Bəzi şəbəkələrdə security proxy, TLS inspection və ya endpoint security layer HTTPS bağlantısına müdaxilə edə bilər.
+
+Belə vəziyyətdə:
+
 ```text
-Bu web səhifənin məzmununu xülasə et.
+Python application
+      ↓
+HTTP library
+      ↓
+TLS/OpenSSL
+      ↓
+Network security layer
+      ↓
+Website/API
 ```
 
-## System + User mesaj strukturu
+zəncirinin hansı hissəsində xəta olduğunu ayırmaq lazımdır.
 
-İki prompt olduqda `messages` list-i iki dictionary saxlaya bilər:
+Əgər bir OS-native client işləyir, amma Python HTTPS client sertifikat xətası verir, bu iki client-in eyni TLS implementation istifadə etməməsi ilə bağlı ola bilər.
+
+Vacib prinsip:
+
+> İlk həll kimi `verify=False` edib certificate verification-u söndürmək düzgün yanaşma deyil.
+
+Əvvəl root cause tapılmalıdır.
+
+Kurs lab-ında public website HTML-i almaq üçün OS-native `curl.exe` çağırılıb, parsing isə Python-da saxlanılıb.
+
+Helper:
+
+```python
+import subprocess
+
+
+def fetch_html(url):
+    result = subprocess.run(
+        ["curl.exe", "-L", "-sS", url],
+        capture_output=True,
+        check=True,
+    )
+    return result.stdout
+```
+
+Sonra:
+
+```python
+html = fetch_html(url)
+soup = BeautifulSoup(html, "html.parser")
+```
+
+Beləliklə architecture dəyişmir:
+
+```text
+Website
+ ↓
+HTML retrieval
+ ↓
+BeautifulSoup
+ ↓
+Text
+```
+
+sadəcə transport hissəsi lokal mühitə uyğunlaşdırılır.
+
+# OpenAI message strukturu
+
+Modelə chat formatında mesajları list daxilində dictionary-lər kimi göndəririk.
 
 ```python
 messages = [
@@ -462,60 +598,332 @@ messages = [
 ]
 ```
 
-Struktur:
+Burada Python fundamentals real AI kodunda işləyir:
 
 ```text
-messages = list
-│
-├── dictionary 1
-│   ├── role → system
-│   └── content → system prompt
-│
-└── dictionary 2
-    ├── role → user
-    └── content → user prompt
+messages → list
+
+hər mesaj → dict
+
+role / content → key
+
+system_prompt / user_prompt → value
 ```
 
-Bu, Python-da öyrəndiyimiz `list`, `dict`, key və value anlayışlarının real LLM Engineering istifadəsidir.
+# System Prompt və User Prompt
 
-## System prompt niyə vacibdir?
+## System Prompt
 
-Eyni user prompt saxlanıb system prompt dəyişdirilərsə modelin cavab tonu və davranışı dəyişə bilər.
+System prompt modelə ümumi davranış verir.
 
 ```text
-Eyni User Prompt
-       +
-Fərqli System Prompt
-       ↓
-Fərqli ton / xarakter / davranış
+Sən kimsən?
+Ümumi tapşırığın nədir?
+Nəyə fokuslanmalısan?
+Cavab hansı formada olmalıdır?
 ```
 
-Məsələn modelə əvvəl `helpful assistant`, sonra `snarky assistant` rolu verildikdə eyni suala verdiyi cavabın üslubu dəyişir.
-
-Əsas prinsip:
+Məsələn:
 
 ```text
-System Prompt
-→ modelin ümumi missiyasını və davranışını qurur
-
-User Prompt
-→ həmin çərçivədə konkret tapşırığı verir
+Website məzmununu analiz et.
+Qısa summary hazırla.
+Lazımsız navigation hissələrini nəzərə alma.
 ```
 
-# Troubleshooting yanaşması
+## User Prompt
 
-Problem olduqda əvvəl README/rəsmi documentation və kursun troubleshooting notebook-u yoxlanılır. LLM-dən kömək almaq olar, amma verdiyi təkliflər yoxlanmadan tətbiq edilməməlidir.
+User prompt həmin anda görülməli konkret işi bildirir.
+
+```text
+Bu website-i xülasə et.
+```
+
+Sadə yadda saxlama:
+
+```text
+SYSTEM PROMPT
+→ necə davran
+
+USER PROMPT
+→ indi nə et
+```
+
+Eyni user prompt saxlanılıb system prompt dəyişdirilsə, modelin tonu və davranışı dəyişə bilər.
+
+# f-string ilə website məlumatını prompt-a salmaq
+
+Python f-string dəyişənin dəyərini string-in içinə yerləşdirməyə imkan verir.
+
+Sadə nümunə:
+
+```python
+name = "Movsum"
+text = f"Hello {name}"
+```
+
+Nəticə:
+
+```text
+Hello Movsum
+```
+
+Web Summarizer-də:
+
+```python
+user_prompt = f"""
+Please summarize this website:
+
+{ed}
+"""
+```
+
+buradakı `{ed}` yerinə `ed` dəyişənində saxlanmış website text yerləşir.
+
+Yəni modelə əslində belə məlumat gedir:
+
+```text
+Please summarize this website:
+
+[website-dən çıxardığımız real mətn]
+```
+
+# Cloud client və Local client
+
+Normal OpenAI cloud client belə yaradıla bilər:
+
+```python
+from openai import OpenAI
+
+openai = OpenAI()
+```
+
+Bu halda client OpenAI cloud endpoint-ə getməyə çalışır.
+
+Lokal Ollama ilə isə:
+
+```python
+local_ai = OpenAI(
+    base_url="http://localhost:11434/v1/",
+    api_key="ollama"
+)
+```
+
+Burada ən vacib hissə:
+
+```python
+base_url="http://localhost:11434/v1/"
+```
+
+Bu client-ə deyir:
+
+> OpenAI cloud serverinə yox, mənim kompüterimdə işləyən Ollama serverinə get.
+
+Axın:
+
+```text
+Cloud:
+Python
+ ↓
+api.openai.com
+ ↓
+Cloud model
+
+Local:
+Python
+ ↓
+localhost:11434
+ ↓
+Ollama
+ ↓
+Local model
+```
+
+`api_key="ollama"` real OpenAI secret deyil. OpenAI-compatible client interface-in gözlədiyi sahəni doldurmaq üçün placeholder kimi istifadə olunur.
+
+# OpenAI-compatible API nə deməkdir?
+
+Burada vacib AI Engineering anlayışı öyrəndik.
+
+Ollama başqa sistemdir, amma OpenAI-yə bənzər API interface təqdim edə bilər.
+
+Buna görə eyni Python client və oxşar kod strukturu istifadə oluna bilir:
+
+```python
+response = local_ai.chat.completions.create(
+    model="gpt-oss:latest",
+    messages=messages
+)
+```
+
+Bu bizə göstərir ki, application logic ilə konkret model/provider bir-birindən müəyyən qədər ayrıdır.
+
+```text
+Application logic
+      ↓
+Model interface
+      ↓
+Cloud model VƏ YA local model
+```
+
+# Response necə alınır?
+
+Modelin yaratdığı real mətn:
+
+```python
+response.choices[0].message.content
+```
+
+ilə götürülür.
+
+Mental model:
+
+```text
+response
+   ↓
+choices
+   ↓
+[0]
+   ↓
+message
+   ↓
+content
+```
+
+`content` bizim oxumaq istədiyimiz model cavabıdır.
+
+# İlk uğurlu Local LLM call
+
+Notebook-dan lokal model uğurla çağırıldı.
+
+Məntiq:
+
+```text
+messages
+   ↓
+OpenAI-compatible Python client
+   ↓
+localhost:11434
+   ↓
+Ollama
+   ↓
+gpt-oss
+   ↓
+response
+```
+
+Bu praktika ilə aşağıdakılar real olaraq işlədi:
+
+- Python-dan LLM çağırmaq
+- `messages` strukturu
+- system prompt
+- user prompt
+- local model inference
+- response oxumaq
+
+# Web Page Summarizer — yekun işləyən sistem
+
+Son nəticədə layihə tam işlək vəziyyətə gəldi:
+
+```text
+edwarddonner.com
+      ↓
+HTML retrieval
+      ↓
+BeautifulSoup
+      ↓
+Təmiz website text
+      ↓
+f-string user prompt
+      ↓
+system + user messages
+      ↓
+local_ai
+      ↓
+Ollama
+      ↓
+gpt-oss
+      ↓
+Website Summary
+```
+
+Bu, ilk real kiçik AI application-dır.
+
+Əsas formula:
+
+```text
+Data acquisition
+      +
+Prompt construction
+      +
+LLM inference
+      =
+AI Application
+```
+
+# Ən vacib memarlıq dərsi
+
+Bu layihədə hissələr bir-birindən ayrıdır:
+
+```text
+Data Source
+   ↓
+Data Retrieval
+   ↓
+Data Preparation
+   ↓
+Prompt
+   ↓
+Model Interface
+   ↓
+Model
+   ↓
+Output Handling
+```
+
+Məsələn cloud model yerinə local model keçirdik, amma:
+
+- `messages`
+- system prompt
+- user prompt
+- website text
+- response processing
+
+kimi application məntiqinin çox hissəsi dəyişmədi.
+
+Bu gələcək AI Engineering mövzularında çox vacib olacaq.
+
+# Troubleshooting-dən öyrəndiyimiz qaydalar
+
+1. Xətanın adını və traceback-i tam oxu.
+2. Problemin hansı layer-də olduğunu ayır.
+3. Connection error ilə billing error-u qarışdırma.
+4. TLS xətasında certificate verification-u dərhal söndürmə.
+5. Bir client işləyib digəri işləmirsə onların fərqli transport/TLS stack istifadə edə biləcəyini nəzərə al.
+6. Jupyter kernel-in state saxladığını unutma.
+7. `.py` faylı dəyişəndən sonra lazım gələrsə modulu reload et.
+8. Bir anda çox dəyişiklik etmə, hər fix-i ayrıca test et.
+9. Root cause tapmadan nəticə elan etmə.
 
 # Hazırkı kurs vəziyyəti
 
 ```text
 Environment setup                                  ✅
-Jupyter Notebook + .venv kernel                   ✅
-.env yüklənməsi və API key-in tapılması           ✅
-Python-dan ilk cloud LLM API call                 ✅
-Web scraping helper ilə tanışlıq                  ✅
-System Prompt və User Prompt                      ✅
-Web Page Summarizer layihəsinin kodlaşdırılması   davam edir
+uv + .venv                                         ✅
+Jupyter Notebook + Kernel                          ✅
+.env və API key anlayışı                           ✅
+ChatGPT vs API fərqi                               ✅
+API billing vs ChatGPT billing                     ✅
+OpenAI message structure                           ✅
+System Prompt və User Prompt                       ✅
+f-string prompt construction                       ✅
+Web scraping                                       ✅
+BeautifulSoup                                      ✅
+Local LLM with Ollama                              ✅
+OpenAI-compatible local client                     ✅
+Response handling                                  ✅
+Jupyter module reload anlayışı                     ✅
+Web Page Summarizer                                ✅
 ```
 
-Hazırda artıq environment setup mərhələsini keçmişik və ilk praktik LLM layihəsinin içindəyik. Növbəti hissələrdə Web Page Summarizer-in prompt və summarization məntiqini davam etdirəcəyik.
+Artıq environment setup və ilk real LLM application mərhələsi tamamlanıb. Növbəti dərsdə kursun davam edən AI mövzularına keçmək olar.
