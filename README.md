@@ -144,6 +144,9 @@ ai-engineering-journey/
 - [x] Layer-by-Layer API/TLS Troubleshooting
 - [x] Documentation-First Troubleshooting
 - [x] First LLM Project — Web Page Summarizer
+- [x] Custom LLM Business Task from Scratch
+- [x] Email Subject Generator with System/User Prompts
+- [x] Reusing the Same LLM Architecture Across Business Tasks
 
 ## Notes
 
@@ -185,7 +188,8 @@ Build production-level AI Engineering skills while continuously strengthening th
 - AI Engineering environment setup completed
 - First LLM Project — Web Page Summarizer completed
 - Local LLM execution with Ollama completed
-- Current AI concepts: web scraping, prompt construction, OpenAI-compatible model interfaces, local inference, response handling, and layered troubleshooting
+- Day 1 custom business LLM exercise completed with an email subject generator
+- Current AI concepts: web scraping, prompt construction, reusable message architecture, local inference, response handling, and adapting one LLM pattern to multiple business tasks
 
 ## Upcoming Topics
 
@@ -203,8 +207,8 @@ Build production-level AI Engineering skills while continuously strengthening th
 - Advanced OOP
 
 ### AI Engineering
-- Continue Week 1 after the Web Page Summarizer
-- Prompt Construction in Practice
+- Day 2 — LLM Engineering Roadmap and Frontier Models
+- Deeper Ollama / Local Model Usage
 - Frontier Models
 - Transformers Intuition
 - RAG
