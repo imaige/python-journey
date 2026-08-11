@@ -548,6 +548,96 @@ Output handling
 
 A cloud provider or a local model can be swapped while much of the surrounding application logic remains the same.
 
+# Day 1 Exercise — Custom LLM Business Task
+
+The final Day 1 exercise is to build a new LLM task from scratch instead of only reusing the website summarizer example. The goal is to prove that the same LLM architecture can be adapted to a different business problem.
+
+A custom **email subject generator** was implemented with a local Ollama model.
+
+```python
+from openai import OpenAI
+
+local_ai = OpenAI(
+    base_url="http://localhost:11434/v1/",
+    api_key="ollama"
+)
+
+system_prompt = """
+E-poçtun Subject hissəsini göndərilən mətnin məzmununa uyğun olaraq avtomatik yarat.
+Subject qısa, aydın və peşəkar olmalı, e-poçtun əsas mövzusunu dəqiq ifadə etməlidir.
+E-poçtun əsas mətnini dəyişdirmə, qısaltma və ya ona əlavə məlumat daxil etmə.
+"""
+
+email = """
+Hi team,
+The project meeting has been moved from Monday to Wednesday at 3 PM.
+Please update your calendars.
+Thanks.
+"""
+
+user_prompt = f"""
+Mətn:
+{email}
+Bu məzmuna uyğun qısa və peşəkar Subject yarat.
+"""
+
+messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": user_prompt}
+]
+
+response = local_ai.chat.completions.create(
+    model="gpt-oss:latest",
+    messages=messages
+)
+
+print(response.choices[0].message.content)
+```
+
+## What This Exercise Demonstrates
+
+The important skill is not the email task itself. The same reusable pattern was applied to a new business use case:
+
+```text
+Input data
+   ↓
+User prompt
+   ↓
+System + user messages
+   ↓
+LLM call
+   ↓
+Generated business output
+```
+
+For the email subject generator:
+
+```text
+Email
+  ↓
+Instruction
+  ↓
+LLM
+  ↓
+Professional subject
+```
+
+The system prompt also introduced explicit output constraints: the subject should be short, clear, professional, and faithful to the email's main topic.
+
+This demonstrates a broader GenAI application pattern:
+
+```text
+DATA
+  +
+INSTRUCTION
+  +
+LLM
+  =
+AI APPLICATION
+```
+
+Changing the data and instruction can turn the same architecture into a summarizer, translator, classifier, subject generator, formatter, or another business tool without rewriting the whole model interface.
+
 # Troubleshooting Principles Learned
 
 1. Read the exact exception instead of guessing.
@@ -574,6 +664,8 @@ Local LLM workflow with Ollama                         ✅
 OpenAI-compatible local client                         ✅
 Jupyter module reload / kernel-state lesson            ✅
 Web Page Summarizer                                    ✅
+Custom email subject generator                         ✅
+Day 1 custom LLM business exercise                     ✅
 ```
 
-The next course material can now continue beyond the first working LLM application.
+Day 1 now includes both the first working LLM application and a second business task built from the same architecture.
