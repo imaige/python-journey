@@ -893,6 +893,167 @@ kimi application məntiqinin çox hissəsi dəyişmədi.
 
 Bu gələcək AI Engineering mövzularında çox vacib olacaq.
 
+# Day 1 Exercise — Öz business task-ımızı sıfırdan qurmaq
+
+Day 1-in son praktik tapşırığında məqsəd hazır Web Page Summarizer kodunu sadəcə təkrarlamaq yox, eyni LLM məntiqini başqa biznes probleminə tətbiq etmək idi.
+
+Biz **email subject generator** qurduq.
+
+Məqsəd:
+
+```text
+Email mətni
+   ↓
+LLM
+   ↓
+Qısa və peşəkar Subject
+```
+
+İstifadə olunan kod:
+
+```python
+from openai import OpenAI
+
+local_ai = OpenAI(
+    base_url="http://localhost:11434/v1/",
+    api_key="ollama"
+)
+
+system_prompt = """
+E-poçtun Subject hissəsini göndərilən mətnin məzmununa uyğun olaraq avtomatik yarat.
+Subject qısa, aydın və peşəkar olmalı, e-poçtun əsas mövzusunu dəqiq ifadə etməlidir.
+E-poçtun əsas mətnini dəyişdirmə, qısaltma və ya ona əlavə məlumat daxil etmə.
+"""
+
+email = """
+Hi team,
+The project meeting has been moved from Monday to Wednesday at 3 PM.
+Please update your calendars.
+Thanks.
+"""
+
+user_prompt = f"""
+Mətn:
+{email}
+Bu məzmuna uyğun qısa və peşəkar Subject yarat.
+"""
+
+messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": user_prompt}
+]
+
+response = local_ai.chat.completions.create(
+    model="gpt-oss:latest",
+    messages=messages
+)
+
+print(response.choices[0].message.content)
+```
+
+## Bu exercise-də nəyi sübut etdik?
+
+Əvvəl qurduğumuz sistem belə idi:
+
+```text
+Website
+  ↓
+Instruction
+  ↓
+LLM
+  ↓
+Summary
+```
+
+İndi eyni architecture-ni belə dəyişdik:
+
+```text
+Email
+  ↓
+Instruction
+  ↓
+LLM
+  ↓
+Subject
+```
+
+Yəni əsas skill konkret `summarizer` yazmaq deyil. Əsas skill eyni LLM application pattern-i başqa problemə tətbiq edə bilməkdir.
+
+## System Prompt burada nə edir?
+
+System prompt modelə daimi qaydaları verir:
+
+```text
+Subject yarat
+↓
+qısa olsun
+↓
+aydın olsun
+↓
+peşəkar olsun
+↓
+email-in əsas mövzusuna sadiq qalsın
+```
+
+Bu qaydalar `output constraints` kimi düşünülə bilər. Yəni modelə sadəcə nə etməli olduğunu yox, nəticənin necə olmalı olduğunu da deyirik.
+
+## User Prompt burada nə edir?
+
+User prompt konkret email-i və həmin email üçün görülməli işi verir:
+
+```text
+Bu email budur
+↓
+Buna uyğun Subject yarat
+```
+
+`f-string` içindəki `{email}` dəyişənin real məzmununu user prompt-a daxil edir.
+
+## `messages` niyə yenə eyni qaldı?
+
+Çünki business task dəyişsə də modelə mesaj göndərmə interface-i dəyişmədi:
+
+```python
+messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": user_prompt}
+]
+```
+
+Bu çox vacib memarlıq dərsidir:
+
+```text
+Application logic dəyişə bilər
+amma
+Model interface çox vaxt eyni qala bilər
+```
+
+## Ümumi GenAI formulu
+
+Bu exercise-dən sonra daha ümumi formula belədir:
+
+```text
+DATA
+  +
+INSTRUCTION
+  +
+LLM
+  =
+AI APPLICATION
+```
+
+Məsələn eyni pattern ilə:
+
+```text
+Email + instruction → Subject
+Email + instruction → Summary
+Məqalə + instruction → Translation
+Review + instruction → Sentiment
+Document + instruction → Key Points
+```
+
+kimi fərqli tətbiqlər qurmaq olar.
+
 # Troubleshooting-dən öyrəndiyimiz qaydalar
 
 1. Xətanın adını və traceback-i tam oxu.
@@ -924,6 +1085,8 @@ OpenAI-compatible local client                     ✅
 Response handling                                  ✅
 Jupyter module reload anlayışı                     ✅
 Web Page Summarizer                                ✅
+Email Subject Generator                            ✅
+Day 1 custom business LLM exercise                 ✅
 ```
 
-Artıq environment setup və ilk real LLM application mərhələsi tamamlanıb. Növbəti dərsdə kursun davam edən AI mövzularına keçmək olar.
+Artıq Day 1-in həm ilk real LLM application hissəsi, həm də həmin architecture-ni başqa business task-a uyğunlaşdırmaq exercise-i tamamlanıb.
